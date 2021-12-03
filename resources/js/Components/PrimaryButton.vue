@@ -1,0 +1,45 @@
+<template>
+    <Link
+        :href="href"
+        class="
+            inline-flex
+            bg-gradient-to-r
+            from-primary-600
+            to-primary-500
+            bg-origin-border
+            px-4
+            py-2
+            border border-transparent
+            text-base
+            font-medium
+            rounded-md
+            shadow-sm
+            text-white
+            hover:from-primary-500 hover:to-from-primary-400
+            focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-300 focus:ring-offset-gray-900
+        "
+    >
+        <slot></slot>
+    </Link>
+</template>
+
+<script>
+
+import { Link } from '@inertiajs/inertia-vue3'
+import {defineComponent} from "vue";
+
+export default defineComponent({
+    props: {
+        href: String
+    },
+    components: {
+        Link,
+    },
+    setup() {
+        return {
+            //
+        };
+    },
+});
+
+</script>
