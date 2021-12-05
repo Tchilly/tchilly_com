@@ -180,6 +180,7 @@
                         v-for="item in footerNavigation.social"
                         :key="item.name"
                         :href="item.href"
+                        rel="noreferrer"
                         class="text-gray-400 hover:text-gray-500"
                     >
                         <span class="sr-only">{{ item.name }}</span>

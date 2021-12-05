@@ -70,6 +70,12 @@ module.exports = {
                     },
                 },
             },
+            dropShadow: {
+                'text-bg': '0 0 10px rgba(0, 0, 0, 1)',
+            },
+            backgroundImage: {
+                'spec-bg': "url('/images/spec-bg.jpg')",
+            }
         },
     },
 

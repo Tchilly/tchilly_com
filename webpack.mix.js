@@ -1,5 +1,6 @@
-const mix = require('laravel-mix');
+let mix = require('laravel-mix');
 const {sourceMaps} = require("laravel-mix");
+require('laravel-mix-workbox');
 
 /*
  |--------------------------------------------------------------------------
@@ -18,9 +19,14 @@ mix.js('resources/js/app.js', 'public/js').vue()
         require('tailwindcss'),
     ])
     .copyDirectory('resources/images', 'public/images')
+    //.copy('resources/js/service-worker.js', 'public')
     .webpackConfig(require('./webpack.config'))
     .sourceMaps(false)
 
 if (mix.inProduction()) {
     mix.version();
+    mix.injectManifest({
+        maximumFileSizeToCacheInBytes: 2194304,
+        swSrc: './resources/js/service-worker.js'
+    });
 }

@@ -16763,6 +16763,10 @@ select {
   background-image: linear-gradient(to top left, var(--tw-gradient-stops));
 }
 
+.bg-spec-bg {
+  background-image: url('/images/spec-bg.jpg');
+}
+
 .from-transparent {
   --tw-gradient-from: transparent;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -24583,6 +24587,10 @@ select {
 
 .drop-shadow-none {
   --tw-drop-shadow: drop-shadow(0 0 #0000);
+}
+
+.drop-shadow-text-bg {
+  --tw-drop-shadow: drop-shadow(0 0 10px rgba(0, 0, 0, 1));
 }
 
 .grayscale-0 {
@@ -41042,6 +41050,10 @@ select {
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
   }
 
+  .sm\:bg-spec-bg {
+    background-image: url('/images/spec-bg.jpg');
+  }
+
   .sm\:from-transparent {
     --tw-gradient-from: transparent;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -48849,6 +48861,10 @@ select {
 
   .sm\:drop-shadow-none {
     --tw-drop-shadow: drop-shadow(0 0 #0000);
+  }
+
+  .sm\:drop-shadow-text-bg {
+    --tw-drop-shadow: drop-shadow(0 0 10px rgba(0, 0, 0, 1));
   }
 
   .sm\:grayscale-0 {
@@ -65309,6 +65325,10 @@ select {
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
   }
 
+  .md\:bg-spec-bg {
+    background-image: url('/images/spec-bg.jpg');
+  }
+
   .md\:from-transparent {
     --tw-gradient-from: transparent;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -73116,6 +73136,10 @@ select {
 
   .md\:drop-shadow-none {
     --tw-drop-shadow: drop-shadow(0 0 #0000);
+  }
+
+  .md\:drop-shadow-text-bg {
+    --tw-drop-shadow: drop-shadow(0 0 10px rgba(0, 0, 0, 1));
   }
 
   .md\:grayscale-0 {
@@ -89576,6 +89600,10 @@ select {
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
   }
 
+  .lg\:bg-spec-bg {
+    background-image: url('/images/spec-bg.jpg');
+  }
+
   .lg\:from-transparent {
     --tw-gradient-from: transparent;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -97383,6 +97411,10 @@ select {
 
   .lg\:drop-shadow-none {
     --tw-drop-shadow: drop-shadow(0 0 #0000);
+  }
+
+  .lg\:drop-shadow-text-bg {
+    --tw-drop-shadow: drop-shadow(0 0 10px rgba(0, 0, 0, 1));
   }
 
   .lg\:grayscale-0 {
@@ -113843,6 +113875,10 @@ select {
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
   }
 
+  .xl\:bg-spec-bg {
+    background-image: url('/images/spec-bg.jpg');
+  }
+
   .xl\:from-transparent {
     --tw-gradient-from: transparent;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -121650,6 +121686,10 @@ select {
 
   .xl\:drop-shadow-none {
     --tw-drop-shadow: drop-shadow(0 0 #0000);
+  }
+
+  .xl\:drop-shadow-text-bg {
+    --tw-drop-shadow: drop-shadow(0 0 10px rgba(0, 0, 0, 1));
   }
 
   .xl\:grayscale-0 {
@@ -138110,6 +138150,10 @@ select {
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
   }
 
+  .\32xl\:bg-spec-bg {
+    background-image: url('/images/spec-bg.jpg');
+  }
+
   .\32xl\:from-transparent {
     --tw-gradient-from: transparent;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -145917,6 +145961,10 @@ select {
 
   .\32xl\:drop-shadow-none {
     --tw-drop-shadow: drop-shadow(0 0 #0000);
+  }
+
+  .\32xl\:drop-shadow-text-bg {
+    --tw-drop-shadow: drop-shadow(0 0 10px rgba(0, 0, 0, 1));
   }
 
   .\32xl\:grayscale-0 {

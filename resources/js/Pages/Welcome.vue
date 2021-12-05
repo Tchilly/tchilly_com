@@ -154,9 +154,6 @@
 
             </Features>
 
-
-            <StaticFeatures />
-
             <Metrics />
 
             <Cta />

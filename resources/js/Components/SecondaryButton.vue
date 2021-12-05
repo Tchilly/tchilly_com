@@ -13,7 +13,7 @@
             text-base
             font-medium
             rounded-md
-            shadow-sm
+            shadow-lg
             text-white
             hover:from-secondary-600 hover:to-from-secondary-600
             focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-300 focus:ring-offset-gray-900

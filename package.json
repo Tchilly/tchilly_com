@@ -20,12 +20,19 @@
         "@vue/compiler-sfc": "^3.0.5",
         "axios": "^0.21",
         "laravel-mix": "^6.0.6",
+        "laravel-mix-workbox": "^0.1.4",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
         "postcss-import": "^12.0.1",
         "tailwindcss": "^2.0.1",
         "vue": "^3.0.5",
-        "vue-loader": "^16.1.2"
+        "vue-loader": "^16.1.2",
+        "workbox-core": "^6.4.2",
+        "workbox-expiration": "^6.4.2",
+        "workbox-precaching": "^6.4.2",
+        "workbox-routing": "^6.4.2",
+        "workbox-strategies": "^6.4.2",
+        "workbox-webpack-plugin": "^6.4.2"
     },
     "dependencies": {
         "@headlessui/vue": "^1.4.2",

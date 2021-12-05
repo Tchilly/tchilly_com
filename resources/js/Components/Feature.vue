@@ -2,7 +2,7 @@
     <div class="mb-32">
         <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24 min-h-lg">
             <div
-                class="relative z-10 px-4 max-w-xl mx-auto sm:px-6 lg:py-16 lg:max-w-none lg:mx-0 lg:px-0"
+                class="relative z-10 px-4 lg:mx-auto sm:px-6 lg:py-16 lg:mx-0 lg:px-0"
                 :class="{ 'lg:col-start-2' : alignLeft }"
             >
 

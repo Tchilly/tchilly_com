@@ -1,5 +1,5 @@
 <template>
-    <header class="relative overflow-hidden">
+    <header>
         <primary-navigation />
         <slot></slot>
     </header>

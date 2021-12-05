@@ -1,22 +1,22 @@
 <template>
     <Popover as="nav" class="relative bg-primary-900">
-        <div class="py-8">
+        <div class="py-4 sm:py-6 md:py-7 lg:py:8">
             <div class="relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6" aria-label="Global">
                 <div class="flex items-center flex-1">
                     <div class="flex items-center justify-between w-full md:w-auto">
                         <Link href="/">
                             <span class="sr-only">{{ appName }}</span>
                             <Logo />
-                            <!--                                <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" :alt="appName" />-->
+                            <!--<img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" :alt="appName" />-->
                         </Link>
-                        <div class="-mr-2 flex items-center md:hidden">
-                            <PopoverButton class="bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white">
+                        <div class="flex items-center md:hidden">
+                            <PopoverButton class="bg-primary-600 rounded-md p-2 inline-flex items-center justify-center text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-200 focus:ring-offset-primary-900">
                                 <span class="sr-only">Open main menu</span>
                                 <MenuIcon class="h-6 w-6" aria-hidden="true" />
                             </PopoverButton>
                         </div>
                     </div>
-                    <div class="hidden space-x-8 md:flex md:ml-10">
+                    <div class="hidden space-x-8 md:flex md:ml-14">
                         <Link v-for="item in navigation" :key="item.name" :href="item.href" class="text-base font-medium text-white hover:text-gray-300">{{ item.name }}</Link>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                         <div>
                             <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="" />
                         </div>
-                        <div class="-mr-2">
+                        <div>
                             <PopoverButton class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600">
                                 <span class="sr-only">Close menu</span>
                                 <XIcon class="h-6 w-6" aria-hidden="true" />
@@ -82,7 +82,7 @@
                                 <div v-if="canRegister" class="mt-6 px-5">
                                     <Link
                                         :href="route('register')"
-                                        class="block text-center w-full py-3 px-4 rounded-md shadow bg-indigo-600 text-white font-medium hover:bg-indigo-700"
+                                        class="block text-center w-full py-3 px-4 rounded-md shadow bg-primary-500 text-white font-medium hover:bg-primary-600"
                                     >
                                         Register
                                     </Link>
@@ -91,7 +91,7 @@
                                 <div class="mt-6 px-5">
                                     <Link
                                         :href="route('login')"
-                                        class="block text-center w-full py-3 px-4 rounded-md shadow bg-indigo-600 text-white font-medium hover:bg-indigo-700"
+                                        class="block text-center w-full py-3 px-4 rounded-md shadow bg-primary-500 text-white font-medium hover:bg-primary-600"
                                     >
                                         Sign in
                                     </Link>

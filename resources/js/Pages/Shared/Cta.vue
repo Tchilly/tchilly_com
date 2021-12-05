@@ -45,7 +45,7 @@
                         text-base
                         font-medium
                         rounded-md
-                        shadow-sm
+                        shadow-lg
                         text-white
                         hover:border-gray-600
                         focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-300 focus:ring-offset-gray-900
@@ -55,9 +55,27 @@
                 </Link>
 
 
-                <PrimaryButton>
+                <a
+                    class="inline-flex
+                        bg-gradient-to-r
+                        from-primary-600
+                        to-primary-500
+                        bg-origin-border
+                        px-4
+                        py-2
+                        border border-transparent
+                        text-base
+                        font-medium
+                        rounded-md
+                        shadow-lg
+                        text-white
+                        hover:from-primary-500 hover:to-from-primary-400
+                        focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-300 focus:ring-offset-gray-900"
+                    href="https://twitch.tv/tchilly_tv"
+                    target="_blank"
+                    rel="noreferrer">
                     Follow me on twitch
-                </PrimaryButton>
+                </a>
             </div>
         </div>
     </div>

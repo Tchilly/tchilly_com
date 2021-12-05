@@ -1,140 +1,89 @@
 <template>
-    <div class="bg-gradient-to-r from-purple-800 to-indigo-700">
-        <div
-          class="
-            max-w-4xl
-            mx-auto
-            px-4
-            py-16
-            sm:px-6 sm:pt-20 sm:pb-24
-            lg:max-w-7xl lg:pt-24 lg:px-8
-          "
-        >
-          <h2 class="text-3xl font-extrabold text-white tracking-tight">
-            Inbox support built for efficiency
-          </h2>
-          <p class="mt-4 max-w-3xl text-lg text-purple-200">
-            Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et
-            magna sit morbi lobortis. Blandit aliquam sit nisl euismod mattis
-            in.
-          </p>
-          <div
-            class="
-              mt-12
-              grid grid-cols-1
-              gap-x-6 gap-y-12
-              sm:grid-cols-2
-              lg:mt-16 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-16
-            "
-          >
-            <div v-for="feature in features" :key="feature.name">
-              <div>
-                <span
-                  class="
-                    flex
-                    items-center
-                    justify-center
-                    h-12
-                    w-12
-                    rounded-md
-                    bg-white bg-opacity-10
-                  "
-                >
-                  <component
-                    :is="feature.icon"
-                    class="h-6 w-6 text-white"
-                    aria-hidden="true"
-                  />
-                </span>
-              </div>
-              <div class="mt-6">
-                <h3 class="text-lg font-medium text-white">
-                  {{ feature.name }}
-                </h3>
-                <p class="mt-2 text-base text-purple-200">
-                  {{ feature.description }}
-                </p>
-              </div>
+    <div
+        class="
+            relative
+            bg-primary-800
+            bg-cover
+            bg-center
+            shadow-lg
+        ">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-24 lg:px-8 lg:grid lg:grid-cols-3 lg:gap-x-8 filter drop-shadow-text-bg">
+            <div>
+                <h2 class="text-base font-semibold text-primary-400 uppercase tracking-wide">The work/streaming/gaming rig</h2>
+                <p class="mt-2 text-3xl font-extrabold text-primary-300">Specifications</p>
+                <p class="mt-4 text-lg text-gray-300">I use my computer for both work and leisure, so I needed a computer that had a bit of everything. 64BG ram and 12 Cores, Overkill? NAH...</p>
             </div>
-          </div>
+            <div class="mt-12 lg:mt-0 lg:col-span-2">
+                <dl class="space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:grid-rows-5 sm:grid-flow-col sm:gap-x-6 sm:gap-y-10 lg:gap-x-8">
+                    <div v-for="feature in features" :key="feature.name" class="relative">
+                        <dt>
+                            <CheckIcon class="absolute h-6 w-6 text-secondary-500" aria-hidden="true" />
+                            <p class="ml-9 text-lg leading-6 font-medium text-secondary-500">{{ feature.name }}</p>
+                        </dt>
+                        <dd class="mt-2 ml-9 text-base text-gray-50">
+                            {{ feature.description }}
+                        </dd>
+                    </div>
+                </dl>
+            </div>
         </div>
     </div>
 </template>
 
-
 <script>
-import {
-  ChatAltIcon,
-  DocumentReportIcon,
-  HeartIcon,
-  InboxIcon,
-  PencilAltIcon,
-  ReplyIcon,
-  TrashIcon,
-  UsersIcon,
-} from "@heroicons/vue/outline";
+import { CheckIcon } from '@heroicons/vue/outline'
 
 const features = [
-  {
-    name: "Unlimited Inboxes",
-    description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
-    icon: InboxIcon,
-  },
-  {
-    name: "Manage Team Members",
-    description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
-    icon: UsersIcon,
-  },
-  {
-    name: "Spam Report",
-    description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
-    icon: TrashIcon,
-  },
-  {
-    name: "Compose in Markdown",
-    description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
-    icon: PencilAltIcon,
-  },
-  {
-    name: "Team Reporting",
-    description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
-    icon: DocumentReportIcon,
-  },
-  {
-    name: "Saved Replies",
-    description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
-    icon: ReplyIcon,
-  },
-  {
-    name: "Email Commenting",
-    description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
-    icon: ChatAltIcon,
-  },
-  {
-    name: "Connect with Customers",
-    description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
-    icon: HeartIcon,
-  },
-];
+    {
+        name: 'CPU',
+        description: 'AMD Ryzen 9 3900x 12-Core processor @ 4.2GHz w/ Fractal Design Celsius+ S36 Dynamic',
+    },
+    {
+        name: 'Memory',
+        description: 'G.Skill 64GB DDR4 @ 3600Mhz'
+    },
+    {
+        name: 'Graphics Card',
+        description: 'AMD RX 5700 XT (Needs an upgrade)'
+    },
+    {
+        name: 'Motherboard',
+        description: 'Asus ROG Strix X470-F',
+    },
+    {
+        name: 'PSU',
+        description: 'Seasonic FOCUS GX 750W'
+    },
+    {
+        name: 'Main drive',
+        description: 'Samsung 970 EVO Plus 1TB NVMe-SSD'
+    },
+    {
+        name: 'Extra Storage',
+        description: '2x Seagate BarraCuda Desktop 2TB 7200rpm 256MB'
+    },
+    {
+        name: 'Chassi',
+        description: 'Fractal Design Define S2 Blackout'
+    },
+    {
+        name: 'Keyboard and mouse',
+        description: 'Xtrfy K4 TKL RGB + M4 Wireless'
+    },
+    {
+        name: 'Monitors',
+        description: '2x Philips 27" QHD 1440p IPS-panel @ 75Hz'
+    },
+]
 
 export default {
-  components: {
-    //
-  },
-  setup() {
-    return {
-      features
-    };
-  },
-};
-
-
+    components: {
+        CheckIcon,
+    },
+    setup() {
+        return {
+            features,
+        }
+    },
+}
 </script>
