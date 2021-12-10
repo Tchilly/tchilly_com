@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\PageController;
+use App\Http\Controllers\Dashboard\PageController;
+use App\Http\Controllers\ShowPageController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -23,14 +24,11 @@ Route::get('/', function () {
     ]);
 });
 
-// Static pages
-Route::get('about', [PageController::class, 'about'])->name('about');
-Route::get('programming', [PageController::class, 'programming'])->name('programming');
-Route::get('audiophile', [PageController::class, 'audiophile'])->name('audiophile');
-Route::get('tech', [PageController::class, 'tech'])->name('tech');
-Route::get('mental-health', [PageController::class, 'mental-health'])->name('mental');
-Route::get('support', [PageController::class, 'support'])->name('support');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->name('dashboard');
+Route::prefix('dashboard')->middleware(['auth:sanctum', 'verified'])->name('dashboard.')->group(function () {
+    Route::get('/', fn () => Inertia::render('Dashboard/Index'))->name('index');
+    Route::resource('/pages', PageController::class);
+
+});
+
+Route::any('/{page}', ShowPageController::class)->name('page');

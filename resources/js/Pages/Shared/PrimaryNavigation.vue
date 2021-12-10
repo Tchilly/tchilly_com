@@ -23,7 +23,7 @@
 
                 <div v-if="canLogin" class="hidden md:flex md:items-center md:space-x-6">
 
-                    <Link v-if="$page.props.user" :href="route('dashboard')" class="text-base font-medium text-white hover:text-gray-300">
+                    <Link v-if="$page.props.user" :href="route('dashboard.index')" class="text-base font-medium text-white hover:text-gray-300">
                         Dashboard
                     </Link>
 
@@ -72,7 +72,7 @@
                         <template v-if="canLogin">
 
                             <div v-if="$page.props.user" class="mt-6 px-5">
-                                <Link  :href="route('dashboard')" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">
+                                <Link  :href="route('dashboard.index')" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">
                                     Dashboard
                                 </Link>
                             </div>
@@ -114,11 +114,11 @@ import {computed, defineComponent} from "vue";
 import Logo from "@/Components/Logo";
 
 const navigation = [
-    { name: 'About', href: route('about') },
-    { name: 'Programming', href: route('programming') },
-    { name: 'Audiophile', href: route('audiophile') },
-    { name: 'Tech', href: route('tech') },
-    { name: 'Mental', href: route('about', '#mental') },
+    { name: 'About', href: route('page', 'about') },
+    { name: 'Programming', href: route('page', 'programming') },
+    { name: 'Audiophile', href: route('page', 'audiophile') },
+    { name: 'Tech', href: route('page', 'tech') },
+    { name: 'Mental', href: route('page', ['about', '#mental']) },
 ]
 
 export default defineComponent({

@@ -36,7 +36,7 @@
             <div class="mt-6 space-x-4">
 
                 <Link
-                    :href="route('support')"
+                    :href="route('page', 'support')"
                     class="
                         inline-flex
                         px-4

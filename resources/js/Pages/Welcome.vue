@@ -21,7 +21,7 @@
                     </p>
 
                     <div class="mt-6">
-                        <SecondaryButton :href="route('dashboard')">More about games and specs</SecondaryButton>
+                        <SecondaryButton :href="route('page', 'about')">More about games and specs</SecondaryButton>
                     </div>
 
                     <template v-slot:footer>
@@ -60,7 +60,7 @@
                     </p>
 
                     <div class="mt-6">
-                        <SecondaryButton :href="route('dashboard')">More stuff about programming</SecondaryButton>
+                        <SecondaryButton :href="route('page', 'about')">More stuff about programming</SecondaryButton>
                     </div>
 
                     <template v-slot:footer>
@@ -92,7 +92,7 @@
                     </p>
 
                     <div class="mt-6">
-                        <SecondaryButton :href="route('dashboard')">More speaker related stuff</SecondaryButton>
+                        <SecondaryButton :href="route('page', 'about')">More speaker related stuff</SecondaryButton>
                     </div>
 
                 </Feature>
@@ -108,7 +108,7 @@
                     </p>
 
                     <div class="mt-6">
-                        <SecondaryButton :href="route('dashboard')">More on my rig and gear</SecondaryButton>
+                        <SecondaryButton :href="route('page', 'about')">More on my rig and gear</SecondaryButton>
                     </div>
 
                 </Feature>
@@ -124,7 +124,7 @@
                     </p>
 
                     <div class="mt-6">
-                        <SecondaryButton :href="route('dashboard')">What is ADHD and Bipolar disorder?</SecondaryButton>
+                        <SecondaryButton :href="route('page', 'about')">What is ADHD and Bipolar disorder?</SecondaryButton>
                     </div>
 
                     <template v-slot:footer>
