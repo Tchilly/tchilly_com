@@ -10,12 +10,12 @@
     "theme_color":"#ffffff",
     "background_color":"#5B037D",
     "display":"standalone",
-    "prefer_related_applications": true,
+    /* "prefer_related_applications": true,
     "related_applications": [
       {
         "platform": "play",
         "id": "com.google.samples.apps.iosched"
       }
-    ],
-    "start_url": "http://localhost:8000"
+    ], */
+    "start_url": "http://127.0.0.1:8000/"
 }

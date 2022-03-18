@@ -1,50 +1,66 @@
 <template>
     <app-layout title="Page edit">
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <h2 class="text-xl font-semibold leading-tight text-gray-800">
                 Edit {{ page.title }}
             </h2>
         </template>
 
         <div class="py-12">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="p-4 sm:p-6 lg:p-8 bg-white overflow-hidden shadow-xl rounded-lg">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div
+                    class="overflow-hidden rounded-lg bg-white p-4 shadow-xl sm:p-6 lg:p-8"
+                >
                     <form @submit.prevent="submit">
-                    <jet-input v-model="form.title" />
+                        <editor v-model="form.body" />
+                        <jet-input-error :message="form.errors.body" class="mt-2" />
+
+                        <jet-input v-model="form.title" />
+                        <jet-input-error :message="form.errors.title" class="mt-2" />
+
                         <button type="submit">Save</button>
                     </form>
                 </div>
             </div>
         </div>
+
     </app-layout>
 </template>
 
 <script>
-    import {defineComponent, reactive} from 'vue'
-    import { Link, usePage } from '@inertiajs/inertia-vue3';
-    import AppLayout from '@/Layouts/AppLayout';
-    import JetInput from '@/Jetstream/Input';
-    import {Inertia} from "@inertiajs/inertia";
+import {defineComponent} from "vue";
+import AppLayout from "@/Layouts/AppLayout";
+import JetInputError from '@/Jetstream/InputError.vue'
+import JetInput from "@/Jetstream/Input";
+import Editor from "@/Components/Editor";
+import {useForm} from "@inertiajs/inertia-vue3";
 
-    export default defineComponent({
-        components: {
-            AppLayout,
-            JetInput
-        },
-        props: {
-            page: Object,
-        },
-        setup (props) {
-            const form = reactive({
-                title: props.page.title,
-                body: props.page.body,
-            })
+export default defineComponent({
+    components: {
+        AppLayout,
+        JetInput,
+        JetInputError,
+        Editor
+    },
+    props: {
+        page: Object,
+    },
+    setup(props) {
+        const form = useForm({
+            title: props.page.title,
+            body: props.page.body,
+        });
 
-            function submit() {
-                Inertia.put(route('dashboard.pages.update', props.page), form)
-            }
+        function submit() {
+            form.put(route("dashboard.pages.update", props.page), {
+                //
+            });
+        }
 
-            return { form, submit }
-        },
-    })
+        return {
+            form,
+            submit,
+        };
+    },
+});
 </script>

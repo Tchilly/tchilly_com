@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Page;
 use App\Http\Requests\StorePageRequest;
 use App\Http\Requests\UpdatePageRequest;
+use App\Models\Page;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -86,6 +86,14 @@ class PageController extends Controller
      */
     public function update(UpdatePageRequest $request, Page $page)
     {
+        $validated = $request->validated();
+
+        $page->update($validated);
+
+
+        session()->flash('flash.banner', 'Yay for free components!');
+        session()->flash('flash.bannerStyle', 'success');
+
         return redirect()->route('dashboard.pages.index');
     }
 

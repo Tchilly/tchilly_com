@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    'default' => env('FILESYSTEM_DISK', 'local'),
 
     /*
     |--------------------------------------------------------------------------
@@ -44,8 +44,8 @@ return [
 
         'media' => [
             'driver' => 'local',
-            'root' => public_path('uploads/media'),
-            'url' => env('APP_URL').'/uploads/media',
+            'root' => public_path('media'),
+            'url' => env('APP_URL').'/media',
             'visibility' => 'public',
         ],
 

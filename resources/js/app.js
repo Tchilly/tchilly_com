@@ -1,3 +1,4 @@
+require('../fonts/inter.css');
 require('./bootstrap');
 
 import { createApp, h } from 'vue';
@@ -17,4 +18,7 @@ createInertiaApp({
     },
 });
 
-InertiaProgress.init({ color: '#4B5563' });
+InertiaProgress.init({
+    delay: 0,
+    color: '#c33afa'
+});

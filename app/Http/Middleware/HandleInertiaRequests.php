@@ -42,6 +42,9 @@ class HandleInertiaRequests extends Middleware
             'appName' => config('app.name'),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
+            'flash' => [
+                'message' => fn () => $request->session()->get('message')
+            ],
 
         ]);
     }

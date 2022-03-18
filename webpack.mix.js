@@ -19,7 +19,7 @@ mix.js('resources/js/app.js', 'public/js').vue()
         require('tailwindcss'),
     ])
     .copyDirectory('resources/images', 'public/images')
-    //.copy('resources/js/service-worker.js', 'public')
+    //.copyDirectory('resources/fonts', 'public/fonts')
     .webpackConfig(require('./webpack.config'))
     .sourceMaps(false)
 

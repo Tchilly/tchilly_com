@@ -1,5 +1,5 @@
 <template>
-    <div class="relative pt-16 pb-32 overflow-hidden">
+    <div class="relative overflow-hidden pt-16 pb-32">
         <!--
             <div
               aria-hidden="true"
@@ -9,3 +9,4 @@
         <slot></slot>
     </div>
 </template>
+

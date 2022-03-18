@@ -2,6 +2,8 @@
     <div>
         <Head :title="title" />
 
+        <a href="#content" class="skip-to-content-link">Jump to content</a>
+
         <jet-banner />
 
         <page-header>
@@ -11,7 +13,7 @@
         </page-header>
 
         <!-- Page Content -->
-        <main>
+        <main id="content">
             <slot></slot>
         </main>
 

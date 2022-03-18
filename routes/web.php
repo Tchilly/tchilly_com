@@ -17,12 +17,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+Route::get('/', fn () => Inertia::render('Welcome'))->name('index');
 
 
 Route::prefix('dashboard')->middleware(['auth:sanctum', 'verified'])->name('dashboard.')->group(function () {
