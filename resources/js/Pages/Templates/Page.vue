@@ -4,7 +4,6 @@
             <article
                 class="relative mx-auto max-w-7xl py-16 px-4 pb-24 sm:px-6 lg:px-8"
             >
-                <!--<div class="hidden lg:block bg-gray-50 absolute top-0 bottom-0 left-3/4 w-screen" />-->
                 <header
                     class="mx-auto text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-8"
                 >
