@@ -1,5 +1,5 @@
 <template>
-    <div class="mb-32">
+    <div class="lg:py-3pp2 py-6 md:py-16">
         <div
             class="min-h-lg lg:mx-auto lg:grid lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24 lg:px-8"
         >

@@ -20,9 +20,11 @@ export default {
             const e = new Editor({
                 el: editor.value,
                 height: "500px",
-                initialEditType: "markdown",
+                initialEditType: "wysiwyg",
                 initialValue: props.modelValue,
-                previewStyle: "tab",
+                hideModeSwitch: true,
+                theme: "dark",
+                //previewStyle: "tab",
                 //plugins: [[codeSyntaxHighlight, { hljs }]],
                 events: {
                     change: () => emit("update:modelValue", e.getMarkdown()),

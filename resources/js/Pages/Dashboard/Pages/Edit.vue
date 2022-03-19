@@ -11,36 +11,53 @@
                 <div
                     class="overflow-hidden rounded-lg bg-white p-4 shadow-xl sm:p-6 lg:p-8"
                 >
-                    <form @submit.prevent="submit">
+                    <form class="space-y-6" @submit.prevent="submit">
+                        <div>
+                            <form-label for="title">Title</form-label>
+                            <form-input
+                                id="title"
+                                v-model="form.title"
+                                :error="form.errors.title"
+                                S
+                            />
+                        </div>
+
                         <editor v-model="form.body" />
-                        <jet-input-error :message="form.errors.body" class="mt-2" />
+                        <form-input-error
+                            :message="form.errors.body"
+                            class="mt-2"
+                        />
 
-                        <jet-input v-model="form.title" />
-                        <jet-input-error :message="form.errors.title" class="mt-2" />
+                        <hr />
 
-                        <button type="submit">Save</button>
+                        <form-button type="submit">Save</form-button>
                     </form>
                 </div>
             </div>
         </div>
-
     </app-layout>
 </template>
 
 <script>
-import {defineComponent} from "vue";
+import { defineComponent } from "vue";
 import AppLayout from "@/Layouts/AppLayout";
-import JetInputError from '@/Jetstream/InputError.vue'
-import JetInput from "@/Jetstream/Input";
-import Editor from "@/Components/Editor";
-import {useForm} from "@inertiajs/inertia-vue3";
+import FormInputError from "@/Components/Form/InputError.vue";
+import FormInput from "@/Components/Form/Input";
+import FormLabel from "@/Components/Form/Label";
+import FormButton from "@/Components/Form/Button";
+import Editor from "@/Components/Form/Editor";
+import { useForm } from "@inertiajs/inertia-vue3";
+import PrimaryButton from "@/Components/PrimaryButton";
 
 export default defineComponent({
     components: {
+        PrimaryButton,
         AppLayout,
-        JetInput,
-        JetInputError,
-        Editor
+        FormInput,
+        FormLabel,
+        FormButton,
+        FormInputError,
+        Editor,
     },
     props: {
         page: Object,

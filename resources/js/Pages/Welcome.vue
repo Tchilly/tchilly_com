@@ -204,7 +204,7 @@
                 </Feature>
             </Features>
 
-            <Metrics />
+            <!--            <Metrics />-->
 
             <Cta />
         </div>

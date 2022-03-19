@@ -46,22 +46,10 @@ class PageController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePageRequest  $request
+     * @param StorePageRequest $request
      * @return Response
      */
     public function store(StorePageRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @todo Should call ShowPageController
-     * @param Page $page
-     * @return Response
-     */
-    public function show(Page $page)
     {
         //
     }
@@ -80,7 +68,7 @@ class PageController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePageRequest  $request
+     * @param UpdatePageRequest $request
      * @param Page $page
      * @return Response
      */
@@ -91,7 +79,7 @@ class PageController extends Controller
         $page->update($validated);
 
 
-        session()->flash('flash.banner', 'Yay for free components!');
+        session()->flash('flash.banner', 'Page updated!');
         session()->flash('flash.bannerStyle', 'success');
 
         return redirect()->route('dashboard.pages.index');
