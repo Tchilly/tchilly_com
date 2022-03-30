@@ -39,7 +39,7 @@ const updatePassword = () => {
 
 <template>
     <JetFormSection @submitted="updatePassword">
-        <template #title> Update Password </template>
+        <template #title> Update Password</template>
 
         <template #description>
             Ensure your account is using a long, random password to stay secure.
@@ -52,9 +52,9 @@ const updatePassword = () => {
                     id="current_password"
                     ref="currentPasswordInput"
                     v-model="form.current_password"
-                    type="password"
-                    class="mt-1 block w-full"
                     autocomplete="current-password"
+                    class="mt-1 block w-full"
+                    type="password"
                 />
                 <JetInputError
                     :message="form.errors.current_password"
@@ -68,9 +68,9 @@ const updatePassword = () => {
                     id="password"
                     ref="passwordInput"
                     v-model="form.password"
-                    type="password"
-                    class="mt-1 block w-full"
                     autocomplete="new-password"
+                    class="mt-1 block w-full"
+                    type="password"
                 />
                 <JetInputError :message="form.errors.password" class="mt-2" />
             </div>
@@ -83,9 +83,9 @@ const updatePassword = () => {
                 <JetInput
                     id="password_confirmation"
                     v-model="form.password_confirmation"
-                    type="password"
-                    class="mt-1 block w-full"
                     autocomplete="new-password"
+                    class="mt-1 block w-full"
+                    type="password"
                 />
                 <JetInputError
                     :message="form.errors.password_confirmation"

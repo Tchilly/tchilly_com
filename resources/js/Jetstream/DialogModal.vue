@@ -25,9 +25,9 @@ const close = () => {
 
 <template>
     <Modal
-        :show="show"
-        :max-width="maxWidth"
         :closeable="closeable"
+        :max-width="maxWidth"
+        :show="show"
         @close="close"
     >
         <div class="px-6 py-4">

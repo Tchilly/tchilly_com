@@ -49,10 +49,10 @@ const submit = () => {
                 <JetInput
                     id="email"
                     v-model="form.email"
-                    type="email"
+                    autofocus
                     class="mt-1 block w-full"
                     required
-                    autofocus
+                    type="email"
                 />
             </div>
 
@@ -61,10 +61,10 @@ const submit = () => {
                 <JetInput
                     id="password"
                     v-model="form.password"
-                    type="password"
+                    autocomplete="current-password"
                     class="mt-1 block w-full"
                     required
-                    autocomplete="current-password"
+                    type="password"
                 />
             </div>
 
@@ -88,9 +88,9 @@ const submit = () => {
                 </Link>
 
                 <JetButton
-                    class="ml-4"
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
+                    class="ml-4"
                 >
                     Log in
                 </JetButton>

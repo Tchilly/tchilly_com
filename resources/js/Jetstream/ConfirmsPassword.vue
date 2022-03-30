@@ -90,9 +90,9 @@ const closeModal = () => {
                     <JetInput
                         ref="passwordInput"
                         v-model="form.password"
-                        type="password"
                         class="mt-1 block w-3/4"
                         placeholder="Password"
+                        type="password"
                         @keyup.enter="confirmPassword"
                     />
 
@@ -106,9 +106,9 @@ const closeModal = () => {
                 </JetSecondaryButton>
 
                 <JetButton
-                    class="ml-3"
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
+                    class="ml-3"
                     @click="confirmPassword"
                 >
                     {{ button }}

@@ -39,9 +39,9 @@ const closeModal = () => {
 
 <template>
     <JetActionSection>
-        <template #title> Delete Account </template>
+        <template #title> Delete Account</template>
 
-        <template #description> Permanently delete your account. </template>
+        <template #description> Permanently delete your account.</template>
 
         <template #content>
             <div class="max-w-xl text-sm text-gray-600">
@@ -58,7 +58,7 @@ const closeModal = () => {
 
             <!-- Delete Account Confirmation Modal -->
             <JetDialogModal :show="confirmingUserDeletion" @close="closeModal">
-                <template #title> Delete Account </template>
+                <template #title> Delete Account</template>
 
                 <template #content>
                     Are you sure you want to delete your account? Once your
@@ -70,9 +70,9 @@ const closeModal = () => {
                         <JetInput
                             ref="passwordInput"
                             v-model="form.password"
-                            type="password"
                             class="mt-1 block w-3/4"
                             placeholder="Password"
+                            type="password"
                             @keyup.enter="deleteUser"
                         />
 
@@ -89,9 +89,9 @@ const closeModal = () => {
                     </JetSecondaryButton>
 
                     <JetDangerButton
-                        class="ml-3"
                         :class="{ 'opacity-25': form.processing }"
                         :disabled="form.processing"
+                        class="ml-3"
                         @click="deleteUser"
                     >
                         Delete Account

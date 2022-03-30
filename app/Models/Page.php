@@ -60,7 +60,7 @@ class Page extends Model
     {
         return 'slug';
     }
-    
+
     /**
      * Check if record has recently been updated.
      *

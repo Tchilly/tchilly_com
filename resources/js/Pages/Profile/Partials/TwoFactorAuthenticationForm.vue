@@ -103,7 +103,7 @@ const disableTwoFactorAuthentication = () => {
 
 <template>
     <JetActionSection>
-        <template #title> Two Factor Authentication </template>
+        <template #title> Two Factor Authentication</template>
 
         <template #description>
             Add additional security to your account using two factor
@@ -158,8 +158,8 @@ const disableTwoFactorAuthentication = () => {
                     <div class="mt-4" v-html="qrCode" />
 
                     <div
-                        class="mt-4 max-w-xl text-sm text-gray-600"
                         v-if="setupKey"
+                        class="mt-4 max-w-xl text-sm text-gray-600"
                     >
                         <p class="font-semibold">
                             Setup Key: <span v-html="setupKey"></span>
@@ -172,12 +172,12 @@ const disableTwoFactorAuthentication = () => {
                         <JetInput
                             id="code"
                             v-model="confirmationForm.code"
-                            type="text"
-                            name="code"
+                            autocomplete="one-time-code"
+                            autofocus
                             class="mt-1 block w-1/2"
                             inputmode="numeric"
-                            autofocus
-                            autocomplete="one-time-code"
+                            name="code"
+                            type="text"
                             @keyup.enter="confirmTwoFactorAuthentication"
                         />
 
@@ -214,9 +214,9 @@ const disableTwoFactorAuthentication = () => {
                         @confirmed="enableTwoFactorAuthentication"
                     >
                         <JetButton
-                            type="button"
                             :class="{ 'opacity-25': enabling }"
                             :disabled="enabling"
+                            type="button"
                         >
                             Enable
                         </JetButton>
@@ -229,10 +229,10 @@ const disableTwoFactorAuthentication = () => {
                     >
                         <JetButton
                             v-if="confirming"
-                            type="button"
-                            class="mr-3"
                             :class="{ 'opacity-25': enabling }"
                             :disabled="enabling"
+                            class="mr-3"
+                            type="button"
                         >
                             Confirm
                         </JetButton>

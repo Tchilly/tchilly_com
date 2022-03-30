@@ -82,7 +82,7 @@ const deleteApiToken = () => {
     <div>
         <!-- Generate API Token -->
         <JetFormSection @submitted="createApiToken">
-            <template #title> Create API Token </template>
+            <template #title> Create API Token</template>
 
             <template #description>
                 API tokens allow third-party services to authenticate with our
@@ -96,9 +96,9 @@ const deleteApiToken = () => {
                     <JetInput
                         id="name"
                         v-model="createApiTokenForm.name"
-                        type="text"
-                        class="mt-1 block w-full"
                         autofocus
+                        class="mt-1 block w-full"
+                        type="text"
                     />
                     <JetInputError
                         :message="createApiTokenForm.errors.name"
@@ -154,7 +154,7 @@ const deleteApiToken = () => {
             <!-- Manage API Tokens -->
             <div class="mt-10 sm:mt-0">
                 <JetActionSection>
-                    <template #title> Manage API Tokens </template>
+                    <template #title> Manage API Tokens</template>
 
                     <template #description>
                         You may delete any of your existing tokens if they are
@@ -210,7 +210,7 @@ const deleteApiToken = () => {
             :show="displayingToken"
             @close="displayingToken = false"
         >
-            <template #title> API Token </template>
+            <template #title> API Token</template>
 
             <template #content>
                 <div>
@@ -238,7 +238,7 @@ const deleteApiToken = () => {
             :show="managingPermissionsFor"
             @close="managingPermissionsFor = null"
         >
-            <template #title> API Token Permissions </template>
+            <template #title> API Token Permissions</template>
 
             <template #content>
                 <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -265,9 +265,9 @@ const deleteApiToken = () => {
                 </JetSecondaryButton>
 
                 <JetButton
-                    class="ml-3"
                     :class="{ 'opacity-25': updateApiTokenForm.processing }"
                     :disabled="updateApiTokenForm.processing"
+                    class="ml-3"
                     @click="updateApiToken"
                 >
                     Save
@@ -280,7 +280,7 @@ const deleteApiToken = () => {
             :show="apiTokenBeingDeleted"
             @close="apiTokenBeingDeleted = null"
         >
-            <template #title> Delete API Token </template>
+            <template #title> Delete API Token</template>
 
             <template #content>
                 Are you sure you would like to delete this API token?
@@ -292,9 +292,9 @@ const deleteApiToken = () => {
                 </JetSecondaryButton>
 
                 <JetDangerButton
-                    class="ml-3"
                     :class="{ 'opacity-25': deleteApiTokenForm.processing }"
                     :disabled="deleteApiTokenForm.processing"
+                    class="ml-3"
                     @click="deleteApiToken"
                 >
                     Delete

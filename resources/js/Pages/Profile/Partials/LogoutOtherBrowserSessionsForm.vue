@@ -44,7 +44,7 @@ const closeModal = () => {
 
 <template>
     <JetActionSection>
-        <template #title> Browser Sessions </template>
+        <template #title> Browser Sessions</template>
 
         <template #description>
             Manage and log out your active sessions on other browsers and
@@ -70,13 +70,13 @@ const closeModal = () => {
                     <div>
                         <svg
                             v-if="session.agent.is_desktop"
+                            class="h-8 w-8 text-gray-500"
                             fill="none"
+                            stroke="currentColor"
                             stroke-linecap="round"
                             stroke-linejoin="round"
                             stroke-width="2"
                             viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            class="h-8 w-8 text-gray-500"
                         >
                             <path
                                 d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
@@ -85,17 +85,17 @@ const closeModal = () => {
 
                         <svg
                             v-else
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            stroke-width="2"
-                            stroke="currentColor"
+                            class="h-8 w-8 text-gray-500"
                             fill="none"
+                            stroke="currentColor"
                             stroke-linecap="round"
                             stroke-linejoin="round"
-                            class="h-8 w-8 text-gray-500"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
                         >
                             <path d="M0 0h24v24H0z" stroke="none" />
-                            <rect x="7" y="4" width="10" height="16" rx="1" />
+                            <rect height="16" rx="1" width="10" x="7" y="4" />
                             <path d="M11 5h2M12 17v.01" />
                         </svg>
                     </div>
@@ -145,7 +145,7 @@ const closeModal = () => {
 
             <!-- Log Out Other Devices Confirmation Modal -->
             <JetDialogModal :show="confirmingLogout" @close="closeModal">
-                <template #title> Log Out Other Browser Sessions </template>
+                <template #title> Log Out Other Browser Sessions</template>
 
                 <template #content>
                     Please enter your password to confirm you would like to log
@@ -156,9 +156,9 @@ const closeModal = () => {
                         <JetInput
                             ref="passwordInput"
                             v-model="form.password"
-                            type="password"
                             class="mt-1 block w-3/4"
                             placeholder="Password"
+                            type="password"
                             @keyup.enter="logoutOtherBrowserSessions"
                         />
 
@@ -175,9 +175,9 @@ const closeModal = () => {
                     </JetSecondaryButton>
 
                     <JetButton
-                        class="ml-3"
                         :class="{ 'opacity-25': form.processing }"
                         :disabled="form.processing"
+                        class="ml-3"
                         @click="logoutOtherBrowserSessions"
                     >
                         Log Out Other Browser Sessions

@@ -53,9 +53,9 @@ const verificationLinkSent = computed(
 
                 <Link
                     :href="route('logout')"
-                    method="post"
                     as="button"
                     class="text-sm text-gray-600 underline hover:text-gray-900"
+                    method="post"
                 >
                     Log Out
                 </Link>

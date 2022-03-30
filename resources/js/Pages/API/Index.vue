@@ -20,9 +20,9 @@ defineProps({
         <div>
             <div class="mx-auto max-w-7xl py-10 sm:px-6 lg:px-8">
                 <ApiTokenManager
-                    :tokens="tokens"
                     :available-permissions="availablePermissions"
                     :default-permissions="defaultPermissions"
+                    :tokens="tokens"
                 />
             </div>
         </div>

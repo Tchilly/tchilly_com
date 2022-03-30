@@ -47,19 +47,19 @@ const submit = () => {
                     id="password"
                     ref="passwordInput"
                     v-model="form.password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    required
                     autocomplete="current-password"
                     autofocus
+                    class="mt-1 block w-full"
+                    required
+                    type="password"
                 />
             </div>
 
             <div class="mt-4 flex justify-end">
                 <JetButton
-                    class="ml-4"
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
+                    class="ml-4"
                 >
                     Confirm
                 </JetButton>

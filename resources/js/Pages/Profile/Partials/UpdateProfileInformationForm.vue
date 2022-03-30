@@ -73,7 +73,7 @@ const clearPhotoFileInput = () => {
 
 <template>
     <JetFormSection @submitted="updateProfileInformation">
-        <template #title> Profile Information </template>
+        <template #title> Profile Information</template>
 
         <template #description>
             Update your account's profile information and email address.
@@ -88,8 +88,8 @@ const clearPhotoFileInput = () => {
                 <!-- Profile Photo File Input -->
                 <input
                     ref="photoInput"
-                    type="file"
                     class="hidden"
+                    type="file"
                     @change="updatePhotoPreview"
                 />
 
@@ -98,8 +98,8 @@ const clearPhotoFileInput = () => {
                 <!-- Current Profile Photo -->
                 <div v-show="!photoPreview" class="mt-2">
                     <img
-                        :src="user.profile_photo_url"
                         :alt="user.name"
+                        :src="user.profile_photo_url"
                         class="h-20 w-20 rounded-full object-cover"
                     />
                 </div>
@@ -107,10 +107,10 @@ const clearPhotoFileInput = () => {
                 <!-- New Profile Photo Preview -->
                 <div v-show="photoPreview" class="mt-2">
                     <span
-                        class="block h-20 w-20 rounded-full bg-cover bg-center bg-no-repeat"
                         :style="
                             'background-image: url(\'' + photoPreview + '\');'
                         "
+                        class="block h-20 w-20 rounded-full bg-cover bg-center bg-no-repeat"
                     />
                 </div>
 
@@ -124,8 +124,8 @@ const clearPhotoFileInput = () => {
 
                 <JetSecondaryButton
                     v-if="user.profile_photo_path"
-                    type="button"
                     class="mt-2"
+                    type="button"
                     @click.prevent="deletePhoto"
                 >
                     Remove Photo
@@ -140,9 +140,9 @@ const clearPhotoFileInput = () => {
                 <JetInput
                     id="name"
                     v-model="form.name"
-                    type="text"
-                    class="mt-1 block w-full"
                     autocomplete="name"
+                    class="mt-1 block w-full"
+                    type="text"
                 />
                 <JetInputError :message="form.errors.name" class="mt-2" />
             </div>
@@ -153,8 +153,8 @@ const clearPhotoFileInput = () => {
                 <JetInput
                     id="email"
                     v-model="form.email"
-                    type="email"
                     class="mt-1 block w-full"
+                    type="email"
                 />
                 <JetInputError :message="form.errors.email" class="mt-2" />
             </div>

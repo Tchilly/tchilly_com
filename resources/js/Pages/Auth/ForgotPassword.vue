@@ -46,10 +46,10 @@ const submit = () => {
                 <JetInput
                     id="email"
                     v-model="form.email"
-                    type="email"
+                    autofocus
                     class="mt-1 block w-full"
                     required
-                    autofocus
+                    type="email"
                 />
             </div>
 

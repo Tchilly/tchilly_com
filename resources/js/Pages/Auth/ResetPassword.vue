@@ -42,10 +42,10 @@ const submit = () => {
                 <JetInput
                     id="email"
                     v-model="form.email"
-                    type="email"
+                    autofocus
                     class="mt-1 block w-full"
                     required
-                    autofocus
+                    type="email"
                 />
             </div>
 
@@ -54,10 +54,10 @@ const submit = () => {
                 <JetInput
                     id="password"
                     v-model="form.password"
-                    type="password"
+                    autocomplete="new-password"
                     class="mt-1 block w-full"
                     required
-                    autocomplete="new-password"
+                    type="password"
                 />
             </div>
 
@@ -69,10 +69,10 @@ const submit = () => {
                 <JetInput
                     id="password_confirmation"
                     v-model="form.password_confirmation"
-                    type="password"
+                    autocomplete="new-password"
                     class="mt-1 block w-full"
                     required
-                    autocomplete="new-password"
+                    type="password"
                 />
             </div>
 

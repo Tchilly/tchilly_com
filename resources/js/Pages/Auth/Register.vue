@@ -39,11 +39,11 @@ const submit = () => {
                 <JetInput
                     id="name"
                     v-model="form.name"
-                    type="text"
+                    autocomplete="name"
+                    autofocus
                     class="mt-1 block w-full"
                     required
-                    autofocus
-                    autocomplete="name"
+                    type="text"
                 />
             </div>
 
@@ -52,9 +52,9 @@ const submit = () => {
                 <JetInput
                     id="email"
                     v-model="form.email"
-                    type="email"
                     class="mt-1 block w-full"
                     required
+                    type="email"
                 />
             </div>
 
@@ -63,10 +63,10 @@ const submit = () => {
                 <JetInput
                     id="password"
                     v-model="form.password"
-                    type="password"
+                    autocomplete="new-password"
                     class="mt-1 block w-full"
                     required
-                    autocomplete="new-password"
+                    type="password"
                 />
             </div>
 
@@ -78,10 +78,10 @@ const submit = () => {
                 <JetInput
                     id="password_confirmation"
                     v-model="form.password_confirmation"
-                    type="password"
+                    autocomplete="new-password"
                     class="mt-1 block w-full"
                     required
-                    autocomplete="new-password"
+                    type="password"
                 />
             </div>
 
@@ -100,16 +100,16 @@ const submit = () => {
                         <div class="ml-2">
                             I agree to the
                             <a
-                                target="_blank"
                                 :href="route('terms.show')"
                                 class="text-sm text-gray-600 underline hover:text-gray-900"
+                                target="_blank"
                                 >Terms of Service</a
                             >
                             and
                             <a
-                                target="_blank"
                                 :href="route('policy.show')"
                                 class="text-sm text-gray-600 underline hover:text-gray-900"
+                                target="_blank"
                                 >Privacy Policy</a
                             >
                         </div>
@@ -126,9 +126,9 @@ const submit = () => {
                 </Link>
 
                 <JetButton
-                    class="ml-4"
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
+                    class="ml-4"
                 >
                     Register
                 </JetButton>
