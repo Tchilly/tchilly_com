@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePageRequest;
 use App\Http\Requests\UpdatePageRequest;
 use App\Models\Page;
+use App\Models\Template;
+use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -30,6 +32,7 @@ class PageController extends Controller
     public function index(): Response
     {
         $pages = Page::all();
+
         return Inertia::render('Dashboard/Pages/Index', compact('pages'));
     }
 
@@ -62,7 +65,8 @@ class PageController extends Controller
      */
     public function edit(Page $page): Response
     {
-        return Inertia::render('Dashboard/Pages/Edit', compact('page'));
+        $templates = (new Template)->getTemplates();
+        return Inertia::render('Dashboard/Pages/Edit', compact(['page', 'templates']));
     }
 
     /**
@@ -70,14 +74,12 @@ class PageController extends Controller
      *
      * @param UpdatePageRequest $request
      * @param Page $page
-     * @return Response
+     * @return RedirectResponse
      */
     public function update(UpdatePageRequest $request, Page $page)
     {
         $validated = $request->validated();
-
         $page->update($validated);
-
 
         session()->flash('flash.banner', 'Page updated!');
         session()->flash('flash.bannerStyle', 'success');

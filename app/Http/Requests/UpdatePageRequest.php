@@ -16,6 +16,7 @@ class UpdatePageRequest extends FormRequest
         return [
             'title' => 'required|max:255',
             'body' => 'required',
+            'template' => 'required'
         ];
     }
 }

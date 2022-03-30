@@ -1,6 +1,6 @@
-let mix = require('laravel-mix');
-const {sourceMaps} = require("laravel-mix");
-require('laravel-mix-workbox');
+let mix = require("laravel-mix");
+const { sourceMaps } = require("laravel-mix");
+require("laravel-mix-workbox");
 
 /*
  |--------------------------------------------------------------------------
@@ -13,20 +13,23 @@ require('laravel-mix-workbox');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').vue()
-    .postCss('resources/css/app.css', 'public/css', [
-        require('postcss-import'),
-        require('tailwindcss'),
+mix.js("resources/js/app.js", "public/js")
+    .vue()
+    .postCss("resources/css/app.css", "public/css", [
+        require("postcss-import"),
+        require("tailwindcss"),
     ])
-    .copyDirectory('resources/images', 'public/images')
-    //.copyDirectory('resources/fonts', 'public/fonts')
-    .webpackConfig(require('./webpack.config'))
+    .copyDirectory("resources/images", "public/images")
+    .webpackConfig(require("./webpack.config"))
     .sourceMaps(false)
+    .alias({
+        "@": "resources/js",
+    });
 
 if (mix.inProduction()) {
     mix.version();
     mix.injectManifest({
         maximumFileSizeToCacheInBytes: 2194304,
-        swSrc: './resources/js/service-worker.js'
+        swSrc: "./resources/js/service-worker.js",
     });
 }

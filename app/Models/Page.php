@@ -15,7 +15,6 @@ class Page extends Model
 
     protected $fillable = [
         'title',
-        'slug',
         'body',
         'template',
     ];
@@ -61,7 +60,7 @@ class Page extends Model
     {
         return 'slug';
     }
-
+    
     /**
      * Check if record has recently been updated.
      *

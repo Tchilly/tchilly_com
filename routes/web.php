@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\BlogController;
 use App\Http\Controllers\Dashboard\PageController;
 use App\Http\Controllers\ShowPageController;
 use Illuminate\Support\Facades\Route;
@@ -19,10 +20,10 @@ use Inertia\Inertia;
 Route::get('/', fn() => Inertia::render('Welcome'))->name('index');
 
 
-Route::prefix('dashboard')->middleware(['auth:sanctum', 'verified'])->name('dashboard.')->group(function () {
+Route::prefix('dashboard')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->name('dashboard.')->group(function () {
     Route::get('/', fn() => Inertia::render('Dashboard/Index'))->name('index');
     Route::resource('/pages', PageController::class)->except(['show']);
-
+    Route::resource('/blogs', BlogController::class)->except(['show']);
 });
 
 Route::any('/{page}', ShowPageController::class)->name('page');
