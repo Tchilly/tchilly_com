@@ -1,5 +1,30 @@
+<script setup>
+import { defineProps } from "vue";
+import AppLayout from "@/Layouts/AppLayout";
+import FormInputError from "@/Components/Form/InputError.vue";
+import FormInput from "@/Components/Form/Input";
+import FormLabel from "@/Components/Form/Label";
+import FormButton from "@/Components/Form/Button";
+import Editor from "@/Components/Form/Editor";
+import { useForm } from "@inertiajs/inertia-vue3";
+
+const props = defineProps({
+    categories: Object,
+});
+
+const form = useForm({
+    title: "",
+    body: "",
+    category_id: null,
+});
+
+function submit() {
+    form.post(route("dashboard.posts.store"));
+}
+</script>
+
 <template>
-    <app-layout title="Blog edit">
+    <AppLayout title="Blog edit">
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
                 Create page
@@ -13,26 +38,30 @@
                 >
                     <form class="space-y-6" @submit.prevent="submit">
                         <div>
-                            <form-label for="title">Title</form-label>
-                            <form-input
+                            <FormLabel for="title">Title</FormLabel>
+                            <FormInput
                                 id="title"
                                 v-model="form.title"
                                 :error="form.errors.title"
                             />
+                            <FormInputError
+                                :message="form.errors.title"
+                                class="mt-2"
+                            />
                         </div>
 
                         <div>
-                            <form-label for="body">Body</form-label>
-                            <editor id="body" v-model="form.body" />
+                            <FormLabel for="body">Body</FormLabel>
+                            <Editor id="body" v-model="form.body" />
                         </div>
 
-                        <form-input-error
+                        <FormInputError
                             :message="form.errors.body"
                             class="mt-2"
                         />
 
                         <div>
-                            <form-label for="category_id">Category</form-label>
+                            <FormLabel for="category_id">Category</FormLabel>
 
                             <select
                                 id="category_id"
@@ -48,7 +77,7 @@
                                 </option>
                             </select>
 
-                            <form-input-error
+                            <FormInputError
                                 :message="form.errors.category_id"
                                 class="mt-2"
                             />
@@ -56,56 +85,10 @@
 
                         <hr />
 
-                        <form-button type="submit">Save</form-button>
+                        <FormButton type="submit">Save</FormButton>
                     </form>
                 </div>
             </div>
         </div>
-    </app-layout>
+    </AppLayout>
 </template>
-
-<script>
-import { defineComponent } from "vue";
-import AppLayout from "@/Layouts/AppLayout";
-import FormInputError from "@/Components/Form/InputError.vue";
-import FormInput from "@/Components/Form/Input";
-import FormLabel from "@/Components/Form/Label";
-import FormButton from "@/Components/Form/Button";
-import Editor from "@/Components/Form/Editor";
-import { useForm } from "@inertiajs/inertia-vue3";
-import PrimaryButton from "@/Components/PrimaryButton";
-
-export default defineComponent({
-    components: {
-        PrimaryButton,
-        AppLayout,
-        FormInput,
-        FormLabel,
-        FormButton,
-        FormInputError,
-        Editor,
-    },
-    props: {
-        //blog: Object,
-        categories: Object,
-    },
-    setup(props) {
-        const form = useForm({
-            title: "",
-            body: "",
-            category_id: null,
-        });
-
-        function submit() {
-            form.post(route("dashboard.blogs.store", props.blog), {
-                //
-            });
-        }
-
-        return {
-            form,
-            submit,
-        };
-    },
-});
-</script>

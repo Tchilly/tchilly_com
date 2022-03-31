@@ -1,44 +1,33 @@
+<script setup>
+import { defineProps } from "vue";
+import JetBanner from "@/Jetstream/Banner.vue";
+import PageHeader from "@/Pages/Shared/PageHeader";
+import PageFooter from "@/Pages/Shared/PageFooter";
+
+defineProps({
+    title: String,
+});
+</script>
+
 <template>
     <div>
         <Head :title="title" />
 
-        <a href="#content" class="skip-to-content-link">Jump to content</a>
+        <a class="skip-to-content-link" href="#content">Jump to content</a>
 
-        <jet-banner />
+        <JetBanner />
 
-        <page-header>
+        <PageHeader>
             <div v-if="$slots.header">
                 <slot name="header"></slot>
             </div>
-        </page-header>
+        </PageHeader>
 
         <!-- Page Content -->
         <main id="content">
             <slot></slot>
         </main>
 
-        <page-footer />
-
+        <PageFooter />
     </div>
 </template>
-
-<script>
-import { defineComponent } from 'vue'
-import JetBanner from '@/Jetstream/Banner.vue'
-import { Head, Link } from '@inertiajs/inertia-vue3';
-import PageHeader from "@/Pages/Shared/PageHeader";
-import PageFooter from "@/Pages/Shared/PageFooter";
-
-export default defineComponent({
-    props: {
-        title: String,
-    },
-    components: {
-        Head,
-        PageHeader,
-        PageFooter,
-        JetBanner,
-        Link,
-    },
-})
-</script>

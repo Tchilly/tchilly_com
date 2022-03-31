@@ -2,12 +2,12 @@
 
 namespace App\Policies;
 
-use App\Models\Blog;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Auth\Access\Response;
 
-class BlogPolicy
+class PostPolicy
 {
     use HandlesAuthorization;
 
@@ -15,9 +15,9 @@ class BlogPolicy
      * Determine whether the user can view any models.
      *
      * @param User $user
-     * @return Response|bool
+     * @return bool
      */
-    public function viewAny(User $user): Response|bool
+    public function viewAny(User $user): bool
     {
         return true;
     }
@@ -26,10 +26,10 @@ class BlogPolicy
      * Determine whether the user can view the model.
      *
      * @param User $user
-     * @param Blog $blog
-     * @return Response|bool
+     * @param Post $post
+     * @return void
      */
-    public function view(User $user, Blog $blog)
+    public function view(User $user, Post $post): void
     {
         //
     }
@@ -38,9 +38,9 @@ class BlogPolicy
      * Determine whether the user can create models.
      *
      * @param User $user
-     * @return Response|bool
+     * @return bool
      */
-    public function create(User $user): Response|bool
+    public function create(User $user): bool
     {
         return true;
     }
@@ -49,10 +49,10 @@ class BlogPolicy
      * Determine whether the user can update the model.
      *
      * @param User $user
-     * @param Blog $blog
+     * @param Post $post
      * @return Response|bool
      */
-    public function update(User $user, Blog $blog): Response|bool
+    public function update(User $user, Post $post)
     {
         return true;
     }
@@ -61,10 +61,10 @@ class BlogPolicy
      * Determine whether the user can delete the model.
      *
      * @param User $user
-     * @param Blog $blog
-     * @return Response|bool
+     * @param Post $post
+     * @return bool
      */
-    public function delete(User $user, Blog $blog)
+    public function delete(User $user, Post $post): bool
     {
         return true;
     }
@@ -73,10 +73,10 @@ class BlogPolicy
      * Determine whether the user can restore the model.
      *
      * @param User $user
-     * @param Blog $blog
+     * @param Post $post
      * @return Response|bool
      */
-    public function restore(User $user, Blog $blog)
+    public function restore(User $user, Post $post)
     {
         //
     }
@@ -85,10 +85,10 @@ class BlogPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param User $user
-     * @param Blog $blog
+     * @param Post $post
      * @return Response|bool
      */
-    public function forceDelete(User $user, Blog $blog)
+    public function forceDelete(User $user, Post $post)
     {
         //
     }

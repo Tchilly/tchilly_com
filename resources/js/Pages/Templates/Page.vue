@@ -1,12 +1,21 @@
+<script setup>
+import { defineProps } from "vue";
+import PublicLayout from "@/Layouts/PublicLayout";
+import ImageDots from "@/Pages/Shared/ImageDots";
+import StaticFeatures from "@/Pages/Shared/StaticFeatures";
+
+defineProps({
+    page: Object,
+});
+</script>
+
 <template>
-    <public-layout title="About">
+    <PublicLayout :title="page.title">
         <div class="overflow-hidden bg-primary-900">
             <article
                 class="relative mx-auto max-w-7xl py-16 px-4 pb-24 sm:px-6 lg:px-8"
             >
-                <header
-                    class="mx-auto text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-8"
-                >
+                <header>
                     <div>
                         <div
                             class="inline-flex items-center rounded-full bg-secondary-800 p-1 pr-2 text-white hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-secondary-300 focus:ring-offset-2 focus:ring-offset-gray-900 sm:text-base lg:text-sm xl:text-base"
@@ -22,7 +31,7 @@
                 </header>
                 <main class="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
                     <div class="relative lg:col-start-2 lg:row-start-1">
-                        <image-dots class="right-0 -mr-16 -mt-16" />
+                        <ImageDots class="right-0 -mr-16 -mt-16" />
                         <div class="relative mx-auto text-base lg:max-w-none">
                             <figure>
                                 <div
@@ -55,26 +64,6 @@
             </article>
         </div>
 
-        <static-features />
-    </public-layout>
+        <StaticFeatures />
+    </PublicLayout>
 </template>
-
-<script>
-import { CameraIcon } from "@heroicons/vue/solid";
-import { defineComponent } from "vue";
-import PublicLayout from "@/Layouts/PublicLayout";
-import ImageDots from "@/Pages/Shared/ImageDots";
-import StaticFeatures from "@/Pages/Shared/StaticFeatures";
-
-export default defineComponent({
-    components: {
-        StaticFeatures,
-        ImageDots,
-        PublicLayout,
-        CameraIcon,
-    },
-    props: {
-        page: Object,
-    },
-});
-</script>

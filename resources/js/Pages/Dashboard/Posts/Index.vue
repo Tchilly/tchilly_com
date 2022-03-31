@@ -1,8 +1,17 @@
+<script setup>
+import { defineProps } from "vue";
+import AppLayout from "@/Layouts/AppLayout.vue";
+
+defineProps({
+    posts: Object,
+});
+</script>
+
 <template>
     <app-layout title="Blogs">
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                Blogs
+                Posts
             </h2>
         </template>
 
@@ -31,30 +40,25 @@
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200 bg-white">
-                            <tr v-for="blog in blogs" :key="blog.id">
+                            <tr v-for="post in posts" :key="post.id">
                                 <td
                                     class="whitespace-nowrap py-4 pl-4 pr-3 text-base font-medium text-gray-900 sm:pl-6"
                                 >
-                                    {{ blog.title }}
-                                    <!--                                    <span-->
-                                    <!--                                        v-if="blog.recently_updated"-->
-                                    <!--                                        class="ml-2 text-sm text-gray-400"-->
-                                    <!--                                        >(Updated recently)</span-->
-                                    <!--                                    >-->
+                                    {{ post.title }}
                                 </td>
                                 <td class="py-3.5 px-3 text-sm text-gray-600">
-                                    {{ blog.category.title ?? "" }}
+                                    {{ post.category.title ?? "" }}
                                 </td>
                                 <td
                                     class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6"
                                 >
                                     <a
                                         :href="
-                                            route('dashboard.blogs.edit', blog)
+                                            route('dashboard.posts.edit', post)
                                         "
                                         class="text-indigo-600 hover:text-indigo-900"
                                         >Edit<span class="sr-only"
-                                            >, {{ blog.id }}</span
+                                            >, {{ post.id }}</span
                                         ></a
                                     >
                                 </td>
@@ -66,19 +70,3 @@
         </div>
     </app-layout>
 </template>
-
-<script>
-import { defineComponent } from "vue";
-import { Link } from "@inertiajs/inertia-vue3";
-import AppLayout from "@/Layouts/AppLayout.vue";
-
-export default defineComponent({
-    components: {
-        AppLayout,
-        Link,
-    },
-    props: {
-        blogs: Object,
-    },
-});
-</script>

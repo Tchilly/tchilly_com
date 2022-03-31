@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Dashboard\BlogController;
 use App\Http\Controllers\Dashboard\PageController;
+use App\Http\Controllers\Dashboard\PostController;
 use App\Http\Controllers\ShowPageController;
+use App\Http\Controllers\ShowPostController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -17,13 +18,20 @@ use Inertia\Inertia;
 |
 */
 
+/**
+ * @ todo, move index into a controller or something
+ */
 Route::get('/', fn() => Inertia::render('Welcome'))->name('index');
-
 
 Route::prefix('dashboard')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->name('dashboard.')->group(function () {
     Route::get('/', fn() => Inertia::render('Dashboard/Index'))->name('index');
     Route::resource('/pages', PageController::class)->except(['show']);
-    Route::resource('/blogs', BlogController::class)->except(['show']);
+    Route::resource('/posts', PostController::class)->except(['show']);
 });
 
+
+// Blog controller
+Route::get('/posts/{post?}', ShowPostController::class)->name('posts');
+
+// Catch all pages
 Route::any('/{page}', ShowPageController::class)->name('page');

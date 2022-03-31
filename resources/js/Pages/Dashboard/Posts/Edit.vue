@@ -1,8 +1,45 @@
+<script setup xmlns="http://www.w3.org/1999/html">
+import { ref } from "vue";
+import AppLayout from "@/Layouts/AppLayout";
+import FormInputError from "@/Components/Form/InputError.vue";
+import FormInput from "@/Components/Form/Input";
+import FormLabel from "@/Components/Form/Label";
+import FormButton from "@/Components/Form/Button";
+import Editor from "@/Components/Form/Editor";
+import { useForm } from "@inertiajs/inertia-vue3";
+import Dialog from "@/Components/Dialog";
+
+const props = defineProps({
+    post: Object,
+    categories: Object,
+});
+
+const isOpen = ref(false);
+
+const setIsOpen = (value) => (isOpen.value = value);
+
+const form = useForm({
+    title: props.post.title,
+    body: props.post.body ?? "",
+    preamble: props.post.preamble ?? "",
+    category_id: props.post.category_id,
+});
+
+const submit = () => {
+    form.put(route("dashboard.posts.update", props.post));
+};
+
+const remove = () => {
+    setIsOpen(false);
+    form.delete(route("dashboard.posts.destroy", props.post));
+};
+</script>
+
 <template>
-    <app-layout title="Blog edit">
+    <AppLayout title="Blog edit">
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                Edit {{ blog.title }}
+                Edit {{ post.title }}
             </h2>
         </template>
 
@@ -13,14 +50,14 @@
                 >
                     <form class="space-y-6" @submit.prevent="submit">
                         <div>
-                            <form-label for="title">Title</form-label>
-                            <form-input
+                            <FormLabel for="title">Title</FormLabel>
+                            <FormInput
                                 id="title"
                                 v-model="form.title"
                                 :error="form.errors.title"
                                 class="py-3"
                             />
-                            <form-input-error
+                            <FormInputError
                                 v-if="form.errors.title"
                                 :message="form.errors.title"
                                 class="mt-2"
@@ -28,17 +65,26 @@
                         </div>
 
                         <div>
-                            <form-label for="body">Body</form-label>
-                            <editor id="body" v-model="form.body" />
+                            <FormLabel for="preamble">Preamble</FormLabel>
+                            <textarea
+                                id="preamble"
+                                v-model="form.preamble"
+                                class="active:ring-none inline-flex h-32 w-full rounded-md border border-gray-300 bg-white px-4 py-2 px-4 py-2 py-3 text-base text-sm font-medium font-medium text-gray-900 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2"
+                            ></textarea>
                         </div>
 
-                        <form-input-error
+                        <div>
+                            <FormLabel for="body">Body</FormLabel>
+                            <Editor id="body" v-model="form.body" />
+                        </div>
+
+                        <FormInputError
                             :message="form.errors.body"
                             class="mt-2"
                         />
 
                         <div>
-                            <form-label for="category_id">Category</form-label>
+                            <FormLabel for="category_id">Category</FormLabel>
 
                             <select
                                 id="category_id"
@@ -54,7 +100,7 @@
                                 </option>
                             </select>
 
-                            <form-input-error
+                            <FormInputError
                                 :message="form.errors.category_id"
                                 class="mt-2"
                             />
@@ -63,7 +109,7 @@
                         <hr />
 
                         <div class="flex justify-between">
-                            <form-button type="submit">Save</form-button>
+                            <FormButton type="submit">Save</FormButton>
                             <button
                                 class="inline-flex justify-center rounded-md border border-transparent bg-white px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2"
                                 removeDialog
@@ -87,7 +133,7 @@
 
             <div class="mt-4">
                 <button
-                    class="bg-red-600 hover:bg-red-700 focus-visible:ring-red-400 inline-flex justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                    class="inline-flex justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400 focus-visible:ring-offset-2"
                     type="button"
                     @click="remove"
                 >
@@ -95,65 +141,5 @@
                 </button>
             </div>
         </Dialog>
-    </app-layout>
+    </AppLayout>
 </template>
-
-<script>
-import { defineComponent, ref } from "vue";
-import AppLayout from "@/Layouts/AppLayout";
-import FormInputError from "@/Components/Form/InputError.vue";
-import FormInput from "@/Components/Form/Input";
-import FormLabel from "@/Components/Form/Label";
-import FormButton from "@/Components/Form/Button";
-import Editor from "@/Components/Form/Editor";
-import { useForm } from "@inertiajs/inertia-vue3";
-import PrimaryButton from "@/Components/PrimaryButton";
-import Dialog from "@/Components/Dialog";
-
-export default defineComponent({
-    components: {
-        Dialog,
-        PrimaryButton,
-        AppLayout,
-        FormInput,
-        FormLabel,
-        FormButton,
-        FormInputError,
-        Editor,
-    },
-    props: {
-        blog: Object,
-        categories: Object,
-    },
-    setup(props) {
-        const isOpen = ref(false);
-
-        function setIsOpen(value) {
-            isOpen.value = value;
-        }
-
-        const form = useForm({
-            title: props.blog.title,
-            body: props.blog.body ?? "",
-            category_id: props.blog.category_id,
-        });
-
-        const submit = () => {
-            form.put(route("dashboard.blogs.update", props.blog));
-        };
-
-        const remove = () => {
-            setIsOpen(false);
-            form.delete(route("dashboard.blogs.destroy", props.blog));
-        };
-
-        return {
-            form,
-            submit,
-            remove,
-            setIsOpen,
-            isOpen,
-        };
-    },
-});
-</script>

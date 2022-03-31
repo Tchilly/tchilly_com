@@ -2,19 +2,19 @@
 
 namespace Database\Seeders;
 
-use App\Models\Blog;
+use App\Models\Post;
 use Illuminate\Database\Seeder;
 
-class BlogSeeder extends Seeder
+class PostSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
-        Blog::factory()
+        Post::factory()
             ->count(200)
             ->create();
     }

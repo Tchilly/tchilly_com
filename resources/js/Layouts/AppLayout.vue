@@ -39,11 +39,11 @@
                                 </JetNavLink>
                                 <JetNavLink
                                     :active="
-                                        route().current('dashboard.blogs*')
+                                        route().current('dashboard.posts*')
                                     "
-                                    :href="route('dashboard.blogs.index')"
+                                    :href="route('dashboard.posts.index')"
                                 >
-                                    Blogs
+                                    Posts
                                 </JetNavLink>
                             </div>
                         </div>

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreBlogRequest extends FormRequest
+class UpdatePostRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -16,7 +16,7 @@ class StoreBlogRequest extends FormRequest
         return [
             'title' => 'required|max:255',
             'body' => 'nullable',
-            'category_id' => 'required|numeric'
+            'category_id' => 'required|numeric',
         ];
     }
 }

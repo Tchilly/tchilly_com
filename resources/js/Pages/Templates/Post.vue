@@ -1,28 +1,40 @@
+<script setup>
+import { defineProps } from "vue";
+import PublicLayout from "@/Layouts/PublicLayout";
+import ImageDots from "@/Pages/Shared/ImageDots";
+import StaticFeatures from "@/Pages/Shared/StaticFeatures";
+
+defineProps({
+    post: Object,
+});
+</script>
+
 <template>
-    <public-layout title="About">
+    <PublicLayout :title="post.title">
         <div class="overflow-hidden bg-primary-900">
             <article
                 class="relative mx-auto max-w-7xl py-16 px-4 pb-24 sm:px-6 lg:px-8"
             >
-                <header
-                    class="mx-auto text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-8"
-                >
+                <header>
                     <div>
-                        <div
-                            class="inline-flex items-center rounded-full bg-secondary-800 p-1 pr-2 text-white hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-secondary-300 focus:ring-offset-2 focus:ring-offset-gray-900 sm:text-base lg:text-sm xl:text-base"
+                        <a
+                            :href="post.category.id"
+                            class="inline-flex items-center rounded-full bg-secondary-800 p-1 pr-2 text-white hover:text-gray-200 hover:underline focus:outline-none focus:ring-2 focus:ring-secondary-300 focus:ring-offset-2 focus:ring-offset-gray-900 sm:text-base lg:text-sm xl:text-base"
                         >
-                            <h2 class="mx-4 text-sm">Blog entry</h2>
-                        </div>
+                            <h2 class="mx-4 text-sm">
+                                {{ post.category.title }}
+                            </h2>
+                        </a>
                         <h1
                             class="mt-4 text-3xl font-extrabold leading-8 tracking-tight text-white sm:text-4xl"
                         >
-                            {{ page.title }}
+                            {{ post.title }}
                         </h1>
                     </div>
                 </header>
                 <main class="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
                     <div class="relative lg:col-start-2 lg:row-start-1">
-                        <image-dots class="right-0 -mr-16 -mt-16" />
+                        <ImageDots class="right-0 -mr-16 -mt-16" />
                         <div class="relative mx-auto text-base lg:max-w-none">
                             <figure>
                                 <div
@@ -50,31 +62,17 @@
                             </figure>
                         </div>
                     </div>
-                    <div class="prose mt-8 lg:mt-0" v-html="page.body"></div>
+                    <div>
+                        <p
+                            class="mt-6 text-3xl font-thin italic leading-10 text-gray-100"
+                            v-html="post.preamble"
+                        ></p>
+                        <div class="prose mt-8" v-html="post.body"></div>
+                    </div>
                 </main>
             </article>
         </div>
 
-        <static-features />
-    </public-layout>
+        <StaticFeatures />
+    </PublicLayout>
 </template>
-
-<script>
-import { CameraIcon } from "@heroicons/vue/solid";
-import { defineComponent } from "vue";
-import PublicLayout from "@/Layouts/PublicLayout";
-import ImageDots from "@/Pages/Shared/ImageDots";
-import StaticFeatures from "@/Pages/Shared/StaticFeatures";
-
-export default defineComponent({
-    components: {
-        StaticFeatures,
-        ImageDots,
-        PublicLayout,
-        CameraIcon,
-    },
-    props: {
-        page: Object,
-    },
-});
-</script>

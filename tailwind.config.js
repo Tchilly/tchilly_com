@@ -17,7 +17,7 @@ module.exports = {
             black: colors.black,
             white: colors.white,
             gray: colors.gray,
-            red: "#EF4423",
+            red: colors.red,
             primary: {
                 DEFAULT: "#8205B4",
                 50: "#D575FB",

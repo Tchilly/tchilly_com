@@ -1,7 +1,18 @@
+<script setup>
+import Cta from "./Shared/Cta";
+import Hero from "./Shared/Hero";
+import Footer from "./Shared/PageFooter";
+import LogoCloud from "./Shared/LogoCloud";
+import Feature from "@/Components/Feature";
+import Features from "@/Components/Features";
+import SecondaryButton from "@/Components/SecondaryButton";
+import PublicLayout from "@/Layouts/PublicLayout";
+</script>
+
 <template>
-    <public-layout title="Welcome">
+    <PublicLayout title="Welcome">
         <template v-slot:header>
-            <hero />
+            <Hero />
         </template>
 
         <div class="bg-primary-900">
@@ -208,78 +219,5 @@
 
             <Cta />
         </div>
-    </public-layout>
+    </PublicLayout>
 </template>
-
-<script>
-import { defineComponent } from "vue";
-import { Head, Link } from "@inertiajs/inertia-vue3";
-import {
-    Popover,
-    PopoverButton,
-    PopoverGroup,
-    PopoverPanel,
-} from "@headlessui/vue";
-import {
-    CodeIcon,
-    DesktopComputerIcon,
-    HeartIcon,
-    ShoppingCartIcon,
-    VolumeUpIcon,
-} from "@heroicons/vue/outline";
-import { ChevronDownIcon } from "@heroicons/vue/solid";
-import Cta from "./Shared/Cta";
-import Hero from "./Shared/Hero";
-import Header from "./Shared/PageHeader";
-import StaticFeatures from "./Shared/StaticFeatures";
-import Footer from "./Shared/PageFooter";
-import LogoCloud from "./Shared/LogoCloud";
-import Metrics from "./Shared/Metrics";
-import Feature from "@/Components/Feature";
-import Features from "@/Components/Features";
-import PrimaryButton from "@/Components/PrimaryButton";
-import SecondaryButton from "@/Components/SecondaryButton";
-import PageHeader from "@/Pages/Shared/PageHeader";
-import PublicLayout from "@/Layouts/PublicLayout";
-
-export default defineComponent({
-    components: {
-        PublicLayout,
-        PageHeader,
-        SecondaryButton,
-        PrimaryButton,
-        Feature,
-        StaticFeatures,
-        Head,
-        Link,
-        Popover,
-        PopoverButton,
-        PopoverGroup,
-        PopoverPanel,
-        ChevronDownIcon,
-        DesktopComputerIcon,
-        CodeIcon,
-        VolumeUpIcon,
-        ShoppingCartIcon,
-        HeartIcon,
-        Cta,
-        Header,
-        Hero,
-        LogoCloud,
-        Features,
-        Footer,
-        Metrics,
-    },
-});
-</script>
-
-<!--<script setup>-->
-<!--import { Head, Link } from '@inertiajs/inertia-vue3';-->
-
-<!--defineProps({-->
-<!--    canLogin: Boolean,-->
-<!--    canRegister: Boolean,-->
-<!--    laravelVersion: String,-->
-<!--    phpVersion: String,-->
-<!--});-->
-<!--</script>-->
