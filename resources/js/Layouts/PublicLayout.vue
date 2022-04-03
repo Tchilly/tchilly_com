@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps } from "vue";
+import { Head, Link } from "@inertiajs/inertia-vue3";
 import JetBanner from "@/Jetstream/Banner.vue";
 import PageHeader from "@/Pages/Shared/PageHeader";
 import PageFooter from "@/Pages/Shared/PageFooter";

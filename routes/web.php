@@ -29,7 +29,6 @@ Route::prefix('dashboard')->middleware(['auth:sanctum', config('jetstream.auth_s
     Route::resource('/posts', PostController::class)->except(['show']);
 });
 
-
 // Blog controller
 Route::get('/posts/{post?}', ShowPostController::class)->name('posts');
 

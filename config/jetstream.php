@@ -76,6 +76,6 @@ return [
     |
     */
 
-    'profile_photo_disk' => 'media',
+    'profile_photo_disk' => env('MEDIA_DISK', 'media'),
 
 ];

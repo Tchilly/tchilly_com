@@ -7,6 +7,13 @@ import Feature from "@/Components/Feature";
 import Features from "@/Components/Features";
 import SecondaryButton from "@/Components/SecondaryButton";
 import PublicLayout from "@/Layouts/PublicLayout";
+import {
+    CodeIcon,
+    DesktopComputerIcon,
+    VolumeUpIcon,
+    ShoppingCartIcon,
+    HeartIcon,
+} from "@heroicons/vue/outline";
 </script>
 
 <template>

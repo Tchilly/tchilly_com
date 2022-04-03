@@ -102,6 +102,8 @@ class PostController extends Controller
     {
         $validated = $request->validated();
 
+        dd($validated);
+
         $post->update($validated);
 
         session()->flash('flash.banner', 'Post updated successfully!');
