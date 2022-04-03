@@ -23,7 +23,7 @@ class ShowPostController extends Controller
             return Inertia::render('Templates/Post', compact('post'));
         }
 
-        $posts = Post::with(['category', 'user'])->get();
+        $posts = Post::with(['category', 'user'])->orderByDesc('created_at')->get();
         return Inertia::render('Posts', compact('posts'));
     }
 }

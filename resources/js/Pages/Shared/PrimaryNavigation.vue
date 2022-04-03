@@ -153,7 +153,7 @@ import { computed, defineComponent } from "vue";
 import Logo from "@/Components/Logo";
 
 const navigation = [
-    { name: "Blog", href: route("page", "posts") },
+    { name: "Blog", href: route("page", "blog") },
     { name: "About me", href: route("page", "about") },
     /*    {name: "Mental", href: route("page", ["about", "#mental"])},*/
 ];

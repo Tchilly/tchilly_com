@@ -30,7 +30,7 @@ class PostController extends Controller
      */
     public function index(): Response
     {
-        $posts = Post::with('category')->orderByDesc('updated_at')->get();
+        $posts = Post::with('category')->orderByDesc('created_at', 'updated_at')->get();
 
         return Inertia::render('Dashboard/Posts/Index', compact('posts'));
     }
@@ -102,9 +102,9 @@ class PostController extends Controller
     {
         $validated = $request->validated();
 
-        dd($validated);
-
         $post->update($validated);
+
+        dd($validated);
 
         session()->flash('flash.banner', 'Post updated successfully!');
         session()->flash('flash.bannerStyle', 'success');

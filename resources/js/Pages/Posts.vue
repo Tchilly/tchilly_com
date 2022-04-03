@@ -1,6 +1,8 @@
 <script setup>
 import { defineProps } from "vue";
 import PublicLayout from "@/Layouts/PublicLayout";
+import MetaData from "@/Pages/Shared/MetaData";
+import { Link, usePage } from "@inertiajs/inertia-vue3";
 
 defineProps({
     posts: Object,
@@ -65,27 +67,27 @@ defineProps({
                         class="flex flex-col overflow-hidden rounded-lg shadow-lg"
                     >
                         <div class="flex-shrink-0">
-                            <a :href="route('posts', post)">
+                            <Link :href="route('posts', post)">
                                 <img
                                     alt=""
                                     class="h-48 w-full object-cover"
                                     src=""
                                 />
-                            </a>
+                            </Link>
                         </div>
                         <div
                             class="flex flex-1 flex-col justify-between bg-white p-6"
                         >
                             <div class="flex-1">
                                 <p class="text-indigo-600 text-sm font-medium">
-                                    <a
-                                        :href="post.category.id"
+                                    <Link
+                                        :href="`#${post.category.id}`"
                                         class="hover:underline"
                                     >
                                         {{ post.category.title }}
-                                    </a>
+                                    </Link>
                                 </p>
-                                <a
+                                <Link
                                     :href="route('posts', post)"
                                     class="mt-2 block"
                                 >
@@ -97,40 +99,9 @@ defineProps({
                                     <p class="mt-3 text-base text-gray-500">
                                         {{ post.preamble }}
                                     </p>
-                                </a>
+                                </Link>
                             </div>
-                            <div class="mt-6 flex items-center">
-                                <div class="flex-shrink-0">
-                                    <a>
-                                        <span class="sr-only">Author</span>
-                                        <img
-                                            :src="post.user.profile_photo_url"
-                                            alt=""
-                                            class="h-10 w-10 rounded-full"
-                                        />
-                                    </a>
-                                </div>
-                                <div class="ml-3">
-                                    <p
-                                        class="text-sm font-medium text-gray-900"
-                                    >
-                                        <a class="hover:underline">
-                                            {{ post.user.name }}
-                                        </a>
-                                    </p>
-                                    <div
-                                        class="flex space-x-1 text-sm text-gray-500"
-                                    >
-                                        <time :datetime="post.created_at">
-                                            {{ post.created_at_formatted }}
-                                        </time>
-                                        <span aria-hidden="true">
-                                            &middot;
-                                        </span>
-                                        <span> {{ post.time_span }} read </span>
-                                    </div>
-                                </div>
-                            </div>
+                            <MetaData :post="post" />
                         </div>
                     </div>
                 </div>

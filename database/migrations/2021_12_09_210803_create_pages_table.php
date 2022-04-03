@@ -19,6 +19,7 @@ class CreatePagesTable extends Migration
             $table->string('slug')->unique();
             $table->longText('body')->nullable();
             $table->string('template');
+            $table->foreignId('user_id');
             $table->softDeletes();
             $table->timestamps();
         });

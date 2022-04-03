@@ -3,6 +3,9 @@ import { defineProps } from "vue";
 import PublicLayout from "@/Layouts/PublicLayout";
 import ImageDots from "@/Pages/Shared/ImageDots";
 import StaticFeatures from "@/Pages/Shared/StaticFeatures";
+import MetaData from "@/Pages/Shared/MetaData";
+import { CameraIcon } from "@heroicons/vue/outline";
+import { Link, usePage } from "@inertiajs/inertia-vue3";
 
 defineProps({
     post: Object,
@@ -17,20 +20,21 @@ defineProps({
             >
                 <header>
                     <div>
-                        <a
-                            :href="post.category.id"
+                        <Link
+                            :href="`#${post.category.id}`"
                             class="inline-flex items-center rounded-full bg-secondary-800 p-1 pr-2 text-white hover:text-gray-200 hover:underline focus:outline-none focus:ring-2 focus:ring-secondary-300 focus:ring-offset-2 focus:ring-offset-gray-900 sm:text-base lg:text-sm xl:text-base"
                         >
                             <h2 class="mx-4 text-sm">
                                 {{ post.category.title }}
                             </h2>
-                        </a>
+                        </Link>
                         <h1
                             class="mt-4 text-3xl font-extrabold leading-8 tracking-tight text-white sm:text-4xl"
                         >
                             {{ post.title }}
                         </h1>
                     </div>
+                    <MetaData :post="post" class="text-white" />
                 </header>
                 <main class="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
                     <div class="relative lg:col-start-2 lg:row-start-1">

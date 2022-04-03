@@ -30,7 +30,7 @@ Route::prefix('dashboard')->middleware(['auth:sanctum', config('jetstream.auth_s
 });
 
 // Blog controller
-Route::get('/posts/{post?}', ShowPostController::class)->name('posts');
+Route::get('/blog/{post?}', ShowPostController::class)->name('posts');
 
 // Catch all pages
 Route::any('/{page}', ShowPageController::class)->name('page');

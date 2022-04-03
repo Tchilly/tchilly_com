@@ -3,6 +3,7 @@ import { defineProps } from "vue";
 import PublicLayout from "@/Layouts/PublicLayout";
 import ImageDots from "@/Pages/Shared/ImageDots";
 import StaticFeatures from "@/Pages/Shared/StaticFeatures";
+import { CameraIcon } from "@heroicons/vue/outline";
 
 defineProps({
     page: Object,

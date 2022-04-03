@@ -15,20 +15,26 @@ const props = defineProps({
 });
 
 const isOpen = ref(false);
+const photoPreview = ref(null);
+const photoInput = ref(null);
 
 const setIsOpen = (value) => (isOpen.value = value);
 
 const form = useForm({
+    _method: "PUT",
     title: props.post.title,
     body: props.post.body ?? "",
     preamble: props.post.preamble ?? "",
     category_id: props.post.category_id,
-    image_upload: props.post.image_upload ? props.post.image_upload : null,
+    photo: null,
 });
 
 const submit = () => {
-    console.log("post");
-    form.put(route("dashboard.posts.update", props.post));
+    if (photoInput.value) {
+        form.photo = photoInput.value.files[0];
+    }
+
+    form.post(route("dashboard.posts.update", props.post));
 };
 
 const remove = () => {
@@ -110,7 +116,9 @@ const remove = () => {
                         </div>
 
                         <div>
-                            <FormLabel for="file">Cover photo</FormLabel>
+                            <FormLabel for="image-upload"
+                                >Cover photo
+                            </FormLabel>
                             <div class="mt-1 sm:col-span-2 sm:mt-0">
                                 <div
                                     class="flex max-w-lg justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6"
@@ -138,12 +146,11 @@ const remove = () => {
                                                 <span>Upload a file</span>
                                                 <input
                                                     id="image-upload"
+                                                    ref="photoInput"
                                                     class="sr-only"
                                                     name="image_upload"
                                                     type="file"
-                                                    v-on:change="
-                                                        form.image_upload
-                                                    "
+                                                    @change="form.photo"
                                                 />
                                             </label>
                                             <p class="pl-1">or drag and drop</p>
