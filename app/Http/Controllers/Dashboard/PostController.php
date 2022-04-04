@@ -10,6 +10,7 @@ use App\Models\Post;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
+use Spatie\MediaLibrary\MediaCollections\Exceptions\MediaCannotBeDeleted;
 
 class PostController extends Controller
 {
@@ -30,7 +31,7 @@ class PostController extends Controller
      */
     public function index(): Response
     {
-        $posts = Post::with('category')->orderByDesc('created_at', 'updated_at')->get();
+        $posts = Post::with('category')->orderByDesc('created_at')->get();
 
         return Inertia::render('Dashboard/Posts/Index', compact('posts'));
     }
@@ -102,14 +103,27 @@ class PostController extends Controller
     {
         $validated = $request->validated();
 
-        $post->update($validated);
+        if (!empty($validated['photo'])) {
+            $post->updatePhoto($validated['photo']);
+        }
 
-        dd($validated);
+        $post->update($validated);
 
         session()->flash('flash.banner', 'Post updated successfully!');
         session()->flash('flash.bannerStyle', 'success');
 
         return redirect()->route('dashboard.posts.index');
+    }
+
+    /**
+     * Delete associated photo
+     * @throws MediaCannotBeDeleted
+     */
+    public function deletePhoto(Post $post): RedirectResponse
+    {
+        $post->deletePhoto();
+
+        return redirect()->back();
     }
 
     /**

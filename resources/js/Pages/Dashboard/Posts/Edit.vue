@@ -1,4 +1,4 @@
-<script setup xmlns="http://www.w3.org/1999/html">
+<script setup>
 import { ref } from "vue";
 import AppLayout from "@/Layouts/AppLayout";
 import FormInputError from "@/Components/Form/InputError.vue";
@@ -8,6 +8,8 @@ import FormButton from "@/Components/Form/Button";
 import Editor from "@/Components/Form/Editor";
 import { useForm } from "@inertiajs/inertia-vue3";
 import Dialog from "@/Components/Dialog";
+import JetSecondaryButton from "@/Jetstream/SecondaryButton.vue";
+import { Inertia } from "@inertiajs/inertia";
 
 const props = defineProps({
     post: Object,
@@ -26,8 +28,10 @@ const form = useForm({
     body: props.post.body ?? "",
     preamble: props.post.preamble ?? "",
     category_id: props.post.category_id,
-    photo: null,
+    photo: props.post.photo,
 });
+
+console.log(props.post);
 
 const submit = () => {
     if (photoInput.value) {
@@ -35,6 +39,39 @@ const submit = () => {
     }
 
     form.post(route("dashboard.posts.update", props.post));
+};
+
+const select = () => {
+    photoInput.value.click();
+};
+
+const update = () => {
+    const photo = photoInput.value.files[0];
+    if (!photo) return;
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+        photoPreview.value = e.target.result;
+    };
+
+    reader.readAsDataURL(photo);
+};
+
+const deletePhoto = () => {
+    Inertia.delete(route("dashboard.posts.delete-photo", props.post), {
+        preserveScroll: true,
+        onSuccess: () => {
+            photoPreview.value = null;
+            clear();
+        },
+    });
+};
+
+const clear = () => {
+    if (photoInput.value?.value) {
+        photoInput.value.value = null;
+    }
+    form.photo = null;
 };
 
 const remove = () => {
@@ -119,9 +156,55 @@ const remove = () => {
                             <FormLabel for="image-upload"
                                 >Cover photo
                             </FormLabel>
-                            <div class="mt-1 sm:col-span-2 sm:mt-0">
+
+                            <div class="mt-1 max-w-md sm:col-span-2 sm:mt-0">
+                                <div v-show="form.photo || photoPreview">
+                                    <div
+                                        class="h-48 overflow-hidden rounded-md"
+                                    >
+                                        <!-- Current Profile Photo -->
+                                        <img
+                                            v-show="form.photo && !photoPreview"
+                                            :alt="form.title"
+                                            :src="form.photo"
+                                            class="block h-full w-full object-cover"
+                                        />
+
+                                        <!-- New Profile Photo Preview -->
+                                        <div
+                                            v-show="photoPreview"
+                                            :style="
+                                                'background-image: url(\'' +
+                                                photoPreview +
+                                                '\');'
+                                            "
+                                            class="h-full bg-cover bg-center bg-no-repeat"
+                                        />
+                                    </div>
+
+                                    <div>
+                                        <JetSecondaryButton
+                                            class="mt-2 mr-2"
+                                            type="button"
+                                            @click.prevent="select"
+                                        >
+                                            Select A New Photo
+                                        </JetSecondaryButton>
+
+                                        <JetSecondaryButton
+                                            v-if="form.photo"
+                                            class="mt-2"
+                                            type="button"
+                                            @click.prevent="deletePhoto"
+                                        >
+                                            Remove Photo
+                                        </JetSecondaryButton>
+                                    </div>
+                                </div>
+
                                 <div
-                                    class="flex max-w-lg justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6"
+                                    v-show="!form.photo && !photoPreview"
+                                    class="align-center flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6"
                                 >
                                     <div class="space-y-1 text-center">
                                         <svg
@@ -138,22 +221,25 @@ const remove = () => {
                                                 stroke-width="2"
                                             ></path>
                                         </svg>
-                                        <div class="flex text-sm text-gray-600">
+
+                                        <div class="text-sm text-gray-600">
                                             <label
                                                 class="text-indigo-600 hover:text-indigo-500 focus-within:ring-indigo-500 relative cursor-pointer rounded-md bg-white font-medium focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2"
-                                                for="image-upload"
+                                                for="image_upload"
                                             >
                                                 <span>Upload a file</span>
                                                 <input
-                                                    id="image-upload"
+                                                    id="image_upload"
                                                     ref="photoInput"
                                                     class="sr-only"
-                                                    name="image_upload"
+                                                    name="photo"
                                                     type="file"
-                                                    @change="form.photo"
+                                                    @change="update"
                                                 />
                                             </label>
-                                            <p class="pl-1">or drag and drop</p>
+                                            <span class="pl-1"
+                                                >or drag and drop</span
+                                            >
                                         </div>
                                         <p class="text-xs text-gray-500">
                                             PNG, JPG, GIF up to 10MB

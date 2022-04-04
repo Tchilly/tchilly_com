@@ -2,12 +2,19 @@
 import { defineProps } from "vue";
 
 defineProps({
-    post: Object,
+    post: {
+        user: Object,
+        created_at: Date,
+        created_at_formatted: Date,
+        updated_at_formatted: Date,
+        recently_updated: Boolean,
+        time_span: String,
+    },
 });
 </script>
 
 <template>
-    <div class="mt-6 flex items-center">
+    <div class="mt-6 flex sm:items-center">
         <div class="flex-shrink-0">
             <a>
                 <span class="sr-only">Author</span>
@@ -24,12 +31,35 @@ defineProps({
                     {{ post.user.name }}
                 </a>
             </p>
-            <div class="flex space-x-1 text-sm text-gray-500">
-                <time :datetime="post.created_at">
-                    {{ post.created_at_formatted }}
+            <div class="text-sm text-gray-500 sm:space-x-1">
+                <time :datetime="post.created_at" class="block sm:inline-block">
+                    {{ `Created: ${post.created_at_formatted}` }}
                 </time>
-                <span aria-hidden="true"> &middot; </span>
-                <span> {{ post.time_span }} read </span>
+
+                <span
+                    v-show="post.recently_updated"
+                    aria-hidden="true"
+                    class="hidden sm:inline-block"
+                    >&middot;</span
+                >
+
+                <span
+                    v-show="post.recently_updated"
+                    class="block sm:inline-block"
+                    >{{
+                        post.recently_updated
+                            ? `Updated: ${post.updated_at_formatted}`
+                            : ""
+                    }}</span
+                >
+
+                <span aria-hidden="true" class="hidden sm:inline-block"
+                    >&middot;</span
+                >
+
+                <span class="block sm:inline-block">
+                    {{ post.time_span }} read
+                </span>
             </div>
         </div>
     </div>

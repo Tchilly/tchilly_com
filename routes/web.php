@@ -26,7 +26,10 @@ Route::get('/', fn() => Inertia::render('Welcome'))->name('index');
 Route::prefix('dashboard')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->name('dashboard.')->group(function () {
     Route::get('/', fn() => Inertia::render('Dashboard/Index'))->name('index');
     Route::resource('/pages', PageController::class)->except(['show']);
+
+    // Posts
     Route::resource('/posts', PostController::class)->except(['show']);
+    Route::delete('/posts/{post}/photo', [PostController::class, 'deletePhoto'])->name('posts.delete-photo');
 });
 
 // Blog controller

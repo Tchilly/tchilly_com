@@ -55,28 +55,28 @@ module.exports = {
             fontFamily: {
                 sans: ["Inter var", ...defaultTheme.fontFamily.sans],
             },
-            typography: {
-                DEFAULT: {
-                    css: {
-                        color: "#fff",
-                        a: {
-                            color: "#00c8af",
-                            "&:hover": {
-                                color: "#1eddc5",
-                            },
-                        },
-                        blockquote: {
-                            color: "#00c8af",
-                        },
-                        h2: {
-                            color: "#E5E7EB",
-                        },
-                        strong: {
-                            color: "#ffffff",
-                        },
-                    },
-                },
-            },
+            // typography: {
+            //     DEFAULT: {
+            //         css: {
+            //             color: "#fff",
+            //             a: {
+            //                 color: "#00c8af",
+            //                 "&:hover": {
+            //                     color: "#1eddc5",
+            //                 },
+            //             },
+            //             blockquote: {
+            //                 color: "#00c8af",
+            //             },
+            //             h2: {
+            //                 color: "#E5E7EB",
+            //             },
+            //             strong: {
+            //                 color: "#ffffff",
+            //             },
+            //         },
+            //     },
+            // },
             dropShadow: {
                 "text-bg": "0 0 10px rgba(0, 0, 0, 1)",
             },

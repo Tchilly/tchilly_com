@@ -68,11 +68,10 @@ defineProps({
                     >
                         <div class="flex-shrink-0">
                             <Link :href="route('posts', post)">
-                                <img
-                                    alt=""
-                                    class="h-48 w-full object-cover"
-                                    src=""
-                                />
+                                <div
+                                    class="aspect-w-8 aspect-h-5 overflow-hidden rounded-t-md"
+                                    v-html="post.photo_image"
+                                ></div>
                             </Link>
                         </div>
                         <div
