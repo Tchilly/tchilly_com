@@ -28,10 +28,8 @@ const form = useForm({
     body: props.post.body ?? "",
     preamble: props.post.preamble ?? "",
     category_id: props.post.category_id,
-    photo: props.post.photo,
+    photo: props.post.photo_object ? props.post.photo : null,
 });
-
-console.log(props.post);
 
 const submit = () => {
     if (photoInput.value) {
@@ -156,6 +154,8 @@ const remove = () => {
                             <FormLabel for="image-upload"
                                 >Cover photo
                             </FormLabel>
+
+                            <!-- @todo Make this into a component -->
 
                             <div class="mt-1 max-w-md sm:col-span-2 sm:mt-0">
                                 <div v-show="form.photo || photoPreview">
