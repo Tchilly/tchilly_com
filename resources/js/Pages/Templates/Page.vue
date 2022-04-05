@@ -60,7 +60,10 @@ defineProps({
                             </figure>
                         </div>
                     </div>
-                    <div class="prose mt-8 lg:mt-0" v-html="page.body"></div>
+                    <div
+                        class="prose prose-invert mt-8 md:prose-lg lg:prose-xl"
+                        v-html="page.body"
+                    ></div>
                 </main>
             </article>
         </div>
