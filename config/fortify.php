@@ -132,7 +132,7 @@ return [
     */
 
     'features' => [
-        Features::registration(),
+        (env('APP_ENV') === 'local' ? Features::registration() : null),
         Features::resetPasswords(),
         // Features::emailVerification(),
         Features::updateProfileInformation(),
