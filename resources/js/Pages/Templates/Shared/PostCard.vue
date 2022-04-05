@@ -16,7 +16,12 @@ const props = defineProps({
                     class="aspect-w-8 aspect-h-5 overflow-hidden rounded-t-md"
                     v-html="post.photo_image"
                 ></div>
-                <img v-else :src="post.photo" />
+                <div
+                    v-else
+                    class="aspect-w-8 aspect-h-5 overflow-hidden rounded-t-md"
+                >
+                    <img :src="post.photo" class="object-cover object-center" />
+                </div>
             </Link>
         </div>
         <div class="flex flex-1 flex-col justify-between bg-white p-6">

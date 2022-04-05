@@ -98,7 +98,7 @@ class Post extends Model implements HasMedia
     {
         $this
             ->addMediaCollection(self::collection_name)
-            ->useFallbackUrl('/images/empty-post.jpg')
+            ->useFallbackUrl('/images/post-fallback-image.png')
             ->singleFile()
             ->withResponsiveImages();
         //
@@ -197,7 +197,7 @@ class Post extends Model implements HasMedia
         return Attribute::make(
             get: fn() => self::getFirstMedia(self::collection_name) ?
                 self::getFirstMedia(self::collection_name)->toHtml() :
-                view('vendor.media-library.image')
+                'null'
         );
     }
 

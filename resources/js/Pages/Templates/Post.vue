@@ -2,9 +2,7 @@
 import { defineProps } from "vue";
 import PublicLayout from "@/Layouts/PublicLayout";
 import ImageDots from "@/Pages/Shared/ImageDots";
-import StaticFeatures from "@/Pages/Shared/StaticFeatures";
 import MetaData from "@/Pages/Shared/MetaData";
-import { CameraIcon } from "@heroicons/vue/outline";
 import { Link, usePage } from "@inertiajs/inertia-vue3";
 import RelatedPosts from "@/Pages/Shared/RelatedPosts";
 
