@@ -19,7 +19,11 @@ defineProps({
             <a>
                 <span class="sr-only">Author</span>
                 <img
-                    :src="post.user.profile_photo_url"
+                    :src="
+                        post.user.profile_photo_url
+                            ? post.user.profile_photo_url
+                            : null
+                    "
                     alt=""
                     class="h-10 w-10 rounded-full"
                 />

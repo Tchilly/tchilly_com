@@ -6,10 +6,14 @@ import StaticFeatures from "@/Pages/Shared/StaticFeatures";
 import MetaData from "@/Pages/Shared/MetaData";
 import { CameraIcon } from "@heroicons/vue/outline";
 import { Link, usePage } from "@inertiajs/inertia-vue3";
+import RelatedPosts from "@/Pages/Shared/RelatedPosts";
 
-defineProps({
+const props = defineProps({
     post: Object,
+    posts: Object,
 });
+
+console.log(props.post);
 </script>
 
 <template>
@@ -38,7 +42,7 @@ defineProps({
                 </header>
                 <main class="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
                     <div
-                        v-show="post.photo"
+                        v-if="post.photo_object"
                         class="relative lg:col-start-2 lg:row-start-1"
                     >
                         <ImageDots class="right-0 -mr-16 -mt-16" />
@@ -48,17 +52,17 @@ defineProps({
                                     class="aspect-w-8 aspect-h-5 overflow-hidden rounded-md shadow-lg"
                                     v-html="post.photo_image"
                                 ></div>
-                                <!--                                <figcaption
-                                                                    class="mt-3 flex text-sm text-gray-300"
-                                                                >
-                                                                    <CameraIcon
-                                                                        aria-hidden="true"
-                                                                        class="h-5 w-5 flex-none text-gray-300"
-                                                                    />
-                                                                    <span class="ml-2"
-                                                                        >Photograph by Marcus O’Leary</span
-                                                                    >
-                                                                </figcaption>-->
+                                <!-- <figcaption
+                                        class="mt-3 flex text-sm text-gray-300"
+                                    >
+                                        <CameraIcon
+                                            aria-hidden="true"
+                                            class="h-5 w-5 flex-none text-gray-300"
+                                        />
+                                        <span class="ml-2"
+                                            >Photograph by Marcus O’Leary</span
+                                        >
+                                    </figcaption> -->
                             </figure>
                         </div>
                     </div>
@@ -76,6 +80,6 @@ defineProps({
             </article>
         </div>
 
-        <StaticFeatures />
+        <RelatedPosts :posts="posts" />
     </PublicLayout>
 </template>

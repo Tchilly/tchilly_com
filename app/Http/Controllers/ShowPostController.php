@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -18,12 +17,11 @@ class ShowPostController extends Controller
     public function __invoke(Post $post = null): Response
     {
         if ($post) {
-            $post->load(['category', 'user']);
-            $post->body = Str::markdown($post->body);
-            return Inertia::render('Templates/Post', compact('post'));
+            $posts = Post::where('category_id', $post->category_id)->limit(3)->get();
+            return Inertia::render('Templates/Post', compact(['post', 'posts']));
         }
 
-        $posts = Post::with(['category', 'user'])->orderByDesc('created_at')->get();
+        $posts = Post::orderByDesc('created_at')->get();
         return Inertia::render('Posts', compact('posts'));
     }
 }

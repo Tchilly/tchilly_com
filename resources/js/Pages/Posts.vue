@@ -1,8 +1,7 @@
 <script setup>
 import { defineProps } from "vue";
 import PublicLayout from "@/Layouts/PublicLayout";
-import MetaData from "@/Pages/Shared/MetaData";
-import { Link, usePage } from "@inertiajs/inertia-vue3";
+import PostCard from "@/Pages/Templates/Shared/PostCard";
 
 defineProps({
     posts: Object,
@@ -61,48 +60,9 @@ defineProps({
                 <div
                     class="mx-auto mt-12 grid max-w-lg gap-5 pt-12 lg:max-w-none lg:grid-cols-3"
                 >
-                    <div
-                        v-for="post in posts"
-                        :key="post.title"
-                        class="flex flex-col overflow-hidden rounded-lg shadow-lg"
-                    >
-                        <div class="flex-shrink-0">
-                            <Link :href="route('posts', post)">
-                                <div
-                                    class="aspect-w-8 aspect-h-5 overflow-hidden rounded-t-md"
-                                    v-html="post.photo_image"
-                                ></div>
-                            </Link>
-                        </div>
-                        <div
-                            class="flex flex-1 flex-col justify-between bg-white p-6"
-                        >
-                            <div class="flex-1">
-                                <p class="text-indigo-600 text-sm font-medium">
-                                    <Link
-                                        :href="`#${post.category.id}`"
-                                        class="hover:underline"
-                                    >
-                                        {{ post.category.title }}
-                                    </Link>
-                                </p>
-                                <Link
-                                    :href="route('posts', post)"
-                                    class="mt-2 block"
-                                >
-                                    <p
-                                        class="text-xl font-semibold text-gray-900"
-                                    >
-                                        {{ post.title }}
-                                    </p>
-                                    <p class="mt-3 text-base text-gray-500">
-                                        {{ post.preamble }}
-                                    </p>
-                                </Link>
-                            </div>
-                            <MetaData :post="post" />
-                        </div>
-                    </div>
+                    <template v-for="post in posts" :key="post.id">
+                        <PostCard :post="post" />
+                    </template>
                 </div>
             </main>
         </div>
