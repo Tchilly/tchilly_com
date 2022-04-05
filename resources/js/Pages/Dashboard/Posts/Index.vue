@@ -1,8 +1,9 @@
 <script setup>
 import { defineProps } from "vue";
+import { Link } from "@inertiajs/inertia-vue3";
 import AppLayout from "@/Layouts/AppLayout.vue";
 
-defineProps({
+const props = defineProps({
     posts: Object,
 });
 </script>
@@ -10,9 +11,17 @@ defineProps({
 <template>
     <app-layout title="Blogs">
         <template #header>
-            <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                Posts
-            </h2>
+            <div class="md:flex md:items-center md:justify-between">
+                <h2 class="text-xl font-semibold leading-tight text-gray-800">
+                    Posts
+                </h2>
+                <Link
+                    :href="route('dashboard.posts.create')"
+                    class="inline-flex items-center rounded-md border border-transparent bg-gray-800 px-4 py-2 text-sm font-semibold uppercase tracking-widest text-white transition hover:bg-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 active:bg-gray-900 disabled:opacity-25"
+                >
+                    Create
+                </Link>
+            </div>
         </template>
 
         <div class="py-12">
