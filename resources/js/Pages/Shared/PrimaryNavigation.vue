@@ -11,7 +11,7 @@
                     >
                         <Link href="/">
                             <span class="sr-only">{{ appName }}</span>
-                            <Logo />
+                            <Logo class="text-white" />
                         </Link>
                         <div class="flex items-center md:hidden">
                             <PopoverButton
