@@ -1,5 +1,5 @@
 <script setup>
-import { useForm, Link } from "@inertiajs/inertia-vue3";
+import { useForm, Link, Head } from "@inertiajs/inertia-vue3";
 import JetAuthenticationCard from "@/Jetstream/AuthenticationCard.vue";
 import Logo from "@/Components/Logo.vue";
 import JetButton from "@/Jetstream/Button.vue";

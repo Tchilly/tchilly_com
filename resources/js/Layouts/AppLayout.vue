@@ -431,7 +431,7 @@
                                             <div class="flex items-center">
                                                 <svg
                                                     v-if="
-                                                        team.id ==
+                                                        team.id ===
                                                         $page.props.user
                                                             .current_team_id
                                                     "
