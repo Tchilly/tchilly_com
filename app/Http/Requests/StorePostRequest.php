@@ -15,8 +15,10 @@ class StorePostRequest extends FormRequest
     {
         return [
             'title' => 'required|max:255',
-            'body' => 'nullable',
+            'body' => 'required',
+            'preamble' => 'string|nullable',
             'category_id' => 'required|numeric',
+            'photo' => 'sometimes|image|mimes:jpg,png|max:10240|nullable'
         ];
     }
 }

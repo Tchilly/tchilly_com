@@ -44,7 +44,7 @@ class PostController extends Controller
     public function create(): Response
     {
         $categories = Category::all();
-        return Inertia::render('Dashboard/Posts/Create', compact(['categories']));
+        return Inertia::render('Dashboard/Posts/CreateEdit', compact(['categories']));
     }
 
     /**
@@ -61,7 +61,11 @@ class PostController extends Controller
             ...$validated
         ];
 
-        Post::create($validated);
+        $post = Post::create($validated);
+
+        if (!empty($validated['photo'])) {
+            $post->updatePhoto($validated['photo']);
+        }
 
         session()->flash('flash.banner', 'Post saved successfully!');
         session()->flash('flash.bannerStyle', 'success');
@@ -89,7 +93,7 @@ class PostController extends Controller
     public function edit(Post $post): Response
     {
         $categories = Category::all();
-        return Inertia::render('Dashboard/Posts/Edit', compact(['post', 'categories']));
+        return Inertia::render('Dashboard/Posts/CreateEdit', compact(['post', 'categories']));
     }
 
     /**
