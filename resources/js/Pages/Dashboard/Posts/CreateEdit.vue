@@ -16,6 +16,7 @@ const props = defineProps({
     categories: Object,
 });
 
+const editable = !!props.post;
 const isOpen = ref(false);
 const photoPreview = ref(null);
 const photoInput = ref(null);
@@ -23,12 +24,11 @@ const photoInput = ref(null);
 const setIsOpen = (value) => (isOpen.value = value);
 
 const form = useForm({
-    _method: "PUT",
-    title: props.post.title,
-    body: props.post.body ?? "",
-    preamble: props.post.preamble ?? "",
-    category_id: props.post.category_id,
-    photo: props.post.photo_object ? props.post.photo : null,
+    title: props.post?.title,
+    body: props.post?.body ?? "",
+    preamble: props.post?.preamble ?? "",
+    category_id: props.post?.category_id,
+    photo: props.post?.photo_object ? props.post.photo : null,
 });
 
 const submit = () => {
@@ -36,7 +36,9 @@ const submit = () => {
         form.photo = photoInput.value.files[0];
     }
 
-    form.post(route("dashboard.posts.update", props.post));
+    editable
+        ? form.put(route("dashboard.posts.update", props.post))
+        : form.post(route("dashboard.posts.store", props.post));
 };
 
 const select = () => {
@@ -82,7 +84,7 @@ const remove = () => {
     <AppLayout title="Blog edit">
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                Edit {{ post.title }}
+                {{ editable ? `Edit ${post.title}` : "Create post" }}
             </h2>
         </template>
 
@@ -115,6 +117,7 @@ const remove = () => {
                                 class="active:ring-none inline-flex h-32 w-full rounded-md border border-gray-300 bg-white px-4 py-2 px-4 py-2 py-3 text-base text-sm font-medium font-medium text-gray-900 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2"
                             ></textarea>
                             <FormInputError
+                                v-if="form.errors.preamble"
                                 :message="form.errors.preamble"
                                 class="mt-2"
                             />
@@ -124,6 +127,7 @@ const remove = () => {
                             <FormLabel for="body">Body</FormLabel>
                             <Editor id="body" v-model="form.body" />
                             <FormInputError
+                                v-if="form.errors.body"
                                 :message="form.errors.body"
                                 class="mt-2"
                             />
