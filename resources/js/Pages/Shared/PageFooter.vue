@@ -9,11 +9,11 @@
                             <h3
                                 class="text-sm font-semibold uppercase tracking-wider text-gray-500"
                             >
-                                Solutions
+                                Services
                             </h3>
                             <ul class="mt-4 space-y-4" role="list">
                                 <li
-                                    v-for="item in footerNavigation.solutions"
+                                    v-for="item in footerNavigation.services"
                                     :key="item.name"
                                 >
                                     <a
@@ -51,11 +51,11 @@
                             <h3
                                 class="text-sm font-semibold uppercase tracking-wider text-gray-500"
                             >
-                                Company
+                                Site
                             </h3>
                             <ul class="mt-4 space-y-4" role="list">
                                 <li
-                                    v-for="item in footerNavigation.company"
+                                    v-for="item in footerNavigation.site"
                                     :key="item.name"
                                 >
                                     <a
@@ -157,29 +157,24 @@ import { computed, defineComponent, h } from "vue";
 import { usePage } from "@inertiajs/inertia-vue3";
 
 const footerNavigation = {
-    solutions: [
-        { name: "Marketing", href: "#" },
-        { name: "Analytics", href: "#" },
-        { name: "Commerce", href: "#" },
-        { name: "Insights", href: "#" },
+    services: [
+        { name: "Programming", href: route("page", "programming") },
+        { name: "Tutoring", href: route("page", "tutoring") },
+        { name: "Courses", href: route("page", "courses") },
     ],
     support: [
-        { name: "Pricing", href: "#" },
-        { name: "Documentation", href: "#" },
-        { name: "Guides", href: "#" },
-        { name: "API Status", href: "#" },
+        { name: "Pricing", href: route("page", "pricing") },
+        { name: "Documentation", href: route("page", "documentation") },
     ],
-    company: [
-        { name: "About", href: "#" },
-        { name: "Blog", href: "#" },
-        { name: "Jobs", href: "#" },
-        { name: "Press", href: "#" },
-        { name: "Partners", href: "#" },
+    site: [
+        { name: "About", href: route("page", "about") },
+        { name: "Blog", href: route("posts") },
+        { name: "Support", href: route("page", "support") },
     ],
     legal: [
-        { name: "Claim", href: "#" },
-        { name: "Privacy", href: "#" },
-        { name: "Terms", href: "#" },
+        // { name: "Claim", href: "#" },
+        { name: "Privacy", href: route("policy.show") },
+        { name: "Terms", href: route("terms.show") },
     ],
     social: [
         /*{
