@@ -155,6 +155,7 @@ import Logo from "@/Components/Logo";
 const navigation = [
     { name: "Blog", href: route("page", "blog") },
     { name: "About me", href: route("page", "about") },
+    { name: "Support", href: route("page", "support") },
     /*    {name: "Mental", href: route("page", ["about", "#mental"])},*/
 ];
 

@@ -51,7 +51,7 @@
                             <h3
                                 class="text-sm font-semibold uppercase tracking-wider text-gray-500"
                             >
-                                Site
+                                Navigation
                             </h3>
                             <ul class="mt-4 space-y-4" role="list">
                                 <li
@@ -89,41 +89,41 @@
                         </div>
                     </div>
                 </div>
-                <div class="mt-12 xl:mt-0">
-                    <h3
-                        class="text-sm font-semibold uppercase tracking-wider text-gray-500"
-                    >
-                        Subscribe to our newsletter
-                    </h3>
-                    <p class="mt-4 text-base text-gray-700">
-                        The latest news, articles, and resources, sent to your
-                        inbox weekly.
-                    </p>
-                    <form class="mt-4 sm:flex sm:max-w-md">
-                        <label class="sr-only" for="email-address"
-                            >Email address</label
-                        >
-                        <input
-                            id="email-address"
-                            autocomplete="email"
-                            class="focus:ring-indigo-500 focus:border-indigo-500 w-full min-w-0 appearance-none rounded-md border border-gray-300 bg-white py-2 px-4 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:placeholder-gray-400 focus:outline-none"
-                            name="email-address"
-                            placeholder="Enter your email"
-                            required=""
-                            type="email"
-                        />
-                        <div
-                            class="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0"
-                        >
-                            <button
-                                class="flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-primary-600 to-primary-600 bg-origin-border px-4 py-3 text-base font-medium text-white shadow-sm hover:from-primary-700 hover:to-primary-700"
-                                type="submit"
-                            >
-                                Subscribe
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                <!--                <div class="mt-12 xl:mt-0">-->
+                <!--                    <h3-->
+                <!--                        class="text-sm font-semibold uppercase tracking-wider text-gray-500"-->
+                <!--                    >-->
+                <!--                        Subscribe to our newsletter-->
+                <!--                    </h3>-->
+                <!--                    <p class="mt-4 text-base text-gray-700">-->
+                <!--                        The latest news, articles, and resources, sent to your-->
+                <!--                        inbox weekly.-->
+                <!--                    </p>-->
+                <!--                    <form class="mt-4 sm:flex sm:max-w-md">-->
+                <!--                        <label class="sr-only" for="email-address"-->
+                <!--                            >Email address</label-->
+                <!--                        >-->
+                <!--                        <input-->
+                <!--                            id="email-address"-->
+                <!--                            autocomplete="email"-->
+                <!--                            class="focus:ring-indigo-500 focus:border-indigo-500 w-full min-w-0 appearance-none rounded-md border border-gray-300 bg-white py-2 px-4 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:placeholder-gray-400 focus:outline-none"-->
+                <!--                            name="email-address"-->
+                <!--                            placeholder="Enter your email"-->
+                <!--                            required=""-->
+                <!--                            type="email"-->
+                <!--                        />-->
+                <!--                        <div-->
+                <!--                            class="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0"-->
+                <!--                        >-->
+                <!--                            <button-->
+                <!--                                class="flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-primary-600 to-primary-600 bg-origin-border px-4 py-3 text-base font-medium text-white shadow-sm hover:from-primary-700 hover:to-primary-700"-->
+                <!--                                type="submit"-->
+                <!--                            >-->
+                <!--                                Subscribe-->
+                <!--                            </button>-->
+                <!--                        </div>-->
+                <!--                    </form>-->
+                <!--                </div>-->
             </div>
             <div
                 class="mt-12 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between lg:mt-16"
@@ -145,7 +145,7 @@
                     </a>
                 </div>
                 <p class="mt-8 text-base text-gray-500 md:order-1 md:mt-0">
-                    &copy; 2021 {{ appName }}. All rights reserved.
+                    &copy; 2022 {{ appName }}. All rights reserved.
                 </p>
             </div>
         </div>
