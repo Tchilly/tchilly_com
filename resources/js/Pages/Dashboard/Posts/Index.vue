@@ -53,7 +53,11 @@ const props = defineProps({
                                 <td
                                     class="whitespace-nowrap py-4 pl-4 pr-3 text-base font-medium text-gray-900 sm:pl-6"
                                 >
-                                    {{ post.title }}
+                                    <Link
+                                        :href="route('posts.show', post)"
+                                        class="text-primary-500 hover:text-primary-600 hover:underline"
+                                        >{{ post.title }}
+                                    </Link>
                                 </td>
                                 <td class="py-3.5 px-3 text-sm text-gray-600">
                                     {{ post.category.title ?? "" }}

@@ -30,41 +30,10 @@ defineProps({
                         </h1>
                     </div>
                 </header>
-                <main class="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
-                    <div class="relative lg:col-start-2 lg:row-start-1">
-                        <ImageDots class="right-0 -mr-16 -mt-16" />
-                        <div class="relative mx-auto text-base lg:max-w-none">
-                            <figure>
-                                <div
-                                    class="aspect-w-12 aspect-h-7 lg:aspect-none"
-                                >
-                                    <img
-                                        alt="Whitney leaning against a railing on a downtown street"
-                                        class="rounded-lg object-cover object-center shadow-lg"
-                                        height="1376"
-                                        src="https://images.unsplash.com/photo-1546913199-55e06682967e?ixlib=rb-1.2.1&auto=format&fit=crop&crop=focalpoint&fp-x=.735&fp-y=.55&w=1184&h=1376&q=80"
-                                        width="1184"
-                                    />
-                                </div>
-                                <figcaption
-                                    class="mt-3 flex text-sm text-gray-300"
-                                >
-                                    <CameraIcon
-                                        aria-hidden="true"
-                                        class="h-5 w-5 flex-none text-gray-300"
-                                    />
-                                    <span class="ml-2"
-                                        >Photograph by Marcus O’Leary</span
-                                    >
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                    <div
-                        class="prose prose-invert mt-8 md:prose-lg lg:prose-xl"
-                        v-html="page.body"
-                    ></div>
-                </main>
+                <main
+                    class="prose prose-invert mt-8 mt-8 md:prose-lg lg:prose-xl"
+                    v-html="page.body"
+                />
             </article>
         </div>
 

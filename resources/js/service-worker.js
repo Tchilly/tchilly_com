@@ -1,12 +1,12 @@
-import { CacheFirst } from 'workbox-strategies/CacheFirst';
-import { ExpirationPlugin } from 'workbox-expiration/ExpirationPlugin';
-import { precacheAndRoute } from 'workbox-precaching/precacheAndRoute';
-import { registerRoute } from 'workbox-routing/registerRoute';
+import {CacheFirst} from 'workbox-strategies/CacheFirst';
+import {ExpirationPlugin} from 'workbox-expiration/ExpirationPlugin';
+import {precacheAndRoute} from 'workbox-precaching/precacheAndRoute';
+import {registerRoute} from 'workbox-routing/registerRoute';
 // importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
 
-import { clientsClaim } from 'workbox-core';
-import { NetworkFirst } from 'workbox-strategies';
-import { StaleWhileRevalidate } from 'workbox-strategies';
+import {clientsClaim} from 'workbox-core';
+import {NetworkFirst} from 'workbox-strategies';
+import {StaleWhileRevalidate} from 'workbox-strategies';
 
 (() => {
     'use strict'
@@ -16,7 +16,7 @@ import { StaleWhileRevalidate } from 'workbox-strategies';
     registerRoute(
         /\.(?:png|jpg|jpeg|svg)$/,
         new CacheFirst({
-            cacheName: 'images1',
+            cacheName: 'images',
             plugins: [
                 new ExpirationPlugin({
                     maxEntries: 20,
@@ -55,12 +55,12 @@ import { StaleWhileRevalidate } from 'workbox-strategies';
         "GET"
     )
 
-/*    registerRoute(
-        '/user/sw.js',
-        new NetworkFirst({
-            cacheName: 'push-sw',
-        })
-    )*/
+    /*    registerRoute(
+            '/user/sw.js',
+            new NetworkFirst({
+                cacheName: 'push-sw',
+            })
+        )*/
 
     registerRoute(
         /[\/\/]{2}.*[\/]{1}.*$/,
@@ -80,6 +80,7 @@ import { StaleWhileRevalidate } from 'workbox-strategies';
             self.skipWaiting();
         }
     });
+
     self.addEventListener('install', function (event) {
         // The promise that skipWaiting() returns can be safely ignored.
         self.skipWaiting();
@@ -171,7 +172,7 @@ import { StaleWhileRevalidate } from 'workbox-strategies';
          * @param  {String} subscription.endpoint
          * @return {Response}
          */
-        dismissNotification({ notification }, { endpoint }) {
+        dismissNotification({notification}, {endpoint}) {
             if (!notification.data || !notification.data.id) {
                 return
             }

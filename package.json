@@ -20,6 +20,7 @@
         "@tailwindcss/line-clamp": "^0.3.1",
         "@tailwindcss/typography": "^0.5.2",
         "@vue/compiler-sfc": "^3.2.31",
+        "autoprefixer": "^10.4.4",
         "axios": "^0.26.1",
         "copy-webpack-plugin": "^10.2.4",
         "laravel-mix": "^6.0.43",
@@ -33,15 +34,17 @@
         "tailwindcss": "^3.0.0",
         "vue": "^3.2.31",
         "vue-loader": "^17.0.0",
-        "workbox-core": "^6.5.1",
+        "workbox-core": "^6.5.3",
         "workbox-expiration": "^6.5.1",
         "workbox-precaching": "^6.5.1",
         "workbox-routing": "^6.5.1",
         "workbox-strategies": "^6.5.1",
-        "workbox-webpack-plugin": "^6.5.1"
+        "workbox-webpack-plugin": "^6.3.0"
     },
     "dependencies": {
         "@heroicons/vue": "^1.0.5",
-        "@toast-ui/editor": "^3.1.2"
+        "@toast-ui/editor": "^3.1.2",
+        "@toast-ui/editor-plugin-code-syntax-highlight": "^3.0.0",
+        "prismjs": "^1.27.0"
     }
 }

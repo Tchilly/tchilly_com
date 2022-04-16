@@ -24,12 +24,24 @@ const photoInput = ref(null);
 const setIsOpen = (value) => (isOpen.value = value);
 
 const form = useForm({
+    id: props.post?.id,
     title: props.post?.title,
     body: props.post?.body ?? "",
     preamble: props.post?.preamble ?? "",
-    category_id: props.post?.category_id,
+    category_id: props.post?.category_id ?? 1,
+    time_span: props.post?.time_span ?? null,
     photo: props.post?.photo_object ? props.post.photo : null,
 });
+
+const time_spans = [
+    { name: "Unspecified", value: null },
+    { name: "One minute", value: 60 },
+    { name: "5 minutes", value: 300 },
+    { name: "10 minutes", value: 600 },
+    { name: "15 minutes", value: 900 },
+    { name: "30 minutes", value: 1800 },
+    { name: "One hour or more", value: 3600 },
+];
 
 const submit = () => {
     if (photoInput.value) {
@@ -37,17 +49,23 @@ const submit = () => {
     }
 
     editable
-        ? form.put(route("dashboard.posts.update", props.post))
-        : form.post(route("dashboard.posts.store", props.post));
+        ? form.post(
+              route("dashboard.posts.update", {
+                  _method: "put",
+                  post: props.post,
+              })
+          )
+        : form.post(route("dashboard.posts.store"));
 };
 
 const select = () => {
     photoInput.value.click();
 };
 
-const update = () => {
+const updateImage = () => {
     const photo = photoInput.value.files[0];
     if (!photo) return;
+
     const reader = new FileReader();
 
     reader.onload = (e) => {
@@ -93,7 +111,11 @@ const remove = () => {
                 <div
                     class="overflow-hidden rounded-lg bg-white p-4 shadow-xl sm:p-6 lg:p-8"
                 >
-                    <form class="space-y-6" @submit.prevent="submit">
+                    <form
+                        class="space-y-6"
+                        enctype="multipart/form-data"
+                        @submit.prevent="submit"
+                    >
                         <div>
                             <FormLabel for="title">Title</FormLabel>
                             <FormInput
@@ -155,6 +177,31 @@ const remove = () => {
                         </div>
 
                         <div>
+                            <FormLabel for="category_id">Timespan</FormLabel>
+                            <select
+                                id="time_span"
+                                v-model="form.time_span"
+                                class="rounded-md border border-gray-300 px-4 py-2 text-base font-medium shadow-sm hover:border-gray-400 focus:border-gray-400 focus:outline-none focus:ring-gray-500 focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2"
+                            >
+                                <option
+                                    v-for="time_span in time_spans"
+                                    :key="time_span.name"
+                                    :value="time_span.value"
+                                >
+                                    {{ time_span.name }}
+                                </option>
+                            </select>
+
+                            <p class="mt-1 text-sm text-gray-600">
+                                The time it takes to read the post.
+                            </p>
+                            <FormInputError
+                                :message="form.errors.time_span"
+                                class="mt-2"
+                            />
+                        </div>
+
+                        <div>
                             <FormLabel for="image-upload"
                                 >Cover photo
                             </FormLabel>
@@ -168,7 +215,7 @@ const remove = () => {
                                     >
                                         <!-- Current Profile Photo -->
                                         <img
-                                            v-show="form.photo && !photoPreview"
+                                            v-if="form.photo && !photoPreview"
                                             :alt="form.title"
                                             :src="form.photo"
                                             class="block h-full w-full object-cover"
@@ -238,7 +285,7 @@ const remove = () => {
                                                     class="sr-only"
                                                     name="photo"
                                                     type="file"
-                                                    @change="update"
+                                                    @change="updateImage"
                                                 />
                                             </label>
                                             <span class="pl-1"
@@ -250,6 +297,7 @@ const remove = () => {
                                         </p>
                                     </div>
 
+                                    <!-- @todo Needs it's own progress thing, using global now (pressing save triggers this) -->
                                     <progress
                                         v-if="form.progress"
                                         :value="form.progress.percentage"
@@ -260,7 +308,7 @@ const remove = () => {
                                 </div>
                             </div>
                             <FormInputError
-                                :message="form.errors.image_upload"
+                                :message="form.errors.photo"
                                 class="mt-2"
                             />
                         </div>

@@ -1,5 +1,7 @@
 <script setup>
-import JetAuthenticationCardLogo from "@/Jetstream/AuthenticationCardLogo.vue";
+import Logo from "@/Components/Logo";
+import { Head, Link } from "@inertiajs/inertia-vue3";
+import PublicLayout from "@/Layouts/PublicLayout";
 
 defineProps({
     terms: String,
@@ -7,20 +9,13 @@ defineProps({
 </script>
 
 <template>
-    <Head title="Terms of Service" />
-
-    <div class="font-sans text-gray-900 antialiased">
-        <div class="bg-gray-100 pt-4">
-            <div class="flex min-h-screen flex-col items-center pt-6 sm:pt-0">
-                <div>
-                    <JetAuthenticationCardLogo />
-                </div>
-
-                <div
-                    class="prose mt-6 w-full overflow-hidden bg-white p-6 shadow-md sm:max-w-2xl sm:rounded-lg"
-                    v-html="terms"
-                />
-            </div>
+    <PublicLayout title="Terms of service">
+        <div class="overflow-hidden bg-primary-900">
+            <main
+                class="relative mx-auto max-w-7xl divide-y-2 divide-primary-700 py-16 px-4 pb-24 sm:px-6 lg:px-8"
+            >
+                <div class="prose prose-invert" v-html="terms" />
+            </main>
         </div>
-    </div>
+    </PublicLayout>
 </template>

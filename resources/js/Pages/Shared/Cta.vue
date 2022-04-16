@@ -1,18 +1,16 @@
 <template>
-    <div class="bg-primary-800">
+    <div class="bg-primary-900">
         <div
             class="mx-auto max-w-4xl py-16 px-4 sm:px-6 sm:py-24 lg:flex lg:max-w-7xl lg:items-center lg:justify-between lg:px-8"
         >
-            <h2
-                class="text-4xl font-extrabold tracking-tight text-primary-100 sm:text-4xl"
-            >
-                <span class="block">Follow me on Twitch</span>
-                <span
-                    class="block bg-gradient-to-r from-primary-400 to-primary-500 bg-clip-text text-transparent"
-                >
+            <div>
+                <h2 class="text-4xl font-extrabold text-white sm:text-4xl">
+                    <span class="block">Follow me on Twitch and Youtube</span>
+                </h2>
+                <p class="block text-2xl text-primary-300">
                     And don't forget to subscribe.
-                </span>
-            </h2>
+                </p>
+            </div>
             <div class="mt-6 space-x-4">
                 <Link
                     :href="route('page', 'support')"

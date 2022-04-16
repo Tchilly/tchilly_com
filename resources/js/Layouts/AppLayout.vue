@@ -13,9 +13,7 @@
                             <!-- Logo -->
                             <div class="flex shrink-0 items-center">
                                 <Link :href="route('index')">
-                                    <JetApplicationMark
-                                        class="block h-9 w-auto"
-                                    />
+                                    <Logo class="text-gray-800" />
                                 </Link>
                             </div>
 
@@ -475,7 +473,7 @@
 
 <script>
 import { defineComponent } from "vue";
-import JetApplicationMark from "@/Jetstream/ApplicationMark.vue";
+import Logo from "@/Components/Logo";
 import JetBanner from "@/Jetstream/Banner.vue";
 import JetDropdown from "@/Jetstream/Dropdown.vue";
 import JetDropdownLink from "@/Jetstream/DropdownLink.vue";
@@ -490,7 +488,7 @@ export default defineComponent({
 
     components: {
         Head,
-        JetApplicationMark,
+        Logo,
         JetBanner,
         JetDropdown,
         JetDropdownLink,

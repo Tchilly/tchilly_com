@@ -17,7 +17,9 @@ mix.js("resources/js/app.js", "public/js")
     .vue()
     .postCss("resources/css/app.css", "public/css", [
         require("postcss-import"),
+        require("tailwindcss/nesting"),
         require("tailwindcss"),
+        require("autoprefixer"),
     ])
     .copyDirectory("resources/images", "public/images")
     .webpackConfig(require("./webpack.config"))

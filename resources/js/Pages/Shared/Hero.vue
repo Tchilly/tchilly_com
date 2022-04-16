@@ -1,5 +1,7 @@
 <template>
-    <div class="bg-primary-900 md:overflow-hidden">
+    <section
+        class="bg-gradient-to-br from-dark to-primary-900 md:overflow-hidden"
+    >
         <div
             class="relative mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
         >
@@ -9,13 +11,13 @@
                 >
                     <div class="py-6 sm:py-8 md:py-16 lg:py-24">
                         <a
-                            class="inline-flex items-center rounded-full bg-secondary-800 p-1 pr-2 text-white shadow-lg hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-secondary-300 focus:ring-offset-2 focus:ring-offset-gray-900 sm:text-base lg:text-sm xl:text-base"
+                            class="focus:ring-secondary-300 group inline-flex items-center rounded-full bg-dark-300 p-1 pr-2 text-white shadow-lg hover:bg-dark-200 hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 sm:text-base lg:text-sm xl:text-base"
                             href="https://www.twitch.tv/tchilly_tv/schedule"
                             rel="noreferrer"
                             target="_blank"
                         >
                             <span
-                                class="rounded-full bg-secondary-600 px-3 py-0.5 text-xs font-semibold uppercase leading-5 tracking-wide text-white"
+                                class="rounded-full bg-red-700 px-3 py-0.5 text-xs font-semibold uppercase leading-5 tracking-wide text-white group-hover:bg-red-600"
                                 >Live</span
                             >
                             <span class="ml-4 text-sm"
@@ -29,10 +31,10 @@
                         <h1
                             class="mt-4 text-3xl font-bold tracking-tight text-white sm:mt-5 sm:text-4xl lg:mt-6 xl:text-5xl"
                         >
-                            <span class="block">Tchilly</span>
+                            <h1 class="block">Hey, and welcome!</h1>
                             <span
-                                class="block text-2xl text-primary-200 sm:text-3xl xl:text-4xl"
-                                >It's okay to be childish</span
+                                class="block text-xl text-primary-300 sm:text-2xl xl:text-3xl"
+                                >When is it okay to be a bit childish?</span
                             >
                         </h1>
                         <p
@@ -47,13 +49,13 @@
                                 class="mt-3 sm:mt-0 sm:flex sm:max-w-sm xl:max-w-md"
                             >
                                 <a
-                                    class="block flex w-full items-center rounded-md bg-gradient-to-r from-primary-600 to-primary-500 py-3 px-4 font-medium text-white shadow-lg hover:from-primary-500 hover:to-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-200 focus:ring-offset-2 focus:ring-offset-primary-900"
+                                    class="button large primary"
                                     href="https://twitch.tv/tchilly_tv"
                                     rel="noreferrer"
                                     target="_blank"
                                 >
                                     <PlayIcon class="mr-2 h-8 w-8 text-white" />
-                                    <span>Watch</span>
+                                    <span>Check my content yo!</span>
                                 </a>
                                 <!--                                <a href="https://subs.twitch.tv/tchilly_tv" class="block flex items-center w-full py-3 px-4 rounded-md shadow bg-red-500 text-white font-medium hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-300 focus:ring-offset-gray-900">
                                                                     <PlayIcon class="w-8 h-8 text-white mr-2" />
@@ -83,7 +85,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>

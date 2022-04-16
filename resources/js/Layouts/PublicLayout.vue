@@ -1,9 +1,18 @@
 <script setup>
-import { defineProps } from "vue";
 import { Head } from "@inertiajs/inertia-vue3";
 import JetBanner from "@/Jetstream/Banner.vue";
 import PageHeader from "@/Pages/Shared/PageHeader";
 import PageFooter from "@/Pages/Shared/PageFooter";
+import Prism from "prismjs";
+import "prismjs/components/prism-clike.js";
+import "prismjs/components/prism-markup-templating.js";
+import "prismjs/components/prism-markup.js";
+import "prismjs/components/prism-php.js";
+import "prismjs/components/prism-css.js";
+import "prismjs/components/prism-scss.js";
+import "prismjs/components/prism-json.js";
+import "prismjs/components/prism-bash.js";
+import "prismjs/components/prism-javascript.js";
 
 defineProps({
     title: String,
@@ -11,10 +20,8 @@ defineProps({
 </script>
 
 <template>
-    <div>
+    <div class="flex h-full min-h-screen flex-col bg-dark">
         <Head :title="title" />
-
-        <a class="skip-to-content-link" href="#content">Jump to content</a>
 
         <JetBanner />
 
@@ -25,7 +32,7 @@ defineProps({
         </PageHeader>
 
         <!-- Page Content -->
-        <main id="content">
+        <main id="content" class="flex-grow">
             <slot></slot>
         </main>
 

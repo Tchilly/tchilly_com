@@ -1,5 +1,28 @@
+<script setup>
+import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
+import { MenuIcon, XIcon } from "@heroicons/vue/outline";
+import { Link, usePage } from "@inertiajs/inertia-vue3";
+import { computed, defineComponent } from "vue";
+import Logo from "@/Components/Logo";
+
+const navigation = [
+    { name: "Blog", href: route("posts.show", false, false) },
+    { name: "About me", href: route("page", "about", false) },
+    { name: "Contact", href: route("page", "contact", false) },
+    /*    {name: "Mental", href: route("page", ["about", "#mental"])},*/
+];
+
+const appName = computed(() => usePage().props.value.appName);
+const canLogin = computed(() => usePage().props.value.canLogin);
+const canRegister = computed(() => usePage().props.value.canRegister);
+
+const logout = () => {
+    this.$inertia.post(route("logout"));
+};
+</script>
+
 <template>
-    <Popover as="nav" class="relative bg-primary-900">
+    <Popover as="nav" class="relative">
         <div class="lg:py:8 py-4 sm:py-6 md:py-7">
             <div
                 aria-label="Global"
@@ -11,7 +34,7 @@
                     >
                         <Link href="/">
                             <span class="sr-only">{{ appName }}</span>
-                            <Logo class="text-white" />
+                            <Logo class="text-gray-300 hover:text-white" />
                         </Link>
                         <div class="flex items-center md:hidden">
                             <PopoverButton
@@ -26,8 +49,13 @@
                         <Link
                             v-for="item in navigation"
                             :key="item.name"
+                            :class="{
+                                'text-primary-300': $page.url.startsWith(
+                                    item.href
+                                ),
+                            }"
                             :href="item.href"
-                            class="text-base font-medium text-white hover:text-gray-300"
+                            class="text-base font-medium text-gray-300 hover:text-white"
                             >{{ item.name }}
                         </Link>
                     </div>
@@ -144,48 +172,3 @@
         </transition>
     </Popover>
 </template>
-
-<script>
-import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
-import { MenuIcon, XIcon } from "@heroicons/vue/outline";
-import { Link, usePage } from "@inertiajs/inertia-vue3";
-import { computed, defineComponent } from "vue";
-import Logo from "@/Components/Logo";
-
-const navigation = [
-    { name: "Blog", href: route("page", "blog") },
-    { name: "About me", href: route("page", "about") },
-    { name: "Support", href: route("page", "support") },
-    /*    {name: "Mental", href: route("page", ["about", "#mental"])},*/
-];
-
-export default defineComponent({
-    components: {
-        Logo,
-        Link,
-        Popover,
-        PopoverButton,
-        PopoverPanel,
-        MenuIcon,
-        XIcon,
-    },
-
-    setup() {
-        const appName = computed(() => usePage().props.value.appName);
-        const canLogin = computed(() => usePage().props.value.canLogin);
-        const canRegister = computed(() => usePage().props.value.canRegister);
-
-        const logout = () => {
-            this.$inertia.post(route("logout"));
-        };
-
-        return {
-            navigation,
-            logout,
-            appName,
-            canLogin,
-            canRegister,
-        };
-    },
-});
-</script>

@@ -17,7 +17,7 @@
                 y="0"
             >
                 <rect
-                    class="text-primary-700"
+                    class="text-dark-800"
                     fill="currentColor"
                     height="4"
                     width="4"

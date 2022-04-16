@@ -1,25 +1,10 @@
 @import 'tailwindcss/base';
+@import "./base.css";
+
 @import 'tailwindcss/components';
+@import "./components.css";
+
 @import 'tailwindcss/utilities';
+@import "./utilities.css";
 
-@layer utilities {
-    .skip-to-content-link {
-        background: #111827;
-        color: #f3f4f6;
-        font-size: 16px;
-        left: calc(50% - 100px);
-        padding: 8px 0;
-        text-align: center;
-        position: absolute;
-        transform: translateY(-100%);
-        transition: transform 0.3s;
-        width: 200px;
-        z-index: 1;
-    }
-
-    .skip-to-content-link:focus {
-        transform: translateY(0%);
-    }
-
-}
-
+@import 'prismjs/themes/prism.css';

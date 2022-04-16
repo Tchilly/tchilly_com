@@ -23,12 +23,17 @@ use Spatie\Sluggable\SlugOptions;
 
 /**
  * @property mixed $updated_at
+ * @property mixed $created_at
+ * @property mixed $time_span
+ * @property mixed $preamble
+ * @property mixed $category_id
  */
 class Post extends Model implements HasMedia
 {
     use HasFactory, HasSlug, InteractsWithMedia;
 
     protected const collection_name = "post";
+    protected const truncated_lenght = 120;
 
     /**
      * The attributes that are mass assignable.
@@ -40,7 +45,8 @@ class Post extends Model implements HasMedia
         'body',
         'preamble',
         'category_id',
-        'user_id'
+        'user_id',
+        'time_span',
     ];
 
     /**
@@ -64,8 +70,19 @@ class Post extends Model implements HasMedia
         'photo_image',
         'created_at_formatted',
         'updated_at_formatted',
-        'has_been_updated',
-        'recently_updated'
+        'time_span_formatted',
+        'is_updated',
+        'recently_updated',
+        'truncated_preamble',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'deleted_at'
     ];
 
     /**
@@ -132,7 +149,7 @@ class Post extends Model implements HasMedia
     }
 
     /*************************************************
-     * Attributes
+     * Relations
      *
      *************************************************/
 
@@ -150,6 +167,24 @@ class Post extends Model implements HasMedia
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    /*************************************************
+     * Attributes
+     *
+     *************************************************/
+
+    /**
+     * Return a truncated preamble with fallback.
+     *
+     * @return Attribute
+     */
+    protected function truncatedPreamble(): Attribute
+    {
+        return Attribute::make(
+            get: fn() => str($this->preamble)->limit(self::truncated_lenght) ?:
+                str($this->body)->limit(self::truncated_lenght)
+        );
     }
 
     /**
@@ -186,7 +221,7 @@ class Post extends Model implements HasMedia
         return Attribute::make(
             get: fn() => self::getFirstMedia(self::collection_name) ?
                 self::getFirstMedia(self::collection_name)->toHtml() :
-                'null'
+                null
         );
     }
 
@@ -207,7 +242,7 @@ class Post extends Model implements HasMedia
      *
      * @return Attribute
      */
-    protected function hasBeenUpdated(): Attribute
+    protected function isUpdated(): Attribute
     {
         return Attribute::make(
             get: fn() => $this->updated_at->greaterThan($this->created_at)
@@ -226,11 +261,6 @@ class Post extends Model implements HasMedia
         );
     }
 
-    /*************************************************
-     * Relations
-     *
-     *************************************************/
-
     /**
      * Return a formatted updated_at.
      *
@@ -248,11 +278,14 @@ class Post extends Model implements HasMedia
      *
      * @return Attribute
      */
-    protected function timeSpan(): Attribute
+    protected function timeSpanFormatted(): Attribute
     {
         return Attribute::make(
-            get: fn($value) => CarbonInterval::seconds($value)->cascade()->forHumans()
+            get: fn() => $this->time_span ?
+                CarbonInterval::seconds($this->time_span)->cascade()->forHumans() . ' read' :
+                null
         );
     }
+
 
 }

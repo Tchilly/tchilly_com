@@ -1,5 +1,5 @@
 <template>
-    <div class="relative overflow-hidden py-6 md:py-8 lg:py-12">
+    <div class="relative flex flex-col overflow-hidden">
         <slot></slot>
     </div>
 </template>

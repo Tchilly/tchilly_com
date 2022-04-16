@@ -1,7 +1,7 @@
 <template>
     <figure class="flex items-center">
         <svg
-            class="h-8 w-8 text-primary-400"
+            class="h-8 w-8 text-primary-500"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Dashboard\PageController;
 use App\Http\Controllers\Dashboard\PostController;
 use App\Http\Controllers\ShowPageController;
+use App\Http\Controllers\ShowPostCategoryController;
 use App\Http\Controllers\ShowPostController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -33,7 +34,8 @@ Route::prefix('dashboard')->middleware(['auth:sanctum', config('jetstream.auth_s
 });
 
 // Blog controller
-Route::get('/blog/{post?}', ShowPostController::class)->name('posts');
+Route::get('/blog/{post?}', ShowPostController::class)->name('posts.show');
+Route::get('/blog/category/{category}', ShowPostCategoryController::class)->name('posts.category');
 
 // Catch all pages
 Route::any('/{page}', ShowPageController::class)->name('page');

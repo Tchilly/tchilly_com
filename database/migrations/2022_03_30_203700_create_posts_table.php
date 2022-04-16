@@ -21,6 +21,7 @@ return new class extends Migration {
             $table->integer('time_span')->nullable()->comment('Time in seconds');
             $table->foreignId('category_id');
             $table->foreignId('user_id');
+            $table->datetime('published_at')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
