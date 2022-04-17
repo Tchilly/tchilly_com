@@ -50,9 +50,8 @@ const logout = () => {
                             v-for="item in navigation"
                             :key="item.name"
                             :class="{
-                                'text-primary-300': $page.url.startsWith(
-                                    item.href
-                                ),
+                                'text-primary-300 hover:text-primary-200':
+                                    $page.url.startsWith(item.href),
                             }"
                             :href="item.href"
                             class="text-base font-medium text-gray-300 hover:text-white"

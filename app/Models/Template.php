@@ -11,8 +11,11 @@ class Template extends Model
 
     /* Available templates */
     public $templates = [
-        ['name' => 'Blog'],
-        ['name' => 'Page']
+        //['name' => 'Blog'],
+        ['name' => 'Page'],
+        ['name' => 'PageAbout'],
+        ['name' => 'PageContact'],
+        ['name' => 'PageSupport'],
     ];
 
     /* Returns all templates */

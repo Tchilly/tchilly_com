@@ -1,3 +1,15 @@
+<script setup>
+/**
+ * @deprecated
+ */
+
+import { Link } from "@inertiajs/inertia-vue3";
+
+defineProps({
+    href: String,
+});
+</script>
+
 <template>
     <Link
         :href="href"
@@ -6,22 +18,3 @@
         <slot></slot>
     </Link>
 </template>
-
-<script>
-import { Link } from "@inertiajs/inertia-vue3";
-import { defineComponent } from "vue";
-
-export default defineComponent({
-    props: {
-        href: String,
-    },
-    components: {
-        Link,
-    },
-    setup() {
-        return {
-            //
-        };
-    },
-});
-</script>

@@ -1,5 +1,5 @@
 <script setup>
-import { Link } from "@inertiajs/inertia-vue3";
+import {Link} from "@inertiajs/inertia-vue3";
 import Cta from "./Shared/Cta";
 import Hero from "./Shared/Hero";
 import Footer from "./Shared/PageFooter";
@@ -20,15 +20,15 @@ import {
 <template>
     <PublicLayout title="Welcome">
         <template v-slot:header>
-            <Hero />
+            <Hero/>
         </template>
 
-        <LogoCloud />
+        <LogoCloud/>
 
         <Features>
             <Feature image="/images/gaming-dark.jpg" title="Gamer for life">
                 <template v-slot:icon>
-                    <DesktopComputerIcon aria-hidden="true" class="h-6 w-6" />
+                    <DesktopComputerIcon aria-hidden="true" class="h-6 w-6"/>
                 </template>
 
                 <p
@@ -85,7 +85,7 @@ import {
                 title="Programmer for life"
             >
                 <template v-slot:icon>
-                    <CodeIcon aria-hidden="true" class="h-6 w-6" />
+                    <CodeIcon aria-hidden="true" class="h-6 w-6"/>
                 </template>
 
                 <p
@@ -101,7 +101,7 @@ import {
 
                 <div class="mt-6">
                     <Link :href="route('page', 'about')" class="button primary"
-                        ><span>More stuff about programming</span>
+                    ><span>More stuff about programming</span>
                         <ArrowNarrowRightIcon
                             aria-hidden="true"
                             class="ml-4 h-6 w-6"
@@ -133,7 +133,7 @@ import {
 
             <Feature image="/images/audio.jpg" title="Audiophile for life">
                 <template v-slot:icon>
-                    <VolumeUpIcon aria-hidden="true" class="h-6 w-6" />
+                    <VolumeUpIcon aria-hidden="true" class="h-6 w-6"/>
                 </template>
 
                 <p
@@ -148,7 +148,7 @@ import {
 
                 <div class="mt-6">
                     <Link :href="route('page', 'about')" class="button primary"
-                        ><span>More speaker related stuff</span>
+                    ><span>More speaker related stuff</span>
                         <ArrowNarrowRightIcon
                             aria-hidden="true"
                             class="ml-4 h-6 w-6"
@@ -159,7 +159,7 @@ import {
 
             <Feature alignLeft image="/images/tech.jpg" title="Techy for life">
                 <template v-slot:icon>
-                    <ShoppingCartIcon aria-hidden="true" class="h-6 w-6" />
+                    <ShoppingCartIcon aria-hidden="true" class="h-6 w-6"/>
                 </template>
 
                 <p
@@ -175,7 +175,7 @@ import {
 
                 <div class="mt-6">
                     <Link :href="route('page', 'about')" class="button primary"
-                        ><span>More on my rig and gear</span>
+                    ><span>More on my rig and gear</span>
                         <ArrowNarrowRightIcon
                             aria-hidden="true"
                             class="ml-4 h-6 w-6"
@@ -186,7 +186,7 @@ import {
 
             <Feature image="/images/mental-health.jpg" title="Mental for life">
                 <template v-slot:icon>
-                    <HeartIcon aria-hidden="true" class="h-6 w-6" />
+                    <HeartIcon aria-hidden="true" class="h-6 w-6"/>
                 </template>
 
                 <p
@@ -202,7 +202,7 @@ import {
 
                 <div class="mt-6">
                     <Link :href="route('page', 'about')" class="button primary"
-                        ><span>What is ADHD and Bipolar disorder?</span>
+                    ><span>What is ADHD and Bipolar disorder?</span>
                         <ArrowNarrowRightIcon
                             aria-hidden="true"
                             class="ml-4 h-6 w-6"
@@ -239,8 +239,5 @@ import {
             </Feature>
         </Features>
 
-        <!--            <Metrics />-->
-
-        <Cta />
     </PublicLayout>
 </template>

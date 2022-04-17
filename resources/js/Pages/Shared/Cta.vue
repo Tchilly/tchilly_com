@@ -1,3 +1,8 @@
+<script setup>
+import { Link } from "@inertiajs/inertia-vue3";
+import { ArrowNarrowRightIcon, ExternalLinkIcon } from "@heroicons/vue/outline";
+</script>
+
 <template>
     <div class="bg-primary-900">
         <div
@@ -5,43 +10,31 @@
         >
             <div>
                 <h2 class="text-4xl font-extrabold text-white sm:text-4xl">
-                    <span class="block">Follow me on Twitch and Youtube</span>
+                    <span class="block">See more on Twitch and Youtube</span>
                 </h2>
                 <p class="block text-2xl text-primary-300">
-                    And don't forget to subscribe.
+                    And don't forget to subscribe!
                 </p>
             </div>
             <div class="mt-6 space-x-4">
-                <Link
-                    :href="route('page', 'support')"
-                    class="inline-flex rounded-md border border-gray-700 px-4 py-2 text-base font-medium text-white shadow-lg hover:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2 focus:ring-offset-gray-900"
-                >
-                    Other ways to support me
+                <Link :href="route('page', 'support')" class="button outlined">
+                    <span>Other ways to support me</span>
+                    <ArrowNarrowRightIcon
+                        aria-hidden="true"
+                        class="ml-4 h-5 w-5"
+                    />
                 </Link>
 
                 <a
-                    class="hover:to-from-primary-400 inline-flex rounded-md border border-transparent bg-gradient-to-r from-primary-600 to-primary-500 bg-origin-border px-4 py-2 text-base font-medium text-white shadow-lg hover:from-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2 focus:ring-offset-gray-900"
-                    href="https://twitch.tv/tchilly_tv"
+                    class="button primary"
+                    href="https://www.youtube.com/channel/UC6qdm9HB9c24VasS1LvoEew"
                     rel="noreferrer"
                     target="_blank"
                 >
-                    Follow me on twitch
+                    <span>Subscribe on Youtube</span>
+                    <ExternalLinkIcon aria-hidden="true" class="ml-4 h-5 w-5" />
                 </a>
             </div>
         </div>
     </div>
 </template>
-
-<script>
-import { Link } from "@inertiajs/inertia-vue3";
-import PrimaryButton from "@/Components/PrimaryButton";
-
-export default {
-    components: {
-        Link,
-        PrimaryButton,
-    },
-
-    //
-};
-</script>

@@ -1,6 +1,7 @@
 <script setup>
 import { Head } from "@inertiajs/inertia-vue3";
 import JetBanner from "@/Jetstream/Banner.vue";
+import Cta from "@/Pages/Shared/Cta";
 import PageHeader from "@/Pages/Shared/PageHeader";
 import PageFooter from "@/Pages/Shared/PageFooter";
 import Prism from "prismjs";
@@ -35,6 +36,8 @@ defineProps({
         <main id="content" class="flex-grow">
             <slot></slot>
         </main>
+
+        <Cta />
 
         <PageFooter />
     </div>

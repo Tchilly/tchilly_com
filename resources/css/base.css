@@ -1,3 +1,7 @@
 a, button {
     transition: background 129ms ease-in-out, color 120ms ease-in-out;
 }
+
+.subtitle {
+    @apply text-sm font-semibold uppercase tracking-wide text-gray-500;
+}

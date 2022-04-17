@@ -24,18 +24,16 @@ const current = props.category?.id ?? 0;
                 >
                     {{ category ? `${category?.title} posts` : "Blog posts" }}
                 </h1>
-                <div
-                    class="mt-3 sm:mt-4 lg:grid lg:grid-cols-2 lg:items-center lg:gap-5"
-                >
-                    <p
-                        class="mb-4 text-base text-gray-300 sm:mb-0 md:min-h-[3em]"
+                <div class="lg:grid lg:grid-cols-2 lg:items-center lg:gap-5">
+                    <div
+                        class="prose prose-invert mt-3 sm:mt-4 sm:mb-0 md:prose-lg lg:prose-xl"
                     >
                         {{
                             category
                                 ? category?.body
                                 : "I'm not that exciting, but I do like to share."
                         }}
-                    </p>
+                    </div>
                     <!-- Sub -->
                 </div>
                 <PostTabs

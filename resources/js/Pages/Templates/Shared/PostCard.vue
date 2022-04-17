@@ -11,11 +11,11 @@ const props = defineProps({
 <template>
     <Link
         :href="route('posts.show', post)"
-        class="transition-background group flex transform-gpu flex-col overflow-hidden rounded-lg bg-dark-300 hover:bg-dark-200"
+        class="transition-background group flex transform-gpu flex-col overflow-hidden rounded-lg bg-dark-300 shadow-md hover:bg-dark-200"
     >
         <div
             v-if="post.photo_object"
-            class="aspect-w-8 aspect-h-5 flex-shrink-0 overflow-hidden rounded-t-md contrast-75 transition-all group-hover:scale-105 group-hover:contrast-100"
+            class="aspect-w-8 aspect-h-5 flex-shrink-0 overflow-hidden rounded-t-md transition-all group-hover:scale-105 group-hover:contrast-[1.15]"
             v-html="post.photo_image"
         ></div>
         <div
@@ -26,8 +26,11 @@ const props = defineProps({
         </div>
         <div class="flex flex-1 flex-col justify-between p-6">
             <div class="mt-2 block">
+                <p class="text-sm font-medium text-primary-400">
+                    {{ post.category.title }}
+                </p>
                 <h2
-                    class="flex justify-between text-xl font-semibold text-primary-300 transition-all"
+                    class="mt-2 flex justify-between text-xl font-semibold text-white transition-all"
                 >
                     <span>{{ post.title }}</span>
                     <ArrowNarrowRightIcon
@@ -41,10 +44,8 @@ const props = defineProps({
                     {{ post.truncated_preamble }}
                 </p>
             </div>
-            <MetaData
-                :post="post"
-                class="hidden translate-y-4 opacity-0 transition-all delay-300 group-hover:translate-y-0 group-hover:opacity-100 lg:flex"
-            />
+            <!-- hidden translate-y-4 opacity-0 transition-all delay-300 group-hover:translate-y-0 group-hover:opacity-100 lg:flex -->
+            <MetaData :post="post" />
         </div>
     </Link>
 </template>

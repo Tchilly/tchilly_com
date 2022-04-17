@@ -1,14 +1,10 @@
 <template>
-    <div class="relative bg-primary-800 bg-cover bg-center shadow-lg">
+    <div class="bg-dark-400">
         <div
-            class="mx-auto max-w-7xl py-16 px-4 drop-shadow-text-bg filter sm:px-6 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:py-24 lg:px-8"
+            class="mx-auto max-w-7xl py-16 px-4 sm:px-6 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:py-24 lg:px-8"
         >
             <div>
-                <h2
-                    class="text-base font-semibold uppercase tracking-wide text-secondary-500"
-                >
-                    The work/streaming/gaming rig
-                </h2>
+                <h2 class="subtitle">The work/streaming/gaming rig</h2>
                 <p class="mt-2 text-3xl font-extrabold text-primary-300">
                     Specifications
                 </p>
@@ -30,10 +26,10 @@
                         <dt>
                             <CheckIcon
                                 aria-hidden="true"
-                                class="absolute h-6 w-6 text-secondary-500"
+                                class="absolute h-6 w-6 text-primary-300"
                             />
                             <p
-                                class="ml-9 text-lg font-medium leading-6 text-secondary-500"
+                                class="ml-9 text-lg font-medium leading-6 text-primary-300"
                             >
                                 {{ feature.name }}
                             </p>

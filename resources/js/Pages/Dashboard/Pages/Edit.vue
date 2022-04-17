@@ -161,7 +161,7 @@ export default defineComponent({
             (template, i) => template.name === props.page.template
         );
 
-        const selectedTemplate = ref(props.templates[current]);
+        const selectedTemplate = ref(props.templates[current] ?? 0);
 
         const form = useForm({
             title: props.page.title,
