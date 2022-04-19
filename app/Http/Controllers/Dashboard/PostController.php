@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\SubmitContactFormRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Category;
 use App\Models\Post;
@@ -50,10 +50,10 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param StorePostRequest $request
+     * @param SubmitContactFormRequest $request
      * @return RedirectResponse
      */
-    public function store(StorePostRequest $request): RedirectResponse
+    public function store(SubmitContactFormRequest $request): RedirectResponse
     {
         $validated = $request->validated();
         $validated = [

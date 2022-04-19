@@ -1,10 +1,15 @@
 <script setup>
-import { Link } from "@inertiajs/inertia-vue3";
-import { ArrowNarrowRightIcon, ExternalLinkIcon } from "@heroicons/vue/outline";
+import { Link, usePage } from "@inertiajs/inertia-vue3";
+import { SupportIcon, ExternalLinkIcon } from "@heroicons/vue/outline";
+import { computed } from "vue";
+
+const youtube = usePage().props.value.socialMedia.find(
+    (x) => x.name === "Youtube"
+).href;
 </script>
 
 <template>
-    <div class="bg-primary-900">
+    <section aria-label="See more" class="bg-primary-900">
         <div
             class="mx-auto max-w-4xl py-16 px-4 sm:px-6 sm:py-24 lg:flex lg:max-w-7xl lg:items-center lg:justify-between lg:px-8"
         >
@@ -16,18 +21,18 @@ import { ArrowNarrowRightIcon, ExternalLinkIcon } from "@heroicons/vue/outline";
                     And don't forget to subscribe!
                 </p>
             </div>
-            <div class="mt-6 space-x-4">
-                <Link :href="route('page', 'support')" class="button outlined">
-                    <span>Other ways to support me</span>
-                    <ArrowNarrowRightIcon
-                        aria-hidden="true"
-                        class="ml-4 h-5 w-5"
-                    />
+            <div class="mt-6 block sm:flex sm:items-center sm:space-x-4">
+                <Link
+                    :href="route('page', 'support')"
+                    class="button outlined mb-4 flex sm:mb-0 sm:inline-flex"
+                >
+                    <SupportIcon aria-hidden="true" class="mr-4 h-5 w-5" />
+                    <span>Support</span>
                 </Link>
 
                 <a
-                    class="button primary"
-                    href="https://www.youtube.com/channel/UC6qdm9HB9c24VasS1LvoEew"
+                    :href="youtube"
+                    class="button red flex sm:inline-flex"
                     rel="noreferrer"
                     target="_blank"
                 >
@@ -36,5 +41,5 @@ import { ArrowNarrowRightIcon, ExternalLinkIcon } from "@heroicons/vue/outline";
                 </a>
             </div>
         </div>
-    </div>
+    </section>
 </template>

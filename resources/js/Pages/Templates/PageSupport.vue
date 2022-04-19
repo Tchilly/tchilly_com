@@ -1,37 +1,47 @@
 <script setup>
-import { defineProps } from "vue";
 import PublicLayout from "@/Layouts/PublicLayout";
 import {
     NewspaperIcon,
-    PhoneIcon,
-    SupportIcon,
+    ChatIcon,
     ArrowNarrowRightIcon,
+    PlayIcon,
 } from "@heroicons/vue/outline";
-import LogoCloud from "@/Pages/Shared/LogoCloud";
+import { usePage } from "@inertiajs/inertia-vue3";
 
 defineProps({
     page: Object,
 });
 
+const youtube = usePage().props.value.socialMedia.find(
+    (x) => x.name === "Youtube"
+);
+
+const twitch = usePage().props.value.socialMedia.find(
+    (x) => x.name === "Twitch"
+);
+
 const supportLinks = [
     {
         name: "Services",
-        href: "#",
-        description: "Like what you see? Hire me!",
-        icon: PhoneIcon,
-    },
-    {
-        name: "Youtube",
-        href: "#",
-        description: "A like and a follow go a long way.",
-        icon: SupportIcon,
-    },
-    {
-        name: "Twitch",
-        href: "#",
+        href: route("page", "contact"),
         description:
-            "I do variety streams, follow me to get updates when I go live and such.",
+            "Want some `one on one` tutoring? Lecture or course? Let me know, and I'll see what I can do.",
         icon: NewspaperIcon,
+        link_text: "Contact",
+    },
+    {
+        ...youtube,
+        description:
+            "I try to post regularly on YouTube. A like and subscribe go a long way. If you like the content ;)",
+        icon: PlayIcon,
+        link_text: "Go to YouTube",
+    },
+    {
+        ...twitch,
+        description:
+            "Variety streams, mainly games, but follow me to get updates when I go live and such.",
+        icon: ChatIcon,
+        link_text: "Go to Twitch",
     },
 ];
 </script>
@@ -42,9 +52,7 @@ const supportLinks = [
             <div
                 class="relative mx-auto max-w-7xl py-16 px-4 pb-24 sm:px-6 lg:px-8"
             >
-                <h1
-                    class="mt-4 text-xl font-extrabold leading-8 tracking-tight text-white sm:text-4xl"
-                >
+                <h1 class="page-title">
                     {{ page.title }}
                 </h1>
 
@@ -84,10 +92,10 @@ const supportLinks = [
                             </div>
 
                             <a
-                                :href="link.href"
+                                :href="link.href ?? ''"
                                 class="group flex items-center justify-between rounded-bl-lg rounded-br-lg bg-dark-300 p-6 text-base font-medium text-primary-300 hover:bg-dark-200 hover:text-primary-200 md:px-8"
                             >
-                                <span>Contact us</span>
+                                <span>{{ link.link_text }}</span>
                                 <ArrowNarrowRightIcon
                                     aria-hidden="true"
                                     class="ml-4 h-6 w-6 -translate-x-6 opacity-0 transition-all delay-100 group-hover:translate-x-0 group-hover:opacity-100"

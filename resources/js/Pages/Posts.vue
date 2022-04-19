@@ -19,9 +19,7 @@ const current = props.category?.id ?? 0;
             class="relative mx-auto max-w-7xl divide-y divide-primary-700 py-16 px-4 pb-24 sm:px-6 lg:px-8"
         >
             <div>
-                <h1
-                    class="mt-4 text-xl font-extrabold leading-8 tracking-tight text-white sm:text-4xl"
-                >
+                <h1 class="page-title">
                     {{ category ? `${category?.title} posts` : "Blog posts" }}
                 </h1>
                 <div class="lg:grid lg:grid-cols-2 lg:items-center lg:gap-5">

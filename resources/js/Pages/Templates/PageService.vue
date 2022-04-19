@@ -10,7 +10,7 @@ defineProps({
 <template>
     <PublicLayout :title="page.title">
         <div class="mx-auto max-w-7xl py-16 px-4 pb-24 sm:px-6 lg:px-8">
-            <Pill as="span" class="mb-4" title="Case study" />
+            <Pill as="span" class="mb-4" title="Service" />
             <h1 class="page-title">
                 {{ page.title }}
             </h1>

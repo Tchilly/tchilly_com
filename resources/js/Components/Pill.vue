@@ -1,11 +1,15 @@
 <script setup>
-import { ChevronRightIcon } from "@heroicons/vue/solid";
+import { ArrowNarrowRightIcon } from "@heroicons/vue/solid";
 
 defineProps({
     href: String,
     title: String,
     as: String,
     chevron: { type: Boolean, default: false },
+    target: {
+        type: String,
+        default: "_self",
+    },
 });
 
 const classes =
@@ -19,7 +23,7 @@ const classes =
 
             <span class="text-sm">{{ title }}</span>
 
-            <ChevronRightIcon
+            <ArrowNarrowRightIcon
                 v-if="chevron"
                 aria-hidden="true"
                 class="ml-2 -mr-2 h-5 w-5 text-gray-500"
@@ -29,16 +33,16 @@ const classes =
         <a
             v-else
             :class="classes"
+            :href="href"
+            :target="target"
             class="hover:bg-dark-200 hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2 focus:ring-offset-gray-900"
-            href="https://www.twitch.tv/tchilly_tv/schedule"
             rel="noreferrer"
-            target="_blank"
         >
             <slot></slot>
 
             <span class="text-sm">{{ title }}</span>
 
-            <ChevronRightIcon
+            <ArrowNarrowRightIcon
                 v-if="chevron"
                 aria-hidden="true"
                 class="ml-2 -mr-2 h-5 w-5 text-gray-500"

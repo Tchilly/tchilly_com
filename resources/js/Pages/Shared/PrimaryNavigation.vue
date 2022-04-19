@@ -2,7 +2,7 @@
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
 import { MenuIcon, XIcon } from "@heroicons/vue/outline";
 import { Link, usePage } from "@inertiajs/inertia-vue3";
-import { computed, defineComponent } from "vue";
+import { computed } from "vue";
 import Logo from "@/Components/Logo";
 
 const navigation = [
@@ -12,9 +12,9 @@ const navigation = [
     /*    {name: "Mental", href: route("page", ["about", "#mental"])},*/
 ];
 
-const appName = computed(() => usePage().props.value.appName);
-const canLogin = computed(() => usePage().props.value.canLogin);
-const canRegister = computed(() => usePage().props.value.canRegister);
+const appName = usePage().props.value.appName;
+const canLogin = usePage().props.value.canLogin;
+const canRegister = usePage().props.value.canRegister;
 
 const logout = () => {
     this.$inertia.post(route("logout"));

@@ -16,6 +16,7 @@ class Template extends Model
         ['name' => 'PageAbout'],
         ['name' => 'PageContact'],
         ['name' => 'PageSupport'],
+        ['name' => 'PageService'],
     ];
 
     /* Returns all templates */

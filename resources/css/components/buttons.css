@@ -33,6 +33,8 @@
         font-size: theme('fontSize.base')
     }
 
+    /* Styles */
+
     &.outlined {
         border: 1px solid theme('colors.gray.700');
 
@@ -41,7 +43,7 @@
         }
 
         &:focus {
-            @apply ring-primary focus:ring-offset-dark
+            @apply ring-primary ring-offset-dark
         }
     }
 
@@ -56,6 +58,18 @@
 
         &:focus {
             @apply ring-primary ring-offset-dark
+        }
+    }
+
+    &.red {
+        background: theme('colors.red.700');
+
+        &:hover {
+            background: theme('colors.red.600');
+        }
+
+        &:focus {
+            @apply ring-red-600 ring-offset-dark
         }
     }
 

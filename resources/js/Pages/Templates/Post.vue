@@ -1,11 +1,9 @@
 <script setup>
-import { defineProps } from "vue";
 import PublicLayout from "@/Layouts/PublicLayout";
 import ImageDots from "@/Pages/Shared/ImageDots";
 import MetaData from "@/Pages/Shared/MetaData";
-import { Link, usePage } from "@inertiajs/inertia-vue3";
 import RelatedPosts from "@/Pages/Templates/Shared/RelatedPosts";
-import { ArrowNarrowRightIcon } from "@heroicons/vue/outline";
+import Pill from "@/Components/Pill";
 
 const props = defineProps({
     post: Object,
@@ -20,18 +18,13 @@ const props = defineProps({
         >
             <header>
                 <div>
-                    <Link
+                    <Pill
                         :href="route('posts.category', post.category)"
-                        class="inline-flex items-center rounded-full bg-primary-600 py-0.5 px-4 text-sm font-bold tracking-wider text-gray-300 hover:bg-primary-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2 focus:ring-offset-gray-900"
-                        ><span>{{ post.category.title }}</span>
-                        <ArrowNarrowRightIcon
-                            aria-hidden="true"
-                            class="ml-3 h-4 w-4 text-white"
-                        />
-                    </Link>
-                    <h1
-                        class="mt-4 text-3xl font-extrabold leading-8 tracking-tight text-white sm:text-4xl"
-                    >
+                        :title="post.category.title"
+                        chevron
+                        class="mb-4"
+                    />
+                    <h1 class="page-title">
                         {{ post.title }}
                     </h1>
                 </div>

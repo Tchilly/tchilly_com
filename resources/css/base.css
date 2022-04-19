@@ -2,6 +2,10 @@ a, button {
     transition: background 129ms ease-in-out, color 120ms ease-in-out;
 }
 
+.page-title {
+    @apply text-3xl font-extrabold leading-8 tracking-tight text-white sm:text-4xl;
+}
+
 .subtitle {
     @apply text-sm font-semibold uppercase tracking-wide text-gray-500;
 }
