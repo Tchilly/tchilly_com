@@ -37,6 +37,7 @@ class ContactFormSubmitted extends Mailable implements ShouldQueue
     public function build()
     {
         return $this
+            ->to('magnus@vike.se')
             ->from('no-reply@tchilly.com')
             ->markdown('emails.contact.submit');
     }

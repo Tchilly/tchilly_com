@@ -1,9 +1,7 @@
 <script setup>
-import { defineComponent, h } from "vue";
 import { usePage } from "@inertiajs/inertia-vue3";
 
 const appName = usePage().props.value.appName;
-
 const social = usePage().props.value.socialMedia;
 
 const footerNavigation = {
@@ -38,11 +36,7 @@ const footerNavigation = {
                 <div class="grid grid-cols-2 gap-8 xl:col-span-2">
                     <div class="md:grid md:grid-cols-2 md:gap-8">
                         <div>
-                            <h3
-                                class="text-sm font-semibold uppercase tracking-wider text-gray-500"
-                            >
-                                Services
-                            </h3>
+                            <h3 class="subtitle text-gray-500">Services</h3>
                             <ul class="mt-4 space-y-4" role="list">
                                 <li
                                     v-for="item in footerNavigation.services"
@@ -50,7 +44,7 @@ const footerNavigation = {
                                 >
                                     <a
                                         :href="item.href"
-                                        class="text-base text-gray-700 hover:text-gray-900"
+                                        class="text-base text-gray-500 hover:text-black hover:underline"
                                     >
                                         {{ item.name }}
                                     </a>
@@ -58,11 +52,7 @@ const footerNavigation = {
                             </ul>
                         </div>
                         <div class="mt-12 md:mt-0">
-                            <h3
-                                class="text-sm font-semibold uppercase tracking-wider text-gray-500"
-                            >
-                                Support
-                            </h3>
+                            <h3 class="subtitle text-gray-500">Support</h3>
                             <ul class="mt-4 space-y-4" role="list">
                                 <li
                                     v-for="item in footerNavigation.support"
@@ -70,7 +60,7 @@ const footerNavigation = {
                                 >
                                     <a
                                         :href="item.href"
-                                        class="text-base text-gray-700 hover:text-gray-900"
+                                        class="text-base text-gray-500 hover:text-black hover:underline"
                                     >
                                         {{ item.name }}
                                     </a>
@@ -80,11 +70,7 @@ const footerNavigation = {
                     </div>
                     <div class="md:grid md:grid-cols-2 md:gap-8">
                         <div>
-                            <h3
-                                class="text-sm font-semibold uppercase tracking-wider text-gray-500"
-                            >
-                                Navigation
-                            </h3>
+                            <h3 class="subtitle text-gray-500">Navigation</h3>
                             <ul class="mt-4 space-y-4" role="list">
                                 <li
                                     v-for="item in footerNavigation.site"
@@ -92,7 +78,7 @@ const footerNavigation = {
                                 >
                                     <a
                                         :href="item.href"
-                                        class="text-base text-gray-700 hover:text-gray-900"
+                                        class="text-base text-gray-500 hover:text-black hover:underline"
                                     >
                                         {{ item.name }}
                                     </a>
@@ -100,11 +86,7 @@ const footerNavigation = {
                             </ul>
                         </div>
                         <div class="mt-12 md:mt-0">
-                            <h3
-                                class="text-sm font-semibold uppercase tracking-wider text-gray-500"
-                            >
-                                Legal
-                            </h3>
+                            <h3 class="subtitle text-gray-500">Legal</h3>
                             <ul class="mt-4 space-y-4" role="list">
                                 <li
                                     v-for="item in footerNavigation.legal"
@@ -112,7 +94,7 @@ const footerNavigation = {
                                 >
                                     <a
                                         :href="item.href"
-                                        class="text-base text-gray-700 hover:text-gray-900"
+                                        class="text-base text-gray-500 hover:text-black hover:underline"
                                     >
                                         {{ item.name }}
                                     </a>
@@ -160,12 +142,12 @@ const footerNavigation = {
             <div
                 class="mt-12 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between lg:mt-16"
             >
-                <div class="flex space-x-6 md:order-2">
+                <div class="flex space-x-4 md:order-2">
                     <a
                         v-for="item in footerNavigation.social"
                         :key="item.name"
                         :href="item.href"
-                        class="text-gray-400 hover:text-gray-500"
+                        class="rounded-full bg-gray-200 p-2 text-gray-400 text-white hover:bg-gray-300 hover:text-gray-500"
                         rel="noreferrer"
                     >
                         <span class="sr-only">{{ item.name }}</span>

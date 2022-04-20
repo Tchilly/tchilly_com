@@ -9,7 +9,7 @@
                     class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1"
                 >
                     <svg
-                        class="h-8 text-gray-400 transition-colors hover:text-white"
+                        class="h-6 text-gray-400 transition-colors hover:text-white"
                         viewBox="0 0 24 24"
                     >
                         <title>Apple</title>
@@ -23,7 +23,7 @@
                     class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1"
                 >
                     <svg
-                        class="h-8 text-gray-400 transition-colors hover:text-white"
+                        class="h-6 text-gray-400 transition-colors hover:text-white"
                         viewBox="0 0 429.8 152"
                     >
                         <title>Röde</title>
@@ -93,7 +93,7 @@
                     class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1"
                 >
                     <svg
-                        class="h-8 text-gray-400 transition-colors hover:text-white"
+                        class="h-6 text-gray-400 transition-colors hover:text-white"
                         viewBox="0 0 2000 777"
                     >
                         <title>AKG</title>
@@ -143,7 +143,7 @@
                     class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1"
                 >
                     <svg
-                        class="h-8 text-gray-400 transition-colors hover:text-white"
+                        class="h-6 text-gray-400 transition-colors hover:text-white"
                         viewBox="0 0 500 114"
                     >
                         <title>Lumix</title>
@@ -157,7 +157,7 @@
                     class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1"
                 >
                     <svg
-                        class="h-8 text-gray-400 transition-colors hover:text-white"
+                        class="h-6 text-gray-400 transition-colors hover:text-white"
                         viewBox="0 0 800 190.8"
                     >
                         <title>AMD</title>
@@ -187,7 +187,7 @@
                     class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1"
                 >
                     <svg
-                        class="h-8 text-gray-400 transition-colors hover:text-white"
+                        class="h-6 text-gray-400 transition-colors hover:text-white"
                         viewBox="0 0 292 104"
                     >
                         <title>Elgato</title>

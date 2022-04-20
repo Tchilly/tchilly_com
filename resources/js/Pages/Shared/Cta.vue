@@ -14,8 +14,10 @@ const youtube = usePage().props.value.socialMedia.find(
             class="mx-auto max-w-4xl py-16 px-4 sm:px-6 sm:py-24 lg:flex lg:max-w-7xl lg:items-center lg:justify-between lg:px-8"
         >
             <div>
-                <h2 class="text-4xl font-extrabold text-white sm:text-4xl">
-                    <span class="block">See more on Twitch and Youtube</span>
+                <h2
+                    class="mb-2 block text-4xl font-extrabold text-white sm:text-4xl"
+                >
+                    See more on Twitch and Youtube
                 </h2>
                 <p class="block text-2xl text-primary-300">
                     And don't forget to subscribe!

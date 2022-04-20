@@ -11,7 +11,7 @@
                     <!-- Icon -->
                     <div v-if="$slots.icon" class="mb-6">
                         <span
-                            class="flex h-12 w-12 items-center justify-center rounded-md bg-dark-400 text-primary-500"
+                            class="flex h-12 w-12 items-center justify-center rounded-md bg-dark-300 text-primary-500"
                         >
                             <slot name="icon"></slot>
                         </span>

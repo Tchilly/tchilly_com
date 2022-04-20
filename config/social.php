@@ -19,7 +19,7 @@ return [
         [
             "name" => "Twitch",
             "href" => "https://www.twitch.tv/tchilly_tv",
-            "icon" => '<svg fill="currentColor" viewBox="0 0 3000 3000" class="relative top-0.5 h-6 w-6" aria-hidden="true"><polygon fill="#ffffff" points="2200,1300 1800,1700 1400,1700 1050,2050 1050,1700 600,1700 600,200 2200,200"></polygon><g><path d="M500,0L0,500v1800h600v500l500-500h400l900-900V0H500z M2200,1300l-400,400h-400l-350,350v-350H600V200h1600V1300z"></path><rect x="1150" y="550" width="200" height="600"></rect><rect x="1700" y="550" width="200" height="600"></rect></g></svg>'
+            "icon" => '<svg fill="currentColor" viewBox="0 -200 2500 3000" class="relative top-0.5 h-6 w-6" aria-hidden="true"><polygon fill-rule="evenodd" fill="#ffffff" points="2200,1300 1800,1700 1400,1700 1050,2050 1050,1700 600,1700 600,200 2200,200"></polygon><g><path d="M500,0L0,500v1800h600v500l500-500h400l900-900V0H500z M2200,1300l-400,400h-400l-350,350v-350H600V200h1600V1300z"></path><rect x="1150" y="550" width="200" height="600"></rect><rect x="1700" y="550" width="200" height="600"></rect></g></svg>'
         ],
         [
             "name" => "Instagram",

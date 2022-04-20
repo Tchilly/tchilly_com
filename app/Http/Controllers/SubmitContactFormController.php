@@ -21,7 +21,7 @@ class SubmitContactFormController extends Controller
     {
         $validated = $request->validated();
 
-        Mail::to('admin@tchilly.com')->send(new ContactFormSubmitted($validated));
+        Mail::send(new ContactFormSubmitted($validated));
 
         session()->flash('flash.banner', 'Contact form successfully sent!');
         session()->flash('flash.bannerStyle', 'success');
