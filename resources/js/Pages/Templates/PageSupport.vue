@@ -27,21 +27,18 @@ const supportLinks = [
         description:
             "Want some `one on one` tutoring? Lecture or course? Let me know, and I'll see what I can do.",
         icon: NewspaperIcon,
-        link_text: "Contact",
     },
     {
         ...youtube,
         description:
             "I try to post regularly on YouTube. A like and subscribe go a long way. If you like the content ;)",
         icon: PlayIcon,
-        link_text: "Go to YouTube",
     },
     {
         ...twitch,
         description:
             "Variety streams, mainly games, but follow me to get updates when I go live and such.",
         icon: ChatIcon,
-        link_text: "Go to Twitch",
     },
 ];
 </script>
@@ -66,10 +63,11 @@ const supportLinks = [
                     <div
                         class="grid grid-cols-1 gap-y-20 lg:grid-cols-3 lg:gap-y-0 lg:gap-x-8"
                     >
-                        <div
+                        <Link
                             v-for="link in supportLinks"
                             :key="link.name"
-                            class="flex flex-col rounded-lg bg-dark-300 shadow-md shadow-xl"
+                            :href="link.href ?? ''"
+                            class="group flex flex-col rounded-lg bg-dark-300 shadow-md shadow-xl hover:bg-dark-200"
                         >
                             <div
                                 class="relative flex-1 px-6 pt-16 pb-8 md:px-8"
@@ -83,25 +81,20 @@ const supportLinks = [
                                         class="h-6 w-6 text-white"
                                     />
                                 </div>
-                                <h3 class="text-xl font-semibold text-white">
-                                    {{ link.name }}
+                                <h3
+                                    class="flex justify-between text-xl font-semibold text-white transition-all"
+                                >
+                                    <span>{{ link.name }}</span>
+                                    <ArrowNarrowRightIcon
+                                        aria-hidden="true"
+                                        class="ml-4 h-6 w-6 -translate-x-6 opacity-0 transition-all delay-100 group-hover:translate-x-0 group-hover:opacity-100"
+                                    />
                                 </h3>
                                 <p class="mt-4 text-base text-gray-400">
                                     {{ link.description }}
                                 </p>
                             </div>
-
-                            <Link
-                                :href="link.href ?? ''"
-                                class="group flex items-center justify-between rounded-bl-lg rounded-br-lg bg-dark-300 p-6 text-base font-medium text-primary-300 hover:bg-dark-200 hover:text-primary-200 md:px-8"
-                            >
-                                <span>{{ link.link_text }}</span>
-                                <ArrowNarrowRightIcon
-                                    aria-hidden="true"
-                                    class="ml-4 h-6 w-6 -translate-x-6 opacity-0 transition-all delay-100 group-hover:translate-x-0 group-hover:opacity-100"
-                                />
-                            </Link>
-                        </div>
+                        </Link>
                     </div>
                 </section>
             </div>

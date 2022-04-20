@@ -21,7 +21,9 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route("contact"));
+    form.post(route("contact"), {
+        onSuccess: () => form.reset(),
+    });
 };
 </script>
 
