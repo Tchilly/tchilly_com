@@ -24,6 +24,8 @@ defineProps({
     <div class="flex h-full min-h-screen flex-col bg-dark">
         <Head :title="title" />
 
+        <a class="skip-to-content-link" href="#content">Jump to content</a>
+
         <JetBanner />
 
         <PageHeader>
