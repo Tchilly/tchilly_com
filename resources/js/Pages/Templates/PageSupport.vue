@@ -6,7 +6,7 @@ import {
     ArrowNarrowRightIcon,
     PlayIcon,
 } from "@heroicons/vue/outline";
-import { usePage } from "@inertiajs/inertia-vue3";
+import { usePage, Link } from "@inertiajs/inertia-vue3";
 
 defineProps({
     page: Object,
@@ -91,7 +91,7 @@ const supportLinks = [
                                 </p>
                             </div>
 
-                            <a
+                            <Link
                                 :href="link.href ?? ''"
                                 class="group flex items-center justify-between rounded-bl-lg rounded-br-lg bg-dark-300 p-6 text-base font-medium text-primary-300 hover:bg-dark-200 hover:text-primary-200 md:px-8"
                             >
@@ -100,7 +100,7 @@ const supportLinks = [
                                     aria-hidden="true"
                                     class="ml-4 h-6 w-6 -translate-x-6 opacity-0 transition-all delay-100 group-hover:translate-x-0 group-hover:opacity-100"
                                 />
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </section>

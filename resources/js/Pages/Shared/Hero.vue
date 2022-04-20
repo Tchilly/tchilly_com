@@ -42,7 +42,7 @@ import { Link } from "@inertiajs/inertia-vue3";
                             :href="route('posts.show')"
                             class="button large primary"
                         >
-                            <PlayIcon class="mr-2 h-8 w-8 text-white" />
+                            <PlayIcon class="mr-4 h-8 w-8 text-white" />
                             <span>Check my videos, tutorials and more!</span>
                         </Link>
                     </div>
