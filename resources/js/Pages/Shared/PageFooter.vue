@@ -10,10 +10,6 @@ const footerNavigation = {
         { name: "Tutoring", href: route("page", "tutoring") },
         { name: "Courses", href: route("page", "courses") },
     ],
-    support: [
-        { name: "Pricing", href: route("page", "pricing") },
-        { name: "Documentation", href: route("page", "documentation") },
-    ],
     site: [
         { name: "About", href: route("page", "about") },
         { name: "Blog", href: route("posts.show") },
@@ -32,77 +28,56 @@ const footerNavigation = {
     <footer aria-labelledby="footer-heading" class="bg-gray-50">
         <h2 id="footer-heading" class="sr-only">Footer</h2>
         <div class="mx-auto max-w-7xl px-4 pt-16 pb-8 sm:px-6 lg:px-8 lg:pt-24">
-            <div class="xl:grid xl:grid-cols-3 xl:gap-8">
-                <div class="grid grid-cols-2 gap-8 xl:col-span-2">
-                    <div class="md:grid md:grid-cols-2 md:gap-8">
-                        <div>
-                            <h3 class="subtitle text-gray-500">Services</h3>
-                            <ul class="mt-4 space-y-4" role="list">
-                                <li
-                                    v-for="item in footerNavigation.services"
-                                    :key="item.name"
-                                >
-                                    <a
-                                        :href="item.href"
-                                        class="text-base text-gray-500 hover:text-black hover:underline"
-                                    >
-                                        {{ item.name }}
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="mt-12 md:mt-0">
-                            <h3 class="subtitle text-gray-500">Support</h3>
-                            <ul class="mt-4 space-y-4" role="list">
-                                <li
-                                    v-for="item in footerNavigation.support"
-                                    :key="item.name"
-                                >
-                                    <a
-                                        :href="item.href"
-                                        class="text-base text-gray-500 hover:text-black hover:underline"
-                                    >
-                                        {{ item.name }}
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="md:grid md:grid-cols-2 md:gap-8">
-                        <div>
-                            <h3 class="subtitle text-gray-500">Navigation</h3>
-                            <ul class="mt-4 space-y-4" role="list">
-                                <li
-                                    v-for="item in footerNavigation.site"
-                                    :key="item.name"
-                                >
-                                    <a
-                                        :href="item.href"
-                                        class="text-base text-gray-500 hover:text-black hover:underline"
-                                    >
-                                        {{ item.name }}
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="mt-12 md:mt-0">
-                            <h3 class="subtitle text-gray-500">Legal</h3>
-                            <ul class="mt-4 space-y-4" role="list">
-                                <li
-                                    v-for="item in footerNavigation.legal"
-                                    :key="item.name"
-                                >
-                                    <a
-                                        :href="item.href"
-                                        class="text-base text-gray-500 hover:text-black hover:underline"
-                                    >
-                                        {{ item.name }}
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+            <div class="sm:grid sm:grid-cols-2 md:grid-cols-4 xl:gap-8">
+                <div>
+                    <h3 class="subtitle text-gray-500">Services</h3>
+                    <ul class="mt-4 space-y-4" role="list">
+                        <li
+                            v-for="item in footerNavigation.services"
+                            :key="item.name"
+                        >
+                            <a
+                                :href="item.href"
+                                class="text-base text-gray-500 hover:text-black hover:underline"
+                            >
+                                {{ item.name }}
+                            </a>
+                        </li>
+                    </ul>
                 </div>
+                <div class="mt-8 md:mt-0">
+                    <h3 class="subtitle text-gray-500">Navigation</h3>
+                    <ul class="mt-4 space-y-4" role="list">
+                        <li
+                            v-for="item in footerNavigation.site"
+                            :key="item.name"
+                        >
+                            <a
+                                :href="item.href"
+                                class="text-base text-gray-500 hover:text-black hover:underline"
+                            >
+                                {{ item.name }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mt-8 md:mt-0">
+                    <h3 class="subtitle text-gray-500">Legal</h3>
+                    <ul class="mt-4 space-y-4" role="list">
+                        <li
+                            v-for="item in footerNavigation.legal"
+                            :key="item.name"
+                        >
+                            <a
+                                :href="item.href"
+                                class="text-base text-gray-500 hover:text-black hover:underline"
+                            >
+                                {{ item.name }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
                 <!--                <div class="mt-12 xl:mt-0">-->
                 <!--                    <h3-->
                 <!--                        class="text-sm font-semibold uppercase tracking-wider text-gray-500"-->

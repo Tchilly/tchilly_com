@@ -1,5 +1,5 @@
 <script setup>
-import {Link} from "@inertiajs/inertia-vue3";
+import { Link } from "@inertiajs/inertia-vue3";
 import Cta from "./Shared/Cta";
 import Hero from "./Shared/Hero";
 import Footer from "./Shared/PageFooter";
@@ -20,15 +20,15 @@ import {
 <template>
     <PublicLayout title="Welcome">
         <template v-slot:header>
-            <Hero/>
+            <Hero />
         </template>
 
-        <LogoCloud/>
+        <LogoCloud />
 
         <Features>
             <Feature image="/images/gaming-dark.jpg" title="Gamer for life">
                 <template v-slot:icon>
-                    <DesktopComputerIcon aria-hidden="true" class="h-6 w-6"/>
+                    <DesktopComputerIcon aria-hidden="true" class="h-6 w-6" />
                 </template>
 
                 <p
@@ -37,7 +37,7 @@ import {
                     I've been an avid PC and console gamer for as long as I can
                     remember. From my first Commodore 64 and Sega Master System
                     playing Alex Kidd, Bubble Bobble and The Last Ninja. Up
-                    until now, playing mostly MMORPG's like World of Warcraft
+                    until now, playing mostly MMORPGs like World of Warcraft
                     I've always loved playing games.
                 </p>
 
@@ -85,23 +85,23 @@ import {
                 title="Programmer for life"
             >
                 <template v-slot:icon>
-                    <CodeIcon aria-hidden="true" class="h-6 w-6"/>
+                    <CodeIcon aria-hidden="true" class="h-6 w-6" />
                 </template>
 
                 <p
                     class="mt-4 text-base leading-7 text-gray-400 lg:text-lg lg:leading-8"
                 >
-                    Commodore 64 and BASIC, is where the passion all started.
-                    From there; C, Delphi, Python, ASP, PHP and a bunch more.
+                    Commodore 64 and BASIC, are where the passion all started.
+                    From there; C, Delphi, Python, ASP, PHP, and a bunch more.
                     I'm not fluent anymore in any of them, but I've stuck with
                     PHP and JS. Writing most of my code with Laravel and Vue.
-                    I'm a senior full stack web developer with a passion for
+                    I'm a senior full-stack web developer with a passion for
                     design as well.
                 </p>
 
                 <div class="mt-6">
                     <Link :href="route('page', 'about')" class="button primary"
-                    ><span>More stuff about programming</span>
+                        ><span>More stuff about programming</span>
                         <ArrowNarrowRightIcon
                             aria-hidden="true"
                             class="ml-4 h-6 w-6"
@@ -133,22 +133,22 @@ import {
 
             <Feature image="/images/audio.jpg" title="Audiophile for life">
                 <template v-slot:icon>
-                    <VolumeUpIcon aria-hidden="true" class="h-6 w-6"/>
+                    <VolumeUpIcon aria-hidden="true" class="h-6 w-6" />
                 </template>
 
                 <p
                     class="mt-4 text-base leading-7 text-gray-400 lg:text-lg lg:leading-8"
                 >
                     Music has always been my <em>go-to</em> stress and mood
-                    fixer, and with time I guess I've become more picky in
-                    regards to sound quality. I love fiddling with amps and
-                    speakers and I make custom speakers in my little garage.
-                    Modelling, measuring and building the enclosures.
+                    fixer, and with time I guess I've become pickier in regards
+                    to sound quality. I love fiddling with amps and speakers and
+                    I make custom speakers in my little garage. Modeling,
+                    measuring, and building the enclosures.
                 </p>
 
                 <div class="mt-6">
                     <Link :href="route('page', 'about')" class="button primary"
-                    ><span>More speaker related stuff</span>
+                        ><span>More speaker related stuff</span>
                         <ArrowNarrowRightIcon
                             aria-hidden="true"
                             class="ml-4 h-6 w-6"
@@ -159,23 +159,23 @@ import {
 
             <Feature alignLeft image="/images/tech.jpg" title="Techy for life">
                 <template v-slot:icon>
-                    <ShoppingCartIcon aria-hidden="true" class="h-6 w-6"/>
+                    <ShoppingCartIcon aria-hidden="true" class="h-6 w-6" />
                 </template>
 
                 <p
                     class="mt-4 text-base leading-7 text-gray-400 lg:text-lg lg:leading-8"
                 >
-                    I have no idea how many keyboards, mice and other computer
-                    related accessories I've owned. But it's a lot! I'm very
-                    grateful to have the opportunity to be the forefront of
-                    technology and design. It's always been a side hobby, but
-                    never for bragging rights. A genuine interest, being able to
-                    provide help and advice to others are really fun.
+                    I have no idea how many keyboards, mice, and other
+                    computer-related accessories I've owned. But it's a lot! I'm
+                    very grateful to have the opportunity to be at the forefront
+                    of technology and design. It's always been a side hobby, but
+                    never for bragging rights. A genuine interest, and being
+                    able to provide help and advice to others is really fun.
                 </p>
 
                 <div class="mt-6">
                     <Link :href="route('page', 'about')" class="button primary"
-                    ><span>More on my rig and gear</span>
+                        ><span>More on my rig and gear</span>
                         <ArrowNarrowRightIcon
                             aria-hidden="true"
                             class="ml-4 h-6 w-6"
@@ -186,7 +186,7 @@ import {
 
             <Feature image="/images/mental-health.jpg" title="Mental for life">
                 <template v-slot:icon>
-                    <HeartIcon aria-hidden="true" class="h-6 w-6"/>
+                    <HeartIcon aria-hidden="true" class="h-6 w-6" />
                 </template>
 
                 <p
@@ -195,14 +195,14 @@ import {
                     We're all a bit mental, in the sense that we are all unique
                     with our own little quirks. But if you sum up those quirks
                     and it impairs your life on a daily basis, you should
-                    probable see a doctor. I waited a long time, to long, and it
-                    was painful. In the end I got diagnosed with ADHD and
+                    probably see a doctor. I waited a long time, too long, and
+                    it was painful. In the end, I got diagnosed with ADHD and
                     Bipolar disorder. It's the best and worst thing about me.
                 </p>
 
                 <div class="mt-6">
                     <Link :href="route('page', 'about')" class="button primary"
-                    ><span>What is ADHD and Bipolar disorder?</span>
+                        ><span>What is ADHD and Bipolar disorder?</span>
                         <ArrowNarrowRightIcon
                             aria-hidden="true"
                             class="ml-4 h-6 w-6"
@@ -238,6 +238,5 @@ import {
                 </template>
             </Feature>
         </Features>
-
     </PublicLayout>
 </template>

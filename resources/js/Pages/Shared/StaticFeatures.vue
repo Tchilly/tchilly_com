@@ -1,57 +1,10 @@
-<template>
-    <div class="bg-dark-400">
-        <div
-            class="mx-auto max-w-7xl py-16 px-4 sm:px-6 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:py-24 lg:px-8"
-        >
-            <div>
-                <h2 class="subtitle">The work/streaming/gaming rig</h2>
-                <p class="mt-2 text-3xl font-extrabold text-primary-300">
-                    Specifications
-                </p>
-                <p class="mt-4 text-lg text-gray-300">
-                    I use my computer for both work and leisure, so I needed a
-                    computer that had a bit of everything. 64BG ram and 12
-                    Cores, Overkill? NAH...
-                </p>
-            </div>
-            <div class="mt-12 lg:col-span-2 lg:mt-0">
-                <dl
-                    class="space-y-10 sm:grid sm:grid-flow-col sm:grid-cols-2 sm:grid-rows-5 sm:gap-x-6 sm:gap-y-10 sm:space-y-0 lg:gap-x-8"
-                >
-                    <div
-                        v-for="feature in features"
-                        :key="feature.name"
-                        class="relative"
-                    >
-                        <dt>
-                            <CheckIcon
-                                aria-hidden="true"
-                                class="absolute h-6 w-6 text-primary-300"
-                            />
-                            <p
-                                class="ml-9 text-lg font-medium leading-6 text-primary-300"
-                            >
-                                {{ feature.name }}
-                            </p>
-                        </dt>
-                        <dd class="mt-2 ml-9 text-base text-gray-50">
-                            {{ feature.description }}
-                        </dd>
-                    </div>
-                </dl>
-            </div>
-        </div>
-    </div>
-</template>
-
-<script>
+<script setup>
 import { CheckIcon } from "@heroicons/vue/outline";
 
 const features = [
     {
         name: "CPU",
-        description:
-            "AMD Ryzen 9 3900x 12-Core processor @ 4.2GHz w/ Fractal Design Celsius+ S36 Dynamic",
+        description: "AMD Ryzen 9 3900x 12-Core processor @ 4.2GHz",
     },
     {
         name: "Memory",
@@ -81,24 +34,51 @@ const features = [
         name: "Chassi",
         description: "Fractal Design Define S2 Blackout",
     },
-    {
-        name: "Keyboard and mouse",
-        description: "Xtrfy K4 TKL RGB + M4 Wireless",
-    },
-    {
-        name: "Monitors",
-        description: '2x Philips 27" QHD 1440p IPS-panel @ 75Hz',
-    },
 ];
-
-export default {
-    components: {
-        CheckIcon,
-    },
-    setup() {
-        return {
-            features,
-        };
-    },
-};
 </script>
+
+<template>
+    <section aria-labelledby="static-features" class="bg-dark-400">
+        <div
+            class="mx-auto max-w-7xl py-16 px-4 sm:px-6 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:py-24 lg:px-8"
+        >
+            <div>
+                <h2 id="static-features" class="subtitle">
+                    My work, streaming, and gaming rig
+                </h2>
+                <p class="mt-2 text-3xl font-extrabold text-primary-300">
+                    Specifications
+                </p>
+                <p class="mt-4 text-lg text-gray-300">
+                    I use my computer for both work and leisure, so I needed a
+                    computer that had a bit of everything. 64BG ram and 12
+                    Cores, Overkill? NAH...
+                </p>
+            </div>
+            <div class="mt-12 lg:col-span-2 lg:mt-0">
+                <dl
+                    class="space-y-10 sm:grid sm:grid-flow-row sm:grid-cols-2 sm:grid-rows-4 sm:gap-x-6 sm:gap-y-10 sm:space-y-0 lg:gap-x-8"
+                >
+                    <div
+                        v-for="feature in features"
+                        :key="feature.name"
+                        class="relative"
+                    >
+                        <dt>
+                            <CheckIcon
+                                aria-hidden="true"
+                                class="absolute h-6 w-6 text-primary-300"
+                            />
+                            <p class="subtitle ml-9 text-primary-300">
+                                {{ feature.name }}
+                            </p>
+                        </dt>
+                        <dd class="mt-2 ml-9 text-base leading-7 text-gray-50">
+                            {{ feature.description }}
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </section>
+</template>

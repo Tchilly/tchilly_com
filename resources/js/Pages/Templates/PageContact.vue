@@ -40,7 +40,7 @@ const submit = () => {
                 </div>
             </div>
             <div
-                class="relative py-16 px-4 sm:py-24 sm:px-6 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:px-8 lg:py-32"
+                class="relative py-16 px-4 pb-24 sm:px-6 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:px-8"
             >
                 <div class="lg:pr-8">
                     <div class="mx-auto lg:mx-0">
