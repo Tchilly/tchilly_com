@@ -1,5 +1,12 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
+const round = (num) =>
+    num
+        .toFixed(7)
+        .replace(/(\.[0-9]+?)0+$/, "$1")
+        .replace(/\.0$/, "");
+const rem = (px) => `${round(px / 16)}rem`;
+const em = (px, base) => `${round(px / base)}em`;
 
 module.exports = {
     content: [
@@ -47,7 +54,6 @@ module.exports = {
         },
         minHeight: {
             lg: "550px",
-            0: "0px",
             full: "100%",
             screen: "100vh",
         },
@@ -55,28 +61,40 @@ module.exports = {
             fontFamily: {
                 sans: ["Inter var", ...defaultTheme.fontFamily.sans],
             },
-            // typography: {
-            //     DEFAULT: {
-            //         css: {
-            //             color: "#fff",
-            //             a: {
-            //                 color: "#00c8af",
-            //                 "&:hover": {
-            //                     color: "#1eddc5",
-            //                 },
-            //             },
-            //             blockquote: {
-            //                 color: "#00c8af",
-            //             },
-            //             h2: {
-            //                 color: "#E5E7EB",
-            //             },
-            //             strong: {
-            //                 color: "#ffffff",
-            //             },
-            //         },
-            //     },
-            // },
+            typography: (theme) => ({
+                DEFAULT: {
+                    css: {
+                        color: theme("colors.gray.400"),
+                        h2: {
+                            color: theme("colors.gray.300"),
+                            fontSize: rem(20),
+                        },
+                        h3: {
+                            color: theme("colors.gray.300"),
+                            fontSize: rem(18),
+                        },
+                        strong: {
+                            color: theme("colors.gray.200"),
+                        },
+                        a: {
+                            color: theme("colors.primary.500"),
+                            "&:hover": {
+                                color: theme("colors.primary.600"),
+                            },
+                        },
+                    },
+                },
+                lg: {
+                    css: {
+                        h2: {
+                            fontSize: rem(22),
+                        },
+                        h3: {
+                            fontSize: rem(20),
+                        },
+                    },
+                },
+            }),
             dropShadow: {
                 "text-bg": "0 0 10px rgba(0, 0, 0, 1)",
             },

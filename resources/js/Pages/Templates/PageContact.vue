@@ -49,7 +49,7 @@ const submit = () => {
                         </h1>
 
                         <div
-                            class="prose prose-invert mt-8 mt-8 md:prose-lg"
+                            class="prose prose-invert mt-3 sm:mt-4 md:prose-lg"
                             v-html="page.body"
                         />
                         <form

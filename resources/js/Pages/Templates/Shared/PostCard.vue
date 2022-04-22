@@ -26,7 +26,7 @@ const props = defineProps({
         </div>
         <div class="flex flex-1 flex-col justify-between p-6">
             <div class="mt-2 block">
-                <p class="text-sm font-medium text-primary-400">
+                <p class="subtitle text-primary-400">
                     {{ post.category.title }}
                 </p>
                 <h2

@@ -17,17 +17,15 @@ const props = defineProps({
             class="relative mx-auto max-w-7xl py-16 px-4 pb-24 sm:px-6 lg:px-8"
         >
             <header>
-                <div>
-                    <Pill
-                        :href="route('posts.category', post.category)"
-                        :title="post.category.title"
-                        chevron
-                        class="mb-4"
-                    />
-                    <h1 class="page-title">
-                        {{ post.title }}
-                    </h1>
-                </div>
+                <Pill
+                    :href="route('posts.category', post.category)"
+                    :title="post.category.title"
+                    chevron
+                    class="mb-4"
+                />
+                <h1 class="page-title">
+                    {{ post.title }}
+                </h1>
                 <MetaData :post="post" class="text-white" />
             </header>
             <main

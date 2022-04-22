@@ -3,6 +3,7 @@ import PublicLayout from "@/Layouts/PublicLayout";
 import Pill from "@/Components/Pill";
 import StaticFeatures from "@/Pages/Shared/StaticFeatures";
 import TechFeatures from "@/Pages/Shared/TechFeatures";
+import ImageDots from "@/Pages/Shared/ImageDots";
 
 defineProps({
     page: Object,
@@ -11,34 +12,42 @@ defineProps({
 
 <template>
     <PublicLayout :title="page.title">
-        <div class="relative bg-gradient-to-r from-dark to-primary-900">
-            <div class="lg:absolute lg:inset-0">
-                <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-                    <img
-                        alt=""
-                        class="h-56 w-full object-cover lg:absolute lg:h-full"
-                        src="/images/audio.jpg"
-                    />
+        <div
+            class="relative mx-auto max-w-7xl py-16 px-4 pb-24 sm:px-6 lg:px-8"
+        >
+            <Pill as="span" class="mb-4" title="Case study"/>
+            <h1 class="page-title">
+                {{ page.title }}
+            </h1>
+
+            <div class="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
+                <div class="relative lg:col-start-2 lg:row-start-1">
+                    <ImageDots class="right-0 -mr-16 -mt-16"/>
+                    <div class="relative mx-auto text-base lg:max-w-none">
+                        <img
+                            alt=""
+                            class="rounded-xl shadow-md"
+                            src="/images/gaming-dark.jpg"
+                        />
+                    </div>
                 </div>
-            </div>
-            <div
-                class="relative py-16 px-4 pb-24 sm:px-6 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:px-8"
-            >
-                <div class="lg:pr-8">
-                    <Pill as="span" class="mb-4" title="Case study" />
-                    <h1 class="page-title">
-                        {{ page.title }}
-                    </h1>
+                <div>
+                    <p
+                        v-if="page.preamble"
+                        class="mt-3 text-xl font-bold italic leading-8 text-gray-50 sm:mt-4 md:text-2xl lg:text-3xl lg:leading-10"
+                        v-html="page.preamble"
+                    ></p>
                     <div
-                        class="prose prose-invert mt-8 mt-8 md:prose-lg"
+                        class="prose prose-invert md:prose-lg"
                         v-html="page.body"
-                    />
+                    ></div>
                 </div>
             </div>
+
         </div>
 
-        <TechFeatures />
+        <TechFeatures/>
 
-        <StaticFeatures />
+        <StaticFeatures/>
     </PublicLayout>
 </template>
