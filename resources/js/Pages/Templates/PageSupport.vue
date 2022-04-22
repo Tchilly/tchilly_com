@@ -54,7 +54,7 @@ const supportLinks = [
                 </h1>
 
                 <div
-                    class="prose prose-invert mt-3 sm:mt-4 sm:mb-0 md:prose-lg lg:prose-xl"
+                    class="prose prose-invert mt-3 sm:mt-4 sm:mb-0 md:prose-lg"
                     v-html="page.body"
                 />
 
