@@ -4,16 +4,6 @@ import JetBanner from "@/Jetstream/Banner.vue";
 import Cta from "@/Pages/Shared/Cta";
 import PageHeader from "@/Pages/Shared/PageHeader";
 import PageFooter from "@/Pages/Shared/PageFooter";
-import Prism from "prismjs";
-import "prismjs/components/prism-clike.js";
-import "prismjs/components/prism-markup-templating.js";
-import "prismjs/components/prism-markup.js";
-import "prismjs/components/prism-php.js";
-import "prismjs/components/prism-css.js";
-import "prismjs/components/prism-scss.js";
-import "prismjs/components/prism-json.js";
-import "prismjs/components/prism-bash.js";
-import "prismjs/components/prism-javascript.js";
 
 defineProps({
     title: String,

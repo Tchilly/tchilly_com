@@ -7,4 +7,4 @@
 @import 'tailwindcss/utilities';
 @import "./utilities.css";
 
-@import 'prismjs/themes/prism.css';
+@import 'prismjs/themes/prism-okaidia.css';

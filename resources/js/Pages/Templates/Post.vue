@@ -4,6 +4,21 @@ import ImageDots from "@/Pages/Shared/ImageDots";
 import MetaData from "@/Pages/Shared/MetaData";
 import RelatedPosts from "@/Pages/Templates/Shared/RelatedPosts";
 import Pill from "@/Components/Pill";
+import Prism from "prismjs";
+import "prismjs/components/prism-clike.js";
+import "prismjs/components/prism-markup-templating.js";
+import "prismjs/components/prism-markup.js";
+import "prismjs/components/prism-php.js";
+import "prismjs/components/prism-css.js";
+import "prismjs/components/prism-scss.js";
+import "prismjs/components/prism-json.js";
+import "prismjs/components/prism-bash.js";
+import "prismjs/components/prism-javascript.js";
+import { onMounted } from "vue";
+
+onMounted(() => {
+    Prism.highlightAll();
+});
 
 const props = defineProps({
     post: Object,
