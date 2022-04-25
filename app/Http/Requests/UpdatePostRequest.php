@@ -19,7 +19,7 @@ class UpdatePostRequest extends FormRequest
             'preamble' => 'string|nullable',
             'category_id' => 'required|numeric',
             'time_span' => 'numeric|nullable',
-            'photo' => 'sometimes|image|mimes:jpg,png|max:10240|nullable'
+            'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
         ];
     }
 }

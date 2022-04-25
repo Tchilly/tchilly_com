@@ -49,12 +49,10 @@ const submit = () => {
     }
 
     editable
-        ? form.post(
-              route("dashboard.posts.update", {
-                  _method: "put",
-                  post: props.post,
-              })
-          )
+        ? Inertia.post(route("dashboard.posts.update", props.post), {
+              _method: "put",
+              ...form,
+          })
         : form.post(route("dashboard.posts.store"));
 };
 
@@ -111,11 +109,7 @@ const remove = () => {
                 <div
                     class="overflow-hidden rounded-lg bg-white p-4 shadow-xl sm:p-6 lg:p-8"
                 >
-                    <form
-                        class="space-y-6"
-                        enctype="multipart/form-data"
-                        @submit.prevent="submit"
-                    >
+                    <form class="space-y-6" @submit.prevent="submit">
                         <div>
                             <FormLabel for="title">Title</FormLabel>
                             <FormInput

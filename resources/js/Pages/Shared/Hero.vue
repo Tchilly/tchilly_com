@@ -9,7 +9,7 @@ import { Link } from "@inertiajs/inertia-vue3";
         <div
             class="max-w-7xl px-4 sm:px-6 md:grid md:grid-cols-2 md:gap-6 lg:mx-auto lg:gap-8 lg:px-8"
         >
-            <div class="py-6 sm:py-8 md:py-16 lg:py-24">
+            <div class="py-8 sm:py-16 md:py-24 lg:py-40">
                 <Pill
                     chevron
                     href="https://www.youtube.com/channel/UC6qdm9HB9c24VasS1LvoEew"
@@ -22,7 +22,7 @@ import { Link } from "@inertiajs/inertia-vue3";
                     >
                 </Pill>
                 <h1
-                    class="mt-4 text-3xl font-bold tracking-tight text-white sm:mt-5 sm:text-4xl lg:mt-6 xl:text-5xl"
+                    class="mt-4 text-3xl font-bold tracking-tight text-white sm:mt-5 sm:text-5xl lg:mt-6 xl:text-6xl"
                 >
                     <span class="mb-2 block">Hey, and welcome!</span>
                     <span
