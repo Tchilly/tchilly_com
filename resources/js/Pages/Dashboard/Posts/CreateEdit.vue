@@ -99,7 +99,7 @@ const remove = () => {
 </script>
 
 <template>
-    <AppLayout title="Blog edit">
+    <AppLayout :title="editable ? `Edit ${post.title}` : `Create post`">
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
                 {{ editable ? `Edit ${post.title}` : "Create post" }}
