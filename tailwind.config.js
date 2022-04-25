@@ -82,6 +82,9 @@ module.exports = {
                                 color: theme("colors.primary.600"),
                             },
                         },
+                        code: {
+                            fontSize: rem(16),
+                        },
                     },
                 },
                 lg: {

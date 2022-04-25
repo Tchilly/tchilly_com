@@ -1,4 +1,5 @@
 require("../fonts/inter.css");
+require("../fonts/css/ibm-plex.css");
 require("./bootstrap");
 
 import { createApp, h } from "vue";
