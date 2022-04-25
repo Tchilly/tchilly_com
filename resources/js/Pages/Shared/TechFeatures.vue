@@ -58,7 +58,7 @@ const accessories = [
         <div
             class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24 lg:px-8"
         >
-            <div class="lg:mr-0 lg:ml-auto lg:w-1/2 lg:pl-10">
+            <div class="lg:mr-0 lg:ml-auto lg:w-1/2 lg:pl-8">
                 <div>
                     <div
                         class="flex h-12 w-12 items-center justify-center rounded-md bg-dark-500 text-white"
@@ -78,7 +78,7 @@ const accessories = [
                     without saying...
                 </p>
 
-                <div class="mt-8 grid gap-8 sm:grid-cols-2">
+                <div class="mt-8 grid gap-8 sm:grid-cols-2 sm:grid-rows-3">
                     <MediaCard
                         v-for="item in accessories"
                         :key="item.title"

@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 
 class ContactFormSubmitted extends Mailable implements ShouldQueue
 {
@@ -15,9 +16,9 @@ class ContactFormSubmitted extends Mailable implements ShouldQueue
     /**
      * The order instance.
      *
-     * @var array
+     * @var object|array
      */
-    public array $contact;
+    public object|array $contact;
 
     /**
      * Create a new message instance.
@@ -26,7 +27,7 @@ class ContactFormSubmitted extends Mailable implements ShouldQueue
      */
     public function __construct($contact)
     {
-        $this->contact = $contact;
+        $this->contact = (object)$contact;
     }
 
     /**
@@ -38,7 +39,6 @@ class ContactFormSubmitted extends Mailable implements ShouldQueue
     {
         return $this
             ->to('magnus@vike.se')
-            ->from('no-reply@tchilly.com')
             ->markdown('emails.contact.submit');
     }
 }

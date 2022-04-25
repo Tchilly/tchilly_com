@@ -1,5 +1,6 @@
 <script setup>
-import { usePage } from "@inertiajs/inertia-vue3";
+import { usePage, Link } from "@inertiajs/inertia-vue3";
+import Logo from "@/Components/Logo";
 
 const appName = usePage().props.value.appName;
 const social = usePage().props.value.socialMedia;
@@ -76,6 +77,12 @@ const footerNavigation = {
                             </a>
                         </li>
                     </ul>
+                </div>
+                <div class="mt-8 md:mt-0">
+                    <Link class="float-right" href="/">
+                        <span class="sr-only">{{ appName }}</span>
+                        <Logo class="text-gray-400 hover:text-gray-800" />
+                    </Link>
                 </div>
 
                 <!--                <div class="mt-12 xl:mt-0">-->

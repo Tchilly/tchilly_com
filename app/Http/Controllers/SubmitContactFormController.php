@@ -19,7 +19,7 @@ class SubmitContactFormController extends Controller
      * @param SubmitContactFormRequest $request
      * @return RedirectResponse
      */
-    public function __invoke(SubmitContactFormRequest $request): RedirectResponse
+    public function __invoke(SubmitContactFormRequest $request)
     {
         $validated = $request->validated();
 
