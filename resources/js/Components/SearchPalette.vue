@@ -21,12 +21,14 @@ const query = ref("");
 watch(query, fetchData);
 
 async function fetchData() {
-    await axios
-        .get("/search", { params: { query: query.value } })
-        .then((response) => (searchResult.value = response.data))
-        .catch((error) => console.log(error));
-
-    //console.log(searchResult);
+    if (query.value !== "") {
+        await axios
+            .get("/search", { params: { query: query.value } })
+            .then((response) => (searchResult.value = response.data))
+            .catch((error) => console.log(error));
+    } else {
+        searchResult.value = [];
+    }
 }
 
 const onSelect = (selected) => {
@@ -36,7 +38,9 @@ const onSelect = (selected) => {
 
 <template>
     <TransitionRoot as="template" @after-leave="query = ''">
-        <Dialog class="fixed inset-0 z-10 overflow-y-auto p-4 sm:p-6 md:p-20">
+        <Dialog
+            class="fixed inset-0 z-10 overflow-y-auto p-4 sm:p-6 md:p-28 lg:py-40"
+        >
             <TransitionChild
                 as="template"
                 enter="ease-out duration-300"
@@ -55,14 +59,14 @@ const onSelect = (selected) => {
             <TransitionChild
                 as="template"
                 enter="ease-out duration-300"
-                enter-from="opacity-0"
-                enter-to="opacity-100"
+                enter-from="opacity-0 -translate-y-6"
+                enter-to="opacity-100 translate-y-0"
                 leave="ease-in duration-200"
-                leave-from="opacity-100"
-                leave-to="opacity-0"
+                leave-from="opacity-100 translate-y-0"
+                leave-to="opacity-0 translate-y-6"
             >
                 <DialogPanel
-                    class="mx-auto w-full max-w-md transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all"
+                    class="mx-auto w-full max-w-lg transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all lg:max-w-xl"
                 >
                     <Combobox @update:modelValue="onSelect">
                         <SearchIcon

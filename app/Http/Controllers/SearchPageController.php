@@ -16,6 +16,6 @@ class SearchPageController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return Post::search($request->input('query'))->take(25)->get();
+        return Post::search($request->input('query'))->get()->take(25);
     }
 }
