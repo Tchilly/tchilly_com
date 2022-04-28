@@ -6,6 +6,7 @@ use App\Http\Controllers\ShowPageController;
 use App\Http\Controllers\ShowPostCategoryController;
 use App\Http\Controllers\ShowPostController;
 use App\Http\Controllers\SubmitContactFormController;
+use App\Http\Controllers\SearchPageController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -40,6 +41,9 @@ Route::get('/blog/category/{category}', ShowPostCategoryController::class)->name
 
 // Contact
 Route::post('/contact', SubmitContactFormController::class)->name('contact');
+
+// Search
+Route::get('/search{query?}', SearchPageController::class)->name('search');
 
 // Catch all pages
 Route::any('/{page}', ShowPageController::class)->name('page');

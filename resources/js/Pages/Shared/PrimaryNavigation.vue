@@ -1,9 +1,11 @@
 <script setup>
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
 import { MenuIcon, XIcon } from "@heroicons/vue/outline";
+import { SearchIcon } from "@heroicons/vue/outline";
 import { Link, usePage } from "@inertiajs/inertia-vue3";
-import { computed } from "vue";
 import Logo from "@/Components/Logo";
+import SearchPalette from "@/Components/SearchPalette";
+import { ref } from "vue";
 
 const navigation = [
     { name: "Blog", href: route("posts.show", false, false) },
@@ -15,6 +17,7 @@ const navigation = [
 const appName = usePage().props.value.appName;
 const canLogin = usePage().props.value.canLogin;
 const canRegister = usePage().props.value.canRegister;
+const openSearch = ref(false);
 
 const logout = () => {
     this.$inertia.post(route("logout"));
@@ -60,8 +63,31 @@ const logout = () => {
                     </div>
                 </div>
 
+                <div>
+                    <button
+                        class="block flex items-center justify-between space-x-4 rounded-md border border-transparent bg-dark-900 p-2 text-base text-gray-400 shadow-sm hover:bg-black focus:border-primary-500 focus:ring-primary-500 md:px-4"
+                        @click="openSearch = true"
+                    >
+                        <SearchIcon
+                            aria-hidden="true"
+                            class="pointer-events-none h-6 w-6 text-gray-400"
+                        />
+                        <span class="hidden pr-8 md:inline-block"
+                            >Search ...</span
+                        >
+                        <kbd
+                            class="hidden rounded bg-dark-300 px-2 font-sans text-sm font-medium text-gray-500 md:inline-block"
+                        >
+                            ⌘K
+                        </kbd>
+                    </button>
+                </div>
+
+                <SearchPalette :show="openSearch" @close="openSearch = false" />
+
                 <div
                     v-if="canLogin"
+                    :open="openSearch"
                     class="hidden md:flex md:items-center md:space-x-6"
                 >
                     <Link
@@ -71,23 +97,6 @@ const logout = () => {
                     >
                         Dashboard
                     </Link>
-
-                    <template v-else>
-                        <Link
-                            v-if="canRegister"
-                            :href="route('register')"
-                            class="inline-flex items-center rounded-md border border-transparent bg-gray-600 px-4 py-2 text-base font-medium text-white hover:bg-gray-700"
-                        >
-                            Register
-                        </Link>
-
-                        <Link
-                            :href="route('login')"
-                            class="text-base font-medium text-white hover:text-gray-300"
-                        >
-                            Sign in
-                        </Link>
-                    </template>
                 </div>
             </div>
         </div>

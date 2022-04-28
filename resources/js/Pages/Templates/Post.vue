@@ -29,7 +29,7 @@ const props = defineProps({
 <template>
     <PublicLayout :title="post.title">
         <article
-            class="relative mx-auto max-w-7xl py-16 px-4 pb-24 sm:px-6 lg:px-8"
+            class="relative mx-auto max-w-7xl overflow-hidden py-16 px-4 pb-24 sm:px-6 lg:px-8"
         >
             <header>
                 <Pill
@@ -75,10 +75,7 @@ const props = defineProps({
                     </div>
                 </div>
                 <div>
-                    <p
-                        class="mt-6 text-xl font-bold italic leading-8 text-gray-50 md:text-2xl lg:text-3xl lg:leading-10"
-                        v-html="post.preamble"
-                    ></p>
+                    <p class="preamble mt-6" v-html="post.preamble"></p>
                     <div
                         class="prose prose-invert mt-8 max-w-none lg:prose-lg"
                         v-html="post.body"

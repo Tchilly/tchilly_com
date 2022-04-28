@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Laravel\Scout\Searchable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist;
@@ -25,12 +27,16 @@ use Spatie\Sluggable\SlugOptions;
  * @property mixed $updated_at
  * @property mixed $created_at
  * @property mixed $time_span
- * @property mixed $preamble
- * @property mixed $category_id
+ * @property string $preamble
+ * @property int $category_id
+ * @property string $title
+ * @property string $body
+ * @property string $slug
+ * @property int $id
  */
 class Post extends Model implements HasMedia
 {
-    use HasFactory, HasSlug, InteractsWithMedia;
+    use HasFactory, HasSlug, InteractsWithMedia, Searchable;
 
     protected const collection_name = "post";
     protected const truncated_lenght = 120;
@@ -107,6 +113,33 @@ class Post extends Model implements HasMedia
         return 'slug';
     }
 
+    /**
+     * Get the name of the index associated with the model.
+     *
+     * @return string
+     */
+    public function searchableAs(): string
+    {
+        return 'posts_index';
+    }
+
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'slug' => $this->slug,
+            'preamble' => $this->preamble,
+            'body' => $this->body,
+        ];
+
+    }
+
     /*************************************************
      * Media handling
      * @todo Move this to a separate controller and/or trait
@@ -148,11 +181,6 @@ class Post extends Model implements HasMedia
         $this->deleteMedia($this->getFirstMedia(self::collection_name));
     }
 
-    /*************************************************
-     * Relations
-     *
-     *************************************************/
-
     /**
      * Get the author of the blog post.
      */
@@ -161,12 +189,28 @@ class Post extends Model implements HasMedia
         return $this->belongsTo(User::class);
     }
 
+    /*************************************************
+     * Relations
+     *
+     *************************************************/
+
     /**
      * Get the categories for the blog post.
      */
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    /**
+     * Modify the query used to retrieve models when making all of the models searchable.
+     *
+     * @param Builder $query
+     * @return Builder
+     */
+    protected function makeAllSearchableUsing($query): Builder
+    {
+        return $query->with(['category', 'user']);
     }
 
     /*************************************************
