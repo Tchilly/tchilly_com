@@ -61,7 +61,7 @@ const accessories = [
             <div class="lg:mr-0 lg:ml-auto lg:w-1/2 lg:pl-8">
                 <div>
                     <div
-                        class="flex h-12 w-12 items-center justify-center rounded-md bg-dark-500 text-white"
+                        class="flex h-12 w-12 items-center justify-center rounded-md bg-dark-500 text-primary-500"
                     >
                         <DesktopComputerIcon
                             aria-hidden="true"
@@ -69,10 +69,10 @@ const accessories = [
                         />
                     </div>
                 </div>
-                <h2 class="mt-6 text-3xl font-extrabold text-primary-300">
+                <h2 class="mt-6 text-3xl font-extrabold text-gray-300">
                     Desk setup & office
                 </h2>
-                <p class="mt-6 text-lg text-gray-300">
+                <p class="mt-6 text-lg text-gray-400">
                     I love tech! And gadgets... Honestly, most things with a
                     cord... Anyway, here's what I have on my desk. Coffee goes
                     without saying...

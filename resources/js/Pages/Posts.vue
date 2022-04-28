@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from "vue";
 import PublicLayout from "@/Layouts/PublicLayout";
 import PostCard from "@/Pages/Templates/Shared/PostCard";
 import PostTabs from "@/Pages/Templates/Shared/PostTabs";

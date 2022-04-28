@@ -43,13 +43,13 @@ const features = [
             class="mx-auto max-w-7xl py-16 px-4 sm:px-6 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:py-24 lg:px-8"
         >
             <div>
-                <h2 id="static-features" class="subtitle">
+                <h2 id="static-features" class="subtitle text-primary-400">
                     My work, streaming, and gaming rig
                 </h2>
-                <p class="mt-2 text-3xl font-extrabold text-primary-300">
+                <p class="mt-2 text-3xl font-extrabold text-gray-300">
                     Specifications
                 </p>
-                <p class="mt-4 text-lg text-gray-300">
+                <p class="mt-4 text-lg text-gray-400">
                     I use my computer for both work and leisure, so I needed a
                     computer that had a bit of everything. 64BG ram and 12
                     Cores, Overkill? NAH...
@@ -67,13 +67,13 @@ const features = [
                         <dt>
                             <CheckIcon
                                 aria-hidden="true"
-                                class="absolute h-6 w-6 text-primary-300"
+                                class="absolute h-6 w-6 text-primary-400"
                             />
-                            <p class="subtitle ml-9 text-primary-300">
+                            <p class="subtitle ml-9 text-primary-400">
                                 {{ feature.name }}
                             </p>
                         </dt>
-                        <dd class="mt-2 ml-9 text-base leading-7 text-gray-50">
+                        <dd class="mt-2 ml-9 text-base leading-7 text-gray-300">
                             {{ feature.description }}
                         </dd>
                     </div>

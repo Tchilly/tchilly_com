@@ -11,7 +11,7 @@ const props = defineProps({
 <template>
     <Link
         :href="route('posts.show', post)"
-        class="transition-background group flex transform-gpu flex-col overflow-hidden rounded-lg bg-dark-300 shadow-md hover:bg-dark-200"
+        class="transition-background group flex transform-gpu flex-col overflow-hidden rounded-lg bg-dark-300 shadow-md hover:bg-dark-200 focus:border-transparent focus:outline-none focus:ring-primary focus:ring-offset-dark focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-primary-300 focus-visible:ring-offset-2"
     >
         <div
             v-if="post.photo_object"
@@ -39,7 +39,7 @@ const props = defineProps({
                     />
                 </h2>
                 <p
-                    class="mt-3 text-base text-gray-400 line-clamp-3 lg:line-clamp-none"
+                    class="mt-3 text-base text-gray-400 line-clamp-2 lg:line-clamp-3"
                 >
                     {{ post.truncated_preamble }}
                 </p>

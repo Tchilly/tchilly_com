@@ -66,20 +66,22 @@ module.exports = {
                     css: {
                         color: theme("colors.gray.400"),
                         h2: {
-                            color: theme("colors.gray.300"),
+                            color: theme("colors.gray.200"),
                             fontSize: rem(20),
                         },
                         h3: {
-                            color: theme("colors.gray.300"),
+                            color: theme("colors.gray.200"),
                             fontSize: rem(18),
                         },
                         strong: {
                             color: theme("colors.gray.200"),
                         },
                         a: {
-                            color: theme("colors.primary.500"),
+                            color: theme("colors.primary.400"),
+                            textDecoration: "none",
                             "&:hover": {
-                                color: theme("colors.primary.600"),
+                                color: theme("colors.primary.300"),
+                                textDecoration: "underline",
                             },
                         },
                         code: {

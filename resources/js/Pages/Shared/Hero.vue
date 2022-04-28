@@ -5,7 +5,9 @@ import { Link } from "@inertiajs/inertia-vue3";
 </script>
 
 <template>
-    <section class="relative bg-gradient-to-br from-dark to-primary-900">
+    <section
+        class="relative overflow-hidden bg-gradient-to-br from-dark to-primary-900"
+    >
         <div
             class="max-w-7xl px-4 sm:px-6 md:grid md:grid-cols-2 md:gap-6 lg:mx-auto lg:gap-8 lg:px-8"
         >
@@ -22,7 +24,7 @@ import { Link } from "@inertiajs/inertia-vue3";
                     >
                 </Pill>
                 <h1
-                    class="mt-4 text-3xl font-bold tracking-tight text-white sm:mt-5 sm:text-5xl lg:mt-6 xl:text-6xl"
+                    class="mt-4 text-3xl font-bold tracking-tight text-gray-200 sm:mt-5 sm:text-5xl lg:mt-6 xl:text-6xl"
                 >
                     <span class="mb-2 block">Hey, and welcome!</span>
                     <span

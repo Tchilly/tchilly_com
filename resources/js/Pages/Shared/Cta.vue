@@ -15,7 +15,7 @@ const youtube = usePage().props.value.socialMedia.find(
         >
             <div>
                 <h2
-                    class="mb-2 block text-4xl font-extrabold text-white sm:text-4xl"
+                    class="mb-2 block text-4xl font-extrabold text-gray-200 sm:text-4xl"
                 >
                     See more on Twitch and Youtube
                 </h2>
@@ -26,10 +26,10 @@ const youtube = usePage().props.value.socialMedia.find(
             <div class="mt-6 block sm:flex sm:items-center sm:space-x-4">
                 <Link
                     :href="route('page', 'support')"
-                    class="button outlined mb-4 flex sm:mb-0 sm:inline-flex"
+                    class="button gray mb-4 flex sm:mb-0 sm:inline-flex"
                 >
                     <SupportIcon aria-hidden="true" class="mr-4 h-5 w-5" />
-                    <span>Support</span>
+                    <span>Other ways to support me</span>
                 </Link>
 
                 <a
