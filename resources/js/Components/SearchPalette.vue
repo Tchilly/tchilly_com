@@ -25,6 +25,8 @@ async function fetchData() {
         .get("/search", { params: { query: query.value } })
         .then((response) => (searchResult.value = response.data))
         .catch((error) => console.log(error));
+
+    //console.log(searchResult);
 }
 
 const onSelect = (selected) => {
@@ -91,7 +93,7 @@ const onSelect = (selected) => {
                                         active && 'bg-primary-600 text-white',
                                     ]"
                                 >
-                                    {{ item.id }}
+                                    {{ item.title }}
                                 </li>
                             </ComboboxOption>
                         </ComboboxOptions>
