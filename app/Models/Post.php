@@ -39,7 +39,7 @@ class Post extends Model implements HasMedia
     use HasFactory, HasSlug, InteractsWithMedia, Searchable;
 
     protected const collection_name = "post";
-    protected const truncated_lenght = 120;
+    protected const truncated_length = 120;
 
     /**
      * The attributes that are mass assignable.
@@ -181,6 +181,11 @@ class Post extends Model implements HasMedia
         $this->deleteMedia($this->getFirstMedia(self::collection_name));
     }
 
+    /*************************************************
+     * Relations
+     *
+     *************************************************/
+
     /**
      * Get the author of the blog post.
      */
@@ -188,11 +193,6 @@ class Post extends Model implements HasMedia
     {
         return $this->belongsTo(User::class);
     }
-
-    /*************************************************
-     * Relations
-     *
-     *************************************************/
 
     /**
      * Get the categories for the blog post.
@@ -226,8 +226,8 @@ class Post extends Model implements HasMedia
     protected function truncatedPreamble(): Attribute
     {
         return Attribute::make(
-            get: fn() => str($this->preamble)->limit(self::truncated_lenght) ?:
-                str($this->body)->limit(self::truncated_lenght)
+            get: fn() => str($this->preamble)->limit(self::truncated_length) ?:
+                str($this->body)->limit(self::truncated_length)
         );
     }
 
