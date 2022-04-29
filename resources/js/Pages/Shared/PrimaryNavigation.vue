@@ -1,7 +1,7 @@
 <script setup>
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
 import { MenuIcon, XIcon } from "@heroicons/vue/outline";
-import { SearchIcon } from "@heroicons/vue/outline";
+import { SearchIcon, CogIcon } from "@heroicons/vue/outline";
 import { Link, usePage } from "@inertiajs/inertia-vue3";
 import Logo from "@/Components/Logo";
 import SearchPalette from "@/Components/SearchPalette";
@@ -25,79 +25,70 @@ const logout = () => {
 </script>
 
 <template>
-    <Popover as="nav" class="relative">
-        <div class="lg:py:8 py-4 sm:py-6 md:py-7">
-            <div
-                aria-label="Global"
-                class="relative mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6"
-            >
-                <div class="flex flex-1 items-center">
-                    <div
-                        class="flex w-full items-center justify-between md:w-auto"
-                    >
-                        <Link href="/">
-                            <span class="sr-only">{{ appName }}</span>
-                            <Logo class="text-gray-300 hover:text-white" />
-                        </Link>
-                        <div class="flex items-center md:hidden">
-                            <PopoverButton
-                                class="inline-flex items-center justify-center rounded-md bg-primary-600 p-2 text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-200 focus:ring-offset-2 focus:ring-offset-primary-900"
-                            >
-                                <span class="sr-only">Open main menu</span>
-                                <MenuIcon aria-hidden="true" class="h-6 w-6" />
-                            </PopoverButton>
-                        </div>
-                    </div>
-                    <div class="hidden space-x-8 md:ml-14 md:flex">
-                        <Link
-                            v-for="item in navigation"
-                            :key="item.name"
-                            :class="{
-                                'text-primary-300 hover:text-primary-200':
-                                    $page.url.startsWith(item.href),
-                            }"
-                            :href="item.href"
-                            class="text-base font-medium text-gray-300 hover:text-white"
-                            >{{ item.name }}
-                        </Link>
-                    </div>
-                </div>
-
-                <div>
-                    <button
-                        class="block flex items-center justify-between space-x-4 rounded-md border border-transparent bg-dark-900 p-2 text-base text-gray-400 shadow-sm hover:bg-black focus:border-primary-500 focus:ring-primary-500 md:px-4"
-                        @click="openSearch = true"
-                    >
-                        <SearchIcon
-                            aria-hidden="true"
-                            class="pointer-events-none h-6 w-6 text-gray-400"
-                        />
-                        <span class="hidden pr-8 md:inline-block"
-                            >Search ...</span
-                        >
-                        <kbd
-                            class="hidden rounded bg-dark-300 px-2 font-sans text-sm font-medium text-gray-500 md:inline-block"
-                        >
-                            ⌘K
-                        </kbd>
-                    </button>
-                </div>
-
-                <SearchPalette :show="openSearch" @close="openSearch = false" />
-
-                <div
-                    v-if="canLogin"
-                    :open="openSearch"
-                    class="hidden md:flex md:items-center md:space-x-6"
-                >
-                    <Link
-                        v-if="$page.props.user"
-                        :href="route('dashboard.index')"
-                        class="text-base font-medium text-white hover:text-gray-300"
-                    >
-                        Dashboard
+    <Popover aria-label="Main menu" as="nav" class="relative">
+        <div
+            class="lg:py:8 relative mx-auto flex max-w-7xl items-center justify-between py-4 px-4 sm:py-6 sm:px-6 md:py-7"
+        >
+            <div class="flex flex-1 items-center">
+                <div class="flex w-full items-center justify-between md:w-auto">
+                    <Link href="/">
+                        <span class="sr-only">{{ appName }}</span>
+                        <Logo class="text-gray-300 hover:text-white" />
                     </Link>
                 </div>
+                <div class="hidden space-x-8 md:ml-14 md:flex">
+                    <Link
+                        v-for="item in navigation"
+                        :key="item.name"
+                        :class="{
+                            'text-primary-300 hover:text-primary-200':
+                                $page.url.startsWith(item.href),
+                        }"
+                        :href="item.href"
+                        class="text-base font-medium text-gray-300 hover:text-white"
+                        >{{ item.name }}
+                    </Link>
+                </div>
+            </div>
+
+            <div class="flex items-center">
+                <button
+                    class="mr-4 inline-flex items-center justify-between space-x-4 rounded-md border border-transparent bg-dark-900 p-2 text-base text-gray-400 shadow-sm hover:bg-black focus:border-primary-500 focus:ring-primary-500 md:mr-0 md:px-4"
+                    @click="openSearch = true"
+                >
+                    <SearchIcon
+                        aria-hidden="true"
+                        class="pointer-events-none h-6 w-6 text-gray-400 md:h-5 md:w-5"
+                    />
+                    <span class="hidden pr-8 md:inline-block">Search ...</span>
+                    <kbd
+                        class="hidden rounded bg-dark-300 px-2 font-sans text-sm font-medium text-gray-500 md:inline-block"
+                    >
+                        ⌘K
+                    </kbd>
+                </button>
+                <PopoverButton
+                    class="inline-flex items-center justify-center rounded-md bg-primary-600 p-2 text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-200 focus:ring-offset-2 focus:ring-offset-primary-900 md:hidden"
+                >
+                    <span class="sr-only">Open main menu</span>
+                    <MenuIcon aria-hidden="true" class="h-6 w-6" />
+                </PopoverButton>
+            </div>
+
+            <SearchPalette :show="openSearch" @close="openSearch = false" />
+
+            <div
+                v-if="canLogin"
+                class="hidden md:flex md:items-center md:space-x-6"
+            >
+                <Link
+                    v-if="$page.props.user"
+                    :href="route('dashboard.index')"
+                    class="ml-6 rounded bg-dark-300 p-2 text-base font-medium text-gray-300 hover:bg-dark-100 hover:text-white"
+                >
+                    <CogIcon aria-hidden="true" class="h-5 w-5" />
+                    <span class="sr-only">Dashboard</span>
+                </Link>
             </div>
         </div>
 
