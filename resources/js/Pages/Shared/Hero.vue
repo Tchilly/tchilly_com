@@ -26,11 +26,10 @@ import { Link } from "@inertiajs/inertia-vue3";
                 <h1
                     class="mt-4 text-3xl font-bold tracking-tight text-gray-200 sm:mt-5 sm:text-5xl lg:mt-6 xl:text-6xl"
                 >
-                    <span class="mb-2 block">Hey, and welcome!</span>
-                    <span
-                        class="block text-xl text-primary-400 sm:text-2xl xl:text-3xl"
-                        >When is it okay to be a bit childish?</span
+                    <span class="mb-2 block"
+                        >I don't feel like growing up yet...</span
                     >
+                    <span class="subtitle block">How about you?</span>
                 </h1>
                 <p
                     class="sm:text-md mt-3 text-base text-gray-300 sm:mt-5 lg:text-lg xl:text-xl xl:leading-8"

@@ -29,7 +29,7 @@ const props = defineProps({
 <template>
     <PublicLayout :title="post.title">
         <article
-            class="relative mx-auto max-w-7xl overflow-hidden py-16 px-4 pb-24 sm:px-6 lg:px-8"
+            class="relative mx-auto max-w-7xl overflow-hidden py-16 px-4 sm:px-6 lg:px-8"
         >
             <header>
                 <Pill
@@ -43,7 +43,7 @@ const props = defineProps({
                 </h1>
                 <MetaData :post="post" class="text-white" />
             </header>
-            <main
+            <div
                 :class="{
                     'lg:grid lg:grid-cols-2 lg:gap-8': post.photo_object,
                 }"
@@ -81,9 +81,8 @@ const props = defineProps({
                         v-html="post.body"
                     ></div>
                 </div>
-            </main>
+            </div>
+            <RelatedPosts :posts="posts" />
         </article>
-
-        <RelatedPosts :posts="posts" />
     </PublicLayout>
 </template>
