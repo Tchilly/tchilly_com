@@ -14,6 +14,7 @@ import {
     TransitionChild,
     TransitionRoot,
 } from "@headlessui/vue";
+import Pill from "@/Components/Pill";
 
 const searchResult = ref([]);
 const query = ref("");
@@ -66,15 +67,16 @@ const onSelect = (selected) => {
                 leave-to="opacity-0 translate-y-6"
             >
                 <DialogPanel
-                    class="mx-auto w-full max-w-lg transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all lg:max-w-xl"
+                    class="mx-auto w-full max-w-lg transform overflow-hidden rounded-xl bg-white text-left align-middle shadow-xl transition-all lg:max-w-xl"
                 >
                     <Combobox @update:modelValue="onSelect">
                         <SearchIcon
                             aria-hidden="true"
-                            class="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-400"
+                            class="pointer-events-none absolute top-[1.4rem] left-4 h-5 w-5 text-gray-400"
                         />
                         <ComboboxInput
-                            class="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-gray-800 placeholder-gray-400 focus:ring-0 sm:text-sm"
+                            :autocomplete="`do-not-autofill-${Date.now()}`"
+                            class="h-16 w-full border-0 bg-transparent pl-12 pr-4 text-gray-800 placeholder-gray-400 focus:ring-0 sm:text-sm"
                             placeholder="Search..."
                             @change="query = $event.target.value"
                         />
@@ -93,11 +95,15 @@ const onSelect = (selected) => {
                             >
                                 <li
                                     :class="[
-                                        'cursor-pointer select-none px-4 py-2',
+                                        'flex cursor-pointer select-none items-center justify-between px-4 py-2',
                                         active && 'bg-primary-600 text-white',
                                     ]"
                                 >
-                                    {{ item.title }}
+                                    <span>{{ item.title }}</span>
+                                    <Pill
+                                        :title="item.category.title"
+                                        as="span"
+                                    />
                                 </li>
                             </ComboboxOption>
                         </ComboboxOptions>
