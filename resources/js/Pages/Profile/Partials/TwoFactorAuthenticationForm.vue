@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref } from "vue";
 import { Inertia } from "@inertiajs/inertia";
+import axios from "axios";
 import { useForm, usePage } from "@inertiajs/inertia-vue3";
 import JetActionSection from "@/Jetstream/ActionSection.vue";
 import JetButton from "@/Jetstream/Button.vue";
