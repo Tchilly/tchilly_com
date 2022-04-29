@@ -2,7 +2,8 @@
 import axios from "axios";
 import { Inertia } from "@inertiajs/inertia";
 import { ref, watch } from "vue";
-import { SearchIcon } from "@heroicons/vue/outline";
+import hotkeys from "hotkeys-js";
+import { SearchIcon, DocumentIcon, RefreshIcon } from "@heroicons/vue/outline";
 import {
     Combobox,
     ComboboxInput,
@@ -15,26 +16,41 @@ import {
     TransitionRoot,
 } from "@headlessui/vue";
 import Pill from "@/Components/Pill";
+import { debounce } from "lodash";
 
 const searchResult = ref([]);
 const query = ref("");
+const loading = ref(false);
 
-watch(query, fetchData);
-
-async function fetchData() {
+const fetchData = async () => {
     if (query.value !== "") {
+        loading.value = true;
+
         await axios
             .get("/search", { params: { query: query.value } })
-            .then((response) => (searchResult.value = response.data))
-            .catch((error) => console.log(error));
+            .then((response) => {
+                searchResult.value = response.data;
+            })
+            .catch((error) => console.log(error))
+            .finally(() => {
+                loading.value = false;
+            });
     } else {
         searchResult.value = [];
+        loading.value = false;
     }
-}
+};
+
+watch(query, fetchData);
 
 const onSelect = (selected) => {
     Inertia.get(route("posts.show", selected));
 };
+
+hotkeys("ctrl+b", function (event, handler) {
+    event.stopPropagation();
+    Inertia.get(route("posts.show"));
+});
 </script>
 
 <template>
@@ -53,7 +69,7 @@ const onSelect = (selected) => {
             >
                 <DialogOverlay
                     aria-hidden="true"
-                    class="fixed inset-0 bg-dark-900 bg-opacity-75 transition-opacity"
+                    class="fixed inset-0 bg-dark-900 bg-opacity-90 transition-opacity"
                 />
             </TransitionChild>
 
@@ -67,25 +83,36 @@ const onSelect = (selected) => {
                 leave-to="opacity-0 translate-y-6"
             >
                 <DialogPanel
-                    class="mx-auto w-full max-w-lg transform overflow-hidden rounded-xl bg-white text-left align-middle shadow-xl transition-all lg:max-w-xl"
+                    class="mx-auto w-full max-w-lg transform overflow-hidden rounded-xl bg-dark-400 text-left align-middle shadow-xl transition-all lg:max-w-xl"
                 >
                     <Combobox @update:modelValue="onSelect">
                         <SearchIcon
                             aria-hidden="true"
-                            class="pointer-events-none absolute top-[1.4rem] left-4 h-5 w-5 text-gray-400"
+                            class="pointer-events-none absolute top-[1.4rem] left-4 h-5 w-5 text-gray-200"
+                        />
+                        <RefreshIcon
+                            v-show="loading"
+                            aria-hidden="true"
+                            class="pointer-events-none absolute top-[1.4rem] right-4 h-5 w-5 animate-spin text-gray-400"
                         />
                         <ComboboxInput
                             :autocomplete="`do-not-autofill-${Date.now()}`"
-                            class="h-16 w-full border-0 bg-transparent pl-12 pr-4 text-gray-800 placeholder-gray-400 focus:ring-0 sm:text-sm"
+                            class="h-16 w-full border-0 bg-transparent pl-12 pr-4 text-gray-200 placeholder-gray-200 focus:ring-0 sm:text-sm"
                             placeholder="Search..."
                             @change="query = $event.target.value"
                         />
 
                         <ComboboxOptions
                             v-if="searchResult.length > 0"
-                            class="max-h-72 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800"
+                            class="max-h-72 scroll-py-2 overflow-y-auto border-t border-dark-200 p-2 text-sm text-gray-200"
                             static
                         >
+                            <h2
+                                class="subtitle py-2.5 px-4 text-xs text-gray-500"
+                            >
+                                Blog posts
+                            </h2>
+
                             <ComboboxOption
                                 v-for="item in searchResult"
                                 :key="item.id"
@@ -95,25 +122,44 @@ const onSelect = (selected) => {
                             >
                                 <li
                                     :class="[
-                                        'flex cursor-pointer select-none items-center justify-between px-4 py-2',
-                                        active && 'bg-primary-600 text-white',
+                                        'flex cursor-pointer select-none items-center justify-between rounded-md px-4 py-3',
+                                        active && 'bg-dark-100 text-white',
                                     ]"
                                 >
-                                    <span>{{ item.title }}</span>
+                                    <DocumentIcon class="mr-2.5 h-5 w-5" />
+                                    <span class="mr-auto inline-flex">{{
+                                        item.title
+                                    }}</span>
                                     <Pill
                                         :title="item.category.title"
                                         as="span"
+                                        light
+                                        small
                                     />
                                 </li>
                             </ComboboxOption>
                         </ComboboxOptions>
-
                         <p
-                            v-if="query !== '' && searchResult.length === 0"
-                            class="p-4 text-sm text-gray-500"
+                            v-if="
+                                query !== '' &&
+                                searchResult.length <= 1 &&
+                                !loading
+                            "
+                            class="border-t border-dark-200 p-4 text-sm text-gray-500"
                         >
-                            No people found.
+                            Nothing found.
                         </p>
+                        <div
+                            class="flex flex-wrap items-center border-t border-dark-200 bg-dark-400 py-2.5 px-4 text-xs text-gray-200"
+                        >
+                            Type something to start searching, or press
+                            <kbd
+                                class="mx-2 flex h-5 items-center justify-center rounded bg-dark-200 px-2 text-sm font-medium font-semibold text-gray-400"
+                                >^ B</kbd
+                            ><span class="hidden sm:inline"
+                                >to see all posts</span
+                            >
+                        </div>
                     </Combobox>
                 </DialogPanel>
             </TransitionChild>

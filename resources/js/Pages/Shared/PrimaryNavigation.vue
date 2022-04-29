@@ -1,11 +1,12 @@
 <script setup>
-import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
-import { MenuIcon, XIcon } from "@heroicons/vue/outline";
-import { SearchIcon, CogIcon } from "@heroicons/vue/outline";
+import { ref, watchEffect } from "vue";
 import { Link, usePage } from "@inertiajs/inertia-vue3";
+import hotkeys from "hotkeys-js";
+import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
+import { MenuIcon, XIcon, SearchIcon, CogIcon } from "@heroicons/vue/outline";
 import Logo from "@/Components/Logo";
 import SearchPalette from "@/Components/SearchPalette";
-import { ref } from "vue";
+import { Inertia } from "@inertiajs/inertia";
 
 const navigation = [
     { name: "Blog", href: route("posts.show", false, false) },
@@ -18,6 +19,11 @@ const appName = usePage().props.value.appName;
 const canLogin = usePage().props.value.canLogin;
 const canRegister = usePage().props.value.canRegister;
 const openSearch = ref(false);
+
+hotkeys("ctrl+k, alt+shift+s", function (event, handler) {
+    event.preventDefault();
+    openSearch.value = true;
+});
 
 const logout = () => {
     this.$inertia.post(route("logout"));
@@ -64,7 +70,7 @@ const logout = () => {
                     <kbd
                         class="hidden rounded bg-dark-300 px-2 font-sans text-sm font-medium text-gray-500 md:inline-block"
                     >
-                        ⌘K
+                        ^ K
                     </kbd>
                 </button>
                 <PopoverButton
@@ -108,13 +114,7 @@ const logout = () => {
                     class="overflow-hidden rounded-lg bg-white shadow-md ring-1 ring-black ring-opacity-5"
                 >
                     <div class="flex items-center justify-between px-5 pt-4">
-                        <div>
-                            <img
-                                alt=""
-                                class="h-8 w-auto"
-                                src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                            />
-                        </div>
+                        <Logo :alt="appName" class="flex items-center" />
                         <div>
                             <PopoverButton
                                 class="focus:ring-indigo-600 inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset"

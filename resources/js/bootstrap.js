@@ -1,4 +1,7 @@
 //window._ = require('lodash');
+import hotkeys from "hotkeys-js";
+
+hotkeys.filter = (e) => true;
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
