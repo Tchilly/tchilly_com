@@ -14,7 +14,7 @@ const footerNavigation = {
     site: [
         { name: "About", href: route("page", "about") },
         { name: "Blog", href: route("posts.show") },
-        { name: "Support", href: route("page", "support") },
+        { name: "Contact", href: route("page", "contact") },
     ],
     legal: [
         // { name: "Claim", href: "#" },

@@ -1,12 +1,11 @@
 <script setup>
-import { ref, watchEffect } from "vue";
+import { ref } from "vue";
 import { Link, usePage } from "@inertiajs/inertia-vue3";
 import hotkeys from "hotkeys-js";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
 import { MenuIcon, XIcon, SearchIcon, CogIcon } from "@heroicons/vue/outline";
 import Logo from "@/Components/Logo";
 import SearchPalette from "@/Components/SearchPalette";
-import { Inertia } from "@inertiajs/inertia";
 
 const navigation = [
     { name: "Blog", href: route("posts.show", false, false) },
@@ -24,10 +23,6 @@ hotkeys("ctrl+k, alt+shift+s", function (event, handler) {
     event.preventDefault();
     openSearch.value = true;
 });
-
-const logout = () => {
-    this.$inertia.post(route("logout"));
-};
 </script>
 
 <template>

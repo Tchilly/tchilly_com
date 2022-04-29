@@ -17,7 +17,7 @@ class ShowPostCategoryController extends Controller
      */
     public function __invoke(Category $category): Response
     {
-        $posts = Post::where('category_id', $category->id)->orderByDesc('created_at')->get();
+        $posts = Post::where('category_id', $category->id)->orderByDesc('created_at')->cursorPaginate(24);
         $categories = Category::all();
         return Inertia::render('Posts', compact(['posts', 'categories', 'category']));
     }

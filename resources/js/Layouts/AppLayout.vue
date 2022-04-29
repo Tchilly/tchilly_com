@@ -257,11 +257,13 @@
                                         <div class="border-t border-gray-100" />
 
                                         <!-- Authentication -->
-                                        <form @submit.prevent="logout">
-                                            <JetDropdownLink as="button">
-                                                Log Out
-                                            </JetDropdownLink>
-                                        </form>
+                                        <Link
+                                            :href="route('logout')"
+                                            as="button"
+                                            class="block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 transition hover:bg-gray-100 focus:bg-gray-100 focus:outline-none"
+                                            method="post"
+                                            >Logout
+                                        </Link>
                                     </template>
                                 </JetDropdown>
                             </div>
@@ -372,11 +374,13 @@
                             </JetResponsiveNavLink>
 
                             <!-- Authentication -->
-                            <form method="POST" @submit.prevent="logout">
-                                <JetResponsiveNavLink as="button">
-                                    Log Out
-                                </JetResponsiveNavLink>
-                            </form>
+                            <Link
+                                :href="route('logout')"
+                                as="button"
+                                class="block w-full border-l-4 border-transparent py-2 pl-3 pr-4 text-left text-base font-medium text-gray-600 transition hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 focus:border-gray-300 focus:bg-gray-50 focus:text-gray-800 focus:outline-none"
+                                method="post"
+                                >Logout
+                            </Link>
 
                             <!-- Team Management -->
                             <template
@@ -471,8 +475,7 @@
     </div>
 </template>
 
-<script>
-import { defineComponent } from "vue";
+<script setup>
 import Logo from "@/Components/Logo";
 import JetBanner from "@/Jetstream/Banner.vue";
 import JetDropdown from "@/Jetstream/Dropdown.vue";
@@ -480,45 +483,23 @@ import JetDropdownLink from "@/Jetstream/DropdownLink.vue";
 import JetNavLink from "@/Jetstream/NavLink.vue";
 import JetResponsiveNavLink from "@/Jetstream/ResponsiveNavLink.vue";
 import { Head, Link } from "@inertiajs/inertia-vue3";
+import { ref } from "vue";
 
-export default defineComponent({
-    props: {
-        title: String,
-    },
-
-    components: {
-        Head,
-        Logo,
-        JetBanner,
-        JetDropdown,
-        JetDropdownLink,
-        JetNavLink,
-        JetResponsiveNavLink,
-        Link,
-    },
-
-    data() {
-        return {
-            showingNavigationDropdown: false,
-        };
-    },
-
-    methods: {
-        switchToTeam(team) {
-            this.$inertia.put(
-                route("current-team.update"),
-                {
-                    team_id: team.id,
-                },
-                {
-                    preserveState: false,
-                }
-            );
-        },
-
-        logout() {
-            this.$inertia.post(route("logout"));
-        },
-    },
+defineProps({
+    title: String,
 });
+
+const showingNavigationDropdown = ref(false);
+
+const switchToTeam = (team) => {
+    this.$inertia.put(
+        route("current-team.update"),
+        {
+            team_id: team.id,
+        },
+        {
+            preserveState: false,
+        }
+    );
+};
 </script>

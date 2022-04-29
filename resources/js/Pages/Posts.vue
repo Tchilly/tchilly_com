@@ -1,4 +1,6 @@
 <script setup>
+import { Link } from "@inertiajs/inertia-vue3";
+import { ArrowNarrowLeftIcon } from "@heroicons/vue/outline";
 import PublicLayout from "@/Layouts/PublicLayout";
 import PostCard from "@/Pages/Templates/Shared/PostCard";
 import PostTabs from "@/Pages/Templates/Shared/PostTabs";
@@ -39,18 +41,30 @@ const current = props.category?.id ?? 0;
                     :current="current"
                 />
             </div>
-            <section
-                aria-label="Blog post list"
-                class="mt-12 grid gap-8 pt-8 md:grid-cols-2 lg:grid-cols-3"
-            >
-                <article
-                    v-for="post in props.posts"
-                    v-if="props.posts.length >= 1"
-                    :key="post.id"
+            <section>
+                <div
+                    aria-label="Blog post list"
+                    class="mt-12 mb-8 grid gap-8 pt-8 md:grid-cols-2 lg:grid-cols-3"
                 >
-                    <PostCard :post="post" />
-                </article>
-                <p v-else class="text-white">Nothing posted here yet...</p>
+                    <article
+                        v-for="post in props.posts.data"
+                        v-if="props.posts.data.length >= 1"
+                        :key="post.id"
+                    >
+                        <PostCard :post="post" />
+                    </article>
+                    <p v-else class="text-white">Nothing posted here yet...</p>
+                </div>
+                <Link
+                    v-if="props.posts.next_page_url"
+                    :href="props.posts.next_page_url"
+                    :only="['posts']"
+                    as="button"
+                    class="button gray flex items-center"
+                >
+                    <ArrowNarrowLeftIcon class="mr-2 h-5 w-5" />
+                    <span>Older posts</span>
+                </Link>
             </section>
         </div>
     </PublicLayout>

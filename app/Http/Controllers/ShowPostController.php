@@ -24,7 +24,7 @@ class ShowPostController extends Controller
             return Inertia::render('Templates/Post', compact(['post', 'posts']));
         }
 
-        $posts = Post::orderByDesc('created_at')->get();
+        $posts = Post::orderByDesc('created_at')->cursorPaginate(24);
         $categories = Category::all();
         return Inertia::render('Posts', compact(['posts', 'categories']));
     }
