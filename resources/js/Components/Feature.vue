@@ -64,7 +64,7 @@
                         :class="alignLeft ? 'lg:right-0' : 'lg:left-0'"
                         :src="image"
                         alt="Inbox user interface"
-                        class="w-full rounded-xl shadow-md md:mt-16 lg:absolute lg:h-[450px] lg:w-auto lg:min-w-max lg:max-w-none xl:mt-0 xl:h-[620px]"
+                        class="w-full rounded-xl shadow-xl md:mt-16 lg:absolute lg:h-[450px] lg:w-auto lg:min-w-max lg:max-w-none xl:mt-0 xl:h-[620px]"
                         loading="lazy"
                     />
                 </div>
