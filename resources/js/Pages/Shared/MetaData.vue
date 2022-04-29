@@ -48,7 +48,7 @@ const props = defineProps({
                 <span
                     v-if="props.post.is_updated"
                     :title="`Edited ${props.post.updated_at_formatted}`"
-                    class="mr-3 flex items-center sm:inline-flex"
+                    class="mr-3 flex inline-flex items-center"
                 >
                     <PencilIcon aria-hidden="true" class="mr-1 h-4 w-4" />
                 </span>
