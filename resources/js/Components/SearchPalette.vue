@@ -1,7 +1,7 @@
 <script setup>
 import axios from "axios";
-import { Inertia } from "@inertiajs/inertia";
 import { ref, watch } from "vue";
+import { Inertia } from "@inertiajs/inertia";
 import hotkeys from "hotkeys-js";
 import { SearchIcon, DocumentIcon, RefreshIcon } from "@heroicons/vue/outline";
 import {
@@ -16,16 +16,22 @@ import {
     TransitionRoot,
 } from "@headlessui/vue";
 import Pill from "@/Components/Pill";
-import { debounce } from "lodash";
 
 const searchResult = ref([]);
 const query = ref("");
 const loading = ref(false);
 
+const onSelect = (selected) => {
+    Inertia.get(route("posts.show", selected));
+};
+
 const fetchData = async () => {
     if (query.value !== "") {
         loading.value = true;
 
+        /**
+         * @todo replace with Inerta? take full use of builtin loading state and response
+         */
         await axios
             .get("/search", { params: { query: query.value } })
             .then((response) => {
@@ -41,12 +47,15 @@ const fetchData = async () => {
     }
 };
 
+/**
+ * Watches query for changed value and calls fetch data onchange
+ */
 watch(query, fetchData);
 
-const onSelect = (selected) => {
-    Inertia.get(route("posts.show", selected));
-};
-
+/**
+ * Enable hotkey ctrl + b to got to blog post index
+ * @todo move all hotkeys to a more centralized place
+ */
 hotkeys("ctrl+b", function (event, handler) {
     event.stopPropagation();
     Inertia.get(route("posts.show"));
@@ -142,7 +151,7 @@ hotkeys("ctrl+b", function (event, handler) {
                         <p
                             v-if="
                                 query !== '' &&
-                                searchResult.length <= 1 &&
+                                searchResult.length === 0 &&
                                 !loading
                             "
                             class="border-t border-dark-200 p-4 text-sm text-gray-500"
