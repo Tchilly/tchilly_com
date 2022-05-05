@@ -50,7 +50,7 @@ const selected = (id) => props.current === id;
                         : 'border-transparent text-gray-400 hover:border-gray-300 hover:text-gray-200',
                     'whitespace-nowrap border-b px-1 pb-4 text-sm font-medium',
                 ]"
-                :href="route('posts.category', category)"
+                :href="route('posts.show', [category, null])"
             >
                 {{ category.title }}
             </Link>

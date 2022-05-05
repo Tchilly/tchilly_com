@@ -10,7 +10,7 @@ const props = defineProps({
 
 <template>
     <Link
-        :href="route('posts.show', post)"
+        :href="route('posts.show', [post.category, post])"
         class="transition-background group flex transform-gpu flex-col overflow-hidden rounded-lg bg-dark-300 shadow-md hover:bg-dark-200 focus:border-transparent focus:outline-none focus:ring-primary focus:ring-offset-dark focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-primary-300 focus-visible:ring-offset-2"
     >
         <div

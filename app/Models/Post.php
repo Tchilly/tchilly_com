@@ -33,6 +33,8 @@ use Spatie\Sluggable\SlugOptions;
  * @property string $body
  * @property string $slug
  * @property int $id
+ * @method static where(string $string, mixed $id)
+ * @method static orderByDesc(string $string)
  */
 class Post extends Model implements HasMedia
 {

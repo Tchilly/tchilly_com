@@ -33,7 +33,7 @@ const props = defineProps({
         >
             <header>
                 <Pill
-                    :href="route('posts.category', post.category)"
+                    :href="route('posts.show', [post.category, null])"
                     :title="post.category.title"
                     chevron
                     class="mb-4"

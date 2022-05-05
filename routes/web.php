@@ -2,9 +2,8 @@
 
 use App\Http\Controllers\Dashboard\PageController;
 use App\Http\Controllers\Dashboard\PostController;
+use App\Http\Controllers\PostController as PublicPostController;
 use App\Http\Controllers\ShowPageController;
-use App\Http\Controllers\ShowPostCategoryController;
-use App\Http\Controllers\ShowPostController;
 use App\Http\Controllers\SubmitContactFormController;
 use App\Http\Controllers\SearchPageController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +25,9 @@ use Inertia\Inertia;
  */
 Route::get('/', fn() => Inertia::render('Welcome'))->name('index');
 
+/**
+ * Dashboard routes
+ */
 Route::prefix('dashboard')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->name('dashboard.')->group(function () {
     Route::get('/', fn() => Inertia::render('Dashboard/Index'))->name('index');
     Route::resource('/pages', PageController::class)->except(['show']);
@@ -35,9 +37,15 @@ Route::prefix('dashboard')->middleware(['auth:sanctum', config('jetstream.auth_s
     Route::delete('/posts/{post}/photo', [PostController::class, 'deletePhoto'])->name('posts.delete-photo');
 });
 
-// Blog controller
-Route::get('/blog/{post?}', ShowPostController::class)->name('posts.show');
-Route::get('/blog/category/{category}', ShowPostCategoryController::class)->name('posts.category');
+/**
+ * Public routes
+ */
+
+// Blog
+Route::scopeBindings()->group(function () {
+    Route::get('/blog/{category?}', [PublicPostController::class, 'index'])->name('posts.index');
+    Route::get('/blog/{category?}/{post?}', [PublicPostController::class, 'show'])->name('posts.show');
+});
 
 // Contact
 Route::post('/contact', SubmitContactFormController::class)->name('contact');
