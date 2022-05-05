@@ -17,7 +17,7 @@ const current = props.category?.id ?? 0;
 <template>
     <PublicLayout title="Posts">
         <div
-            class="relative mx-auto max-w-7xl divide-y divide-primary-700 py-16 px-4 pb-24 sm:px-6 lg:px-8"
+            class="relative mx-auto max-w-7xl py-16 px-4 pb-24 sm:px-6 lg:px-8"
         >
             <div>
                 <h1 class="page-title">
@@ -41,11 +41,8 @@ const current = props.category?.id ?? 0;
                     :current="current"
                 />
             </div>
-            <section>
-                <div
-                    aria-label="Blog post list"
-                    class="mt-12 mb-8 grid gap-8 pt-8 md:grid-cols-2 lg:grid-cols-3"
-                >
+            <section aria-label="Blog post list">
+                <div class="mb-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                     <article
                         v-for="post in props.posts.data"
                         v-if="props.posts.data.length >= 1"

@@ -11,7 +11,7 @@ const selected = (id) => props.current === id;
 </script>
 
 <template>
-    <div class="sm:-mb-12 sm:mt-12">
+    <div class="my-8">
         <div class="sm:hidden">
             <label class="sr-only" for="current-tab">Select a tab</label>
             <select
@@ -29,13 +29,13 @@ const selected = (id) => props.current === id;
                 </option>
             </select>
         </div>
-        <nav class="relative top-[1px] hidden space-x-8 sm:flex">
+        <nav class="hidden space-x-8 border-b border-dark-50 sm:flex">
             <Link
                 :class="[
                     selected(0)
                         ? 'border-primary-500 text-primary-500'
                         : 'border-transparent text-gray-400 hover:border-gray-300 hover:text-gray-200',
-                    'whitespace-nowrap border-b px-1 pb-4 text-sm font-medium',
+                    'relative top-[1px] whitespace-nowrap border-b px-1 pb-4 text-sm font-medium',
                 ]"
                 :href="route('posts.show')"
                 >All
@@ -48,7 +48,7 @@ const selected = (id) => props.current === id;
                     selected(category.id)
                         ? 'border-primary-500 text-primary-500'
                         : 'border-transparent text-gray-400 hover:border-gray-300 hover:text-gray-200',
-                    'whitespace-nowrap border-b px-1 pb-4 text-sm font-medium',
+                    'relative top-[1px] whitespace-nowrap border-b px-1 pb-4 text-sm font-medium',
                 ]"
                 :href="route('posts.show', [category, null])"
             >
