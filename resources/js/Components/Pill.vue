@@ -35,7 +35,7 @@ const classes =
 
         <ArrowNarrowRightIcon
             v-if="chevron"
-            :class="['ml-2 -mr-2 h-5 w-5 text-gray-500', small && 'h-4 w-4']"
+            :class="['ml-2 -mr-2 h-5 w-5 text-gray-400', small && 'h-4 w-4']"
             aria-hidden="true"
         />
     </span>
@@ -55,7 +55,7 @@ const classes =
         <ArrowNarrowRightIcon
             v-if="chevron"
             aria-hidden="true"
-            class="ml-2 -mr-2 h-5 w-5 text-gray-500"
+            class="ml-2 -mr-2 h-5 w-5 text-gray-400"
         />
     </a>
 </template>

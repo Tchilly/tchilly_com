@@ -4,14 +4,12 @@ import PublicLayout from "@/Layouts/PublicLayout";
 import Pill from "@/Components/Pill";
 import StaticFeatures from "@/Pages/Shared/StaticFeatures";
 import TechFeatures from "@/Pages/Shared/TechFeatures";
-import ImageDots from "@/Pages/Shared/ImageDots";
 import Feature from "@/Components/Feature";
 import Features from "@/Components/Features";
 import {
     CodeIcon,
     DesktopComputerIcon,
     VolumeUpIcon,
-    ShoppingCartIcon,
     HeartIcon,
     ArrowNarrowRightIcon,
 } from "@heroicons/vue/outline";
@@ -37,7 +35,12 @@ defineProps({
                 class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24 lg:px-8"
             >
                 <div class="lg:ml-0 lg:mr-auto lg:w-1/2 lg:pr-8">
-                    <Pill as="span" class="mb-4" title="Case study" />
+                    <Pill as="span" class="mb-4" title="Who am I?">
+                        <span
+                            class="-ml-5 mr-4 rounded-full bg-primary-600 px-3 py-0.5 text-xs font-semibold uppercase leading-5 tracking-wide text-white"
+                            >Case study</span
+                        >
+                    </Pill>
 
                     <h1 class="page-title">
                         {{ page.title }}
@@ -64,51 +67,35 @@ defineProps({
                 image="/images/programming-dark.jpg"
                 title="Programmer for life"
             >
-                <template v-slot:icon>
+                <template #icon>
                     <CodeIcon aria-hidden="true" class="h-6 w-6" />
                 </template>
 
                 <p
                     class="mt-4 text-base leading-7 text-gray-400 lg:text-lg lg:leading-8"
                 >
-                    Commodore 64 and BASIC, are where the passion all started.
-                    From there; C, Delphi, Python, ASP, PHP, and a bunch more.
-                    I'm not fluent anymore in any of them, but I've stuck with
-                    PHP and JS. Writing most of my code with Laravel and Vue.
-                    I'm a senior full-stack web developer with a passion for
-                    design as well.
+                    I love programming! Ever since I got my first Commodore 64,
+                    I've been passionate about programming. Learning and writing
+                    in BASIC was mesmerizing, and a few nights later, my first
+                    "Hello World" was printed on the screen. Documentation back
+                    then was, well, lacking. And my English wasn't the best
+                    either. But it was there the passion all started. Fast
+                    forward, I've stuck with PHP and JavaScript with some Python
+                    on the side and I really enjoy programming with Laravel,
+                    Vue, and Tailwind.
                 </p>
 
                 <div class="mt-6">
-                    <Link :href="route('page', 'about')" class="button primary"
-                        ><span>More stuff about programming</span>
+                    <Link
+                        :href="route('page', 'programming')"
+                        class="button primary"
+                        ><span>Need some help?</span>
                         <ArrowNarrowRightIcon
                             aria-hidden="true"
                             class="ml-4 h-6 w-6"
                         />
                     </Link>
                 </div>
-
-                <template v-slot:footer>
-                    <blockquote>
-                        <div>
-                            <p class="text-base text-gray-400">
-                                &ldquo;A jack of all trades is a master of none,
-                                but oftentimes better than a master of
-                                one.&rdquo;
-                            </p>
-                        </div>
-                        <footer class="mt-3">
-                            <div class="flex items-center space-x-3">
-                                <div
-                                    class="text-base font-medium text-gray-500"
-                                >
-                                    Viktor Vicsek
-                                </div>
-                            </div>
-                        </footer>
-                    </blockquote>
-                </template>
             </Feature>
 
             <Feature image="/images/gaming-dark.jpg" title="Gamer for life">
@@ -121,47 +108,21 @@ defineProps({
                 >
                     I've been an avid PC and console gamer for as long as I can
                     remember. From my first Commodore 64 and Sega Master System
-                    playing Alex Kidd, Bubble Bobble and The Last Ninja. Up
-                    until now, playing mostly MMORPGs like World of Warcraft
-                    I've always loved playing games.
+                    growing up playing Alex Kidd, Bubble Bobble, and The Last
+                    Ninja. Up until currently, playing mostly MMORPGs like World
+                    of Warcraft. Although; Instagib on DM-Morpheus. If you know,
+                    you know... I've always loved playing games.
                 </p>
 
                 <div class="mt-6">
-                    <Link :href="route('page', 'about')" class="button primary">
-                        <span>More about games and specs</span>
+                    <Link class="button primary" href="#"
+                        ><span>Find me on Twitch</span>
                         <ArrowNarrowRightIcon
                             aria-hidden="true"
                             class="ml-4 h-6 w-6"
                         />
                     </Link>
                 </div>
-
-                <template v-slot:footer>
-                    <blockquote>
-                        <div>
-                            <p class="text-base text-gray-400">
-                                &ldquo;It’s time to kick ass and chew bubble
-                                gum... and I’m all outta gum.&rdquo;
-                            </p>
-                        </div>
-                        <footer class="mt-3">
-                            <div class="flex items-center space-x-3">
-                                <div class="flex-shrink-0">
-                                    <img
-                                        alt="Duke Nukem Profile"
-                                        class="h-8 w-8 rounded-full"
-                                        src="/images/duke-nukem.jpg"
-                                    />
-                                </div>
-                                <div
-                                    class="text-base font-medium text-gray-500"
-                                >
-                                    Duke Nukem
-                                </div>
-                            </div>
-                        </footer>
-                    </blockquote>
-                </template>
             </Feature>
         </Features>
 
@@ -182,12 +143,16 @@ defineProps({
                     fixer, and with time I guess I've become pickier in regards
                     to sound quality. I love fiddling with amps and speakers and
                     I make custom speakers in my little garage. Modeling,
-                    measuring, and building the enclosures.
+                    measuring, and building the enclosures. There's something
+                    special about working with your hands when all they know is
+                    keyboards.
                 </p>
 
                 <div class="mt-6">
-                    <Link :href="route('page', 'about')" class="button primary"
-                        ><span>More speaker related stuff</span>
+                    <Link
+                        :href="route('posts.show', ['audio', null])"
+                        class="button primary"
+                        ><span>Check the blog for projects</span>
                         <ArrowNarrowRightIcon
                             aria-hidden="true"
                             class="ml-4 h-6 w-6"
@@ -217,7 +182,9 @@ defineProps({
                 </p>
 
                 <div class="mt-6">
-                    <Link :href="route('page', 'about')" class="button primary"
+                    <Link
+                        :href="route('posts.show', ['life', null])"
+                        class="button primary"
                         ><span>What is ADHD and Bipolar disorder?</span>
                         <ArrowNarrowRightIcon
                             aria-hidden="true"

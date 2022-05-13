@@ -19,9 +19,9 @@ defineProps({
         <JetBanner />
 
         <PageHeader>
-            <div v-if="$slots.header">
+            <template v-if="$slots.header">
                 <slot name="header"></slot>
-            </div>
+            </template>
         </PageHeader>
 
         <!-- Page Content -->

@@ -19,7 +19,7 @@ import {
 
 <template>
     <PublicLayout title="Welcome">
-        <template v-slot:header>
+        <template #header>
             <Hero />
         </template>
 
@@ -27,7 +27,7 @@ import {
 
         <Features>
             <Feature image="/images/gaming-dark.jpg" title="Gamer for life">
-                <template v-slot:icon>
+                <template #icon>
                     <DesktopComputerIcon aria-hidden="true" class="h-6 w-6" />
                 </template>
 
@@ -51,7 +51,7 @@ import {
                     </Link>
                 </div>
 
-                <template v-slot:footer>
+                <template #footer>
                     <blockquote>
                         <div>
                             <p class="text-base text-gray-400">
@@ -84,7 +84,7 @@ import {
                 image="/images/programming-dark.jpg"
                 title="Programmer for life"
             >
-                <template v-slot:icon>
+                <template #icon>
                     <CodeIcon aria-hidden="true" class="h-6 w-6" />
                 </template>
 
@@ -109,7 +109,7 @@ import {
                     </Link>
                 </div>
 
-                <template v-slot:footer>
+                <template #footer>
                     <blockquote>
                         <div>
                             <p class="text-base text-gray-400">
@@ -132,7 +132,7 @@ import {
             </Feature>
 
             <Feature image="/images/audio.jpg" title="Audiophile for life">
-                <template v-slot:icon>
+                <template #icon>
                     <VolumeUpIcon aria-hidden="true" class="h-6 w-6" />
                 </template>
 
@@ -158,7 +158,7 @@ import {
             </Feature>
 
             <Feature alignLeft image="/images/tech.jpg" title="Techy for life">
-                <template v-slot:icon>
+                <template #icon>
                     <ShoppingCartIcon aria-hidden="true" class="h-6 w-6" />
                 </template>
 
@@ -185,7 +185,7 @@ import {
             </Feature>
 
             <Feature image="/images/mental-health.jpg" title="Mental for life">
-                <template v-slot:icon>
+                <template #icon>
                     <HeartIcon aria-hidden="true" class="h-6 w-6" />
                 </template>
 
@@ -210,7 +210,7 @@ import {
                     </Link>
                 </div>
 
-                <template v-slot:footer>
+                <template #footer>
                     <blockquote>
                         <div>
                             <p class="text-base text-gray-400">

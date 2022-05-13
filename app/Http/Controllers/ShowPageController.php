@@ -18,6 +18,6 @@ class ShowPageController extends Controller
     public function __invoke(Page $page): Response
     {
         $page->body = Str::markdown($page->body);
-        return Inertia::render('Templates/'.$page->template, compact('page'));
+        return Inertia::render('Templates/' . $page->template, compact('page'));
     }
 }

@@ -28,11 +28,11 @@ hotkeys("ctrl+k, alt+shift+s", function (event, handler) {
 <template>
     <Popover aria-label="Main menu" as="nav" class="relative">
         <div
-            class="lg:py:8 relative mx-auto flex max-w-7xl items-center justify-between py-4 px-4 sm:py-6 sm:px-6 md:py-7"
+            class="relative mx-auto flex max-w-7xl items-center justify-between py-4 px-4 sm:py-6 sm:px-6 md:py-8 lg:py-10"
         >
             <div class="flex flex-1 items-center">
                 <div class="flex w-full items-center justify-between md:w-auto">
-                    <Link href="/">
+                    <Link :href="route('index')">
                         <span class="sr-only">{{ appName }}</span>
                         <Logo class="text-gray-300 hover:text-white" />
                     </Link>
@@ -54,23 +54,23 @@ hotkeys("ctrl+k, alt+shift+s", function (event, handler) {
 
             <div class="flex items-center">
                 <button
-                    class="mr-4 inline-flex items-center justify-between space-x-4 rounded-md border border-transparent bg-dark-900 p-2 text-base text-gray-400 shadow-sm hover:bg-black focus:border-primary-500 focus:ring-primary-500 md:mr-0 md:px-4"
+                    class="mr-4 inline-flex items-center justify-between space-x-4 rounded-md border border-transparent bg-gray-200 p-2 text-sm text-gray-700 shadow-sm hover:bg-gray-50 focus:border-primary-500 focus:ring-primary-500 md:mr-0 md:px-4"
                     @click="openSearch = true"
                 >
                     <SearchIcon
                         aria-hidden="true"
-                        class="pointer-events-none h-6 w-6 text-gray-400 md:h-5 md:w-5"
+                        class="pointer-events-none h-6 w-6 text-gray-500 md:h-5 md:w-5"
                     />
                     <span class="hidden pr-8 md:inline-block">Search ...</span>
 
                     <kbd
-                        class="hidden rounded bg-dark-300 px-2 font-sans text-sm font-medium text-gray-500 md:inline-block"
+                        class="hidden rounded bg-gray-300 px-2 font-sans text-sm font-medium text-gray-600 md:inline-block"
                     >
                         Ctrl
                     </kbd>
                     <span class="!mx-1 hidden md:inline-block">+</span>
                     <kbd
-                        class="!ml-0 hidden rounded bg-dark-300 px-2 font-sans text-sm font-medium text-gray-500 md:inline-block"
+                        class="!ml-0 hidden rounded bg-gray-300 px-2 font-sans text-sm font-medium text-gray-600 md:inline-block"
                     >
                         K
                     </kbd>

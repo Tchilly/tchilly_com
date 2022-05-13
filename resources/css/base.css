@@ -1,5 +1,13 @@
 @import 'prismjs/themes/prism-okaidia.css';
 
+html, body {
+    @apply font-sans antialiased min-h-full min-h-screen overflow-auto;
+}
+
+#app {
+    @apply h-full;
+}
+
 a, button {
     transition: background 129ms ease-in-out, color 120ms ease-in-out;
 }
