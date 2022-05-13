@@ -22,7 +22,7 @@ const query = ref("");
 const loading = ref(false);
 
 const onSelect = (selected) => {
-    Inertia.get(route("posts.show", selected));
+    Inertia.get(route("posts.show", [selected.category, selected]));
 };
 
 const fetchData = async () => {
@@ -162,10 +162,20 @@ hotkeys("ctrl+b", function (event, handler) {
                             class="flex flex-wrap items-center border-t border-dark-200 bg-dark-400 py-2.5 px-4 text-xs text-gray-200"
                         >
                             Type something to start searching, or press
+
                             <kbd
-                                class="mx-2 flex h-5 items-center justify-center rounded bg-dark-200 px-2 text-sm font-medium font-semibold text-gray-400"
-                                >^ B</kbd
-                            ><span class="hidden sm:inline"
+                                class="ml-1.5 hidden rounded bg-dark-100 px-2 font-sans text-sm font-medium text-gray-400 md:inline-block"
+                            >
+                                Ctrl
+                            </kbd>
+                            <span class="!mx-1 md:inline-block">+</span>
+                            <kbd
+                                class="mr-1.5 hidden rounded bg-dark-100 px-2 font-sans text-sm font-medium text-gray-400 md:inline-block"
+                            >
+                                B
+                            </kbd>
+
+                            <span class="hidden sm:inline"
                                 >to see all posts</span
                             >
                         </div>

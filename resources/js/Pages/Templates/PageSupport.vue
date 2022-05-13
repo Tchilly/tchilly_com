@@ -60,9 +60,7 @@ const supportCards = [
 <template>
     <PublicLayout :title="page.title">
         <div>
-            <div
-                class="relative mx-auto max-w-7xl py-16 px-4 pb-24 sm:px-6 lg:px-8"
-            >
+            <div class="relative mx-auto max-w-7xl py-16 px-4 sm:px-6 lg:px-8">
                 <h1 class="page-title">
                     {{ page.title }}
                 </h1>
@@ -72,8 +70,7 @@ const supportCards = [
                     v-html="page.body"
                 />
 
-                <section aria-labelledby="contact-heading" class="mt-16">
-                    <h2 id="contact-heading" class="sr-only">Contact us</h2>
+                <section aria-label="Services" class="mt-16">
                     <div
                         class="grid grid-cols-1 gap-y-20 lg:grid-cols-3 lg:gap-y-0 lg:gap-x-8"
                     >
@@ -130,6 +127,47 @@ const supportCards = [
                     </div>
                 </section>
             </div>
+
+            <section aria-label="Contact for more information" class="bg-dark">
+                <div class="mx-auto max-w-7xl py-16 px-4 sm:px-6 lg:px-8">
+                    <div
+                        class="overflow-hidden rounded-lg bg-primary-600 shadow-xl lg:grid lg:grid-cols-2 lg:gap-4"
+                    >
+                        <div
+                            class="px-6 pt-10 pb-12 sm:px-16 sm:pt-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20"
+                        >
+                            <div class="lg:self-center">
+                                <h2
+                                    class="text-3xl font-extrabold text-white sm:text-4xl"
+                                >
+                                    <span class="block"
+                                        >Want to know more?</span
+                                    >
+                                    <!--                                    <span class="block"-->
+                                    <!--                                        >Contact me today for more-->
+                                    <!--                                        information.</span-->
+                                    <!--                                    >-->
+                                </h2>
+                                <p class="mt-4 text-lg leading-6 text-gray-200">
+                                    Contact me today for more information.
+                                </p>
+                                <a class="button gray mt-6" href="#"
+                                    >Contact me</a
+                                >
+                            </div>
+                        </div>
+                        <div
+                            class="aspect-w-5 aspect-h-3 -mt-6 md:aspect-w-2 md:aspect-h-1"
+                        >
+                            <img
+                                alt="App screenshot"
+                                class="translate-x-6 translate-y-6 transform rounded-md object-cover object-left-top sm:translate-x-16 lg:translate-y-20"
+                                src="https://tailwindui.com/img/component-images/full-width-with-sidebar.jpg"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </PublicLayout>
 </template>

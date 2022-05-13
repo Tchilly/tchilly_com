@@ -62,10 +62,17 @@ hotkeys("ctrl+k, alt+shift+s", function (event, handler) {
                         class="pointer-events-none h-6 w-6 text-gray-400 md:h-5 md:w-5"
                     />
                     <span class="hidden pr-8 md:inline-block">Search ...</span>
+
                     <kbd
                         class="hidden rounded bg-dark-300 px-2 font-sans text-sm font-medium text-gray-500 md:inline-block"
                     >
-                        ^ K
+                        Ctrl
+                    </kbd>
+                    <span class="!mx-1 hidden md:inline-block">+</span>
+                    <kbd
+                        class="!ml-0 hidden rounded bg-dark-300 px-2 font-sans text-sm font-medium text-gray-500 md:inline-block"
+                    >
+                        K
                     </kbd>
                 </button>
                 <PopoverButton

@@ -1,5 +1,11 @@
+<script setup>
+defineProps({
+    title: String,
+});
+</script>
+
 <template>
-    <div class="relative flex flex-col overflow-hidden">
+    <section :aria-label="title" class="relative flex flex-col overflow-hidden">
         <slot></slot>
-    </div>
+    </section>
 </template>

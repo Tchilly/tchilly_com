@@ -79,7 +79,7 @@ const footerNavigation = {
                     </ul>
                 </div>
                 <div class="mt-8 md:mt-0">
-                    <Link class="float-right" href="/">
+                    <Link class="md:float-right" href="/">
                         <span class="sr-only">{{ appName }}</span>
                         <Logo class="text-gray-400 hover:text-gray-800" />
                     </Link>

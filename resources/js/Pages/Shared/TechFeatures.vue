@@ -45,7 +45,7 @@ const accessories = [
 </script>
 
 <template>
-    <section class="relative bg-primary-900">
+    <section aria-labelledby="tech-features" class="relative bg-primary-900">
         <div
             class="h-56 bg-primary-600 sm:h-72 lg:absolute lg:left-0 lg:h-full lg:w-1/2"
         >
@@ -69,7 +69,10 @@ const accessories = [
                         />
                     </div>
                 </div>
-                <h2 class="mt-6 text-3xl font-extrabold text-gray-300">
+                <h2
+                    id="tech-features"
+                    class="mt-6 text-3xl font-extrabold text-gray-300"
+                >
                     Desk setup & office
                 </h2>
                 <p class="mt-6 text-lg text-gray-400">
