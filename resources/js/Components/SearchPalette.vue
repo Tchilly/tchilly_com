@@ -78,7 +78,7 @@ hotkeys("ctrl+b", function (event, handler) {
             >
                 <DialogOverlay
                     aria-hidden="true"
-                    class="fixed inset-0 bg-dark-900 bg-opacity-90 transition-opacity"
+                    class="fixed inset-0 bg-gray-900/90 transition-opacity"
                 />
             </TransitionChild>
 
@@ -92,7 +92,7 @@ hotkeys("ctrl+b", function (event, handler) {
                 leave-to="opacity-0 translate-y-6"
             >
                 <DialogPanel
-                    class="mx-auto w-full max-w-lg transform overflow-hidden rounded-xl bg-dark-400 text-left align-middle shadow-xl transition-all lg:max-w-xl"
+                    class="mx-auto w-full max-w-lg transform overflow-hidden rounded-xl bg-gray-800 text-left align-middle shadow-xl transition-all lg:max-w-xl"
                 >
                     <Combobox @update:modelValue="onSelect">
                         <SearchIcon
@@ -113,7 +113,7 @@ hotkeys("ctrl+b", function (event, handler) {
 
                         <ComboboxOptions
                             v-if="searchResult.length > 0"
-                            class="max-h-72 scroll-py-2 overflow-y-auto border-t border-dark-200 p-2 text-sm text-gray-200"
+                            class="max-h-72 scroll-py-2 overflow-y-auto border-t border-t-gray-700 p-2 text-sm text-gray-200"
                             static
                         >
                             <h2
@@ -132,7 +132,7 @@ hotkeys("ctrl+b", function (event, handler) {
                                 <li
                                     :class="[
                                         'flex cursor-pointer select-none items-center justify-between rounded-md px-4 py-3',
-                                        active && 'bg-dark-100 text-white',
+                                        active && 'bg-gray-900 text-white',
                                     ]"
                                 >
                                     <DocumentIcon class="mr-2.5 h-5 w-5" />
@@ -142,7 +142,6 @@ hotkeys("ctrl+b", function (event, handler) {
                                     <Pill
                                         :title="item.category.title"
                                         as="span"
-                                        light
                                         small
                                     />
                                 </li>
@@ -154,23 +153,23 @@ hotkeys("ctrl+b", function (event, handler) {
                                 searchResult.length === 0 &&
                                 !loading
                             "
-                            class="border-t border-dark-200 p-4 text-sm text-gray-500"
+                            class="border-t border-t-gray-700 p-4 text-sm text-gray-500"
                         >
                             Nothing found.
                         </p>
                         <div
-                            class="flex flex-wrap items-center border-t border-dark-200 bg-dark-400 py-2.5 px-4 text-xs text-gray-200"
+                            class="bg-dark-400 flex flex-wrap items-center border-t border-t-gray-700 py-2.5 px-4 text-xs text-gray-200"
                         >
                             Type something to start searching, or press
 
                             <kbd
-                                class="ml-1.5 hidden rounded bg-dark-100 px-2 font-sans text-sm font-medium text-gray-400 md:inline-block"
+                                class="bg-dark-100 ml-1.5 hidden rounded px-2 font-sans text-sm font-medium text-gray-400 md:inline-block"
                             >
                                 Ctrl
                             </kbd>
                             <span class="!mx-1 md:inline-block">+</span>
                             <kbd
-                                class="mr-1.5 hidden rounded bg-dark-100 px-2 font-sans text-sm font-medium text-gray-400 md:inline-block"
+                                class="bg-dark-100 mr-1.5 hidden rounded px-2 font-sans text-sm font-medium text-gray-400 md:inline-block"
                             >
                                 B
                             </kbd>

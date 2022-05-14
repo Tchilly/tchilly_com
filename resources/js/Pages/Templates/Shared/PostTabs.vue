@@ -29,12 +29,12 @@ const selected = (id) => props.current === id;
                 </option>
             </select>
         </div>
-        <nav class="hidden space-x-8 border-b border-dark-50 sm:flex">
+        <nav class="border-dark-50 hidden space-x-8 border-b sm:flex">
             <Link
                 :class="[
                     selected(0)
-                        ? 'border-primary-500 text-primary-500'
-                        : 'border-transparent text-gray-400 hover:border-gray-300 hover:text-gray-200',
+                        ? 'border-primary-600 text-primary-600'
+                        : 'border-transparent text-gray-400 hover:border-gray-400 hover:text-gray-600',
                     'relative top-[1px] whitespace-nowrap border-b px-1 pb-4 text-sm font-medium',
                 ]"
                 :href="route('posts.show')"
@@ -46,8 +46,8 @@ const selected = (id) => props.current === id;
                 :aria-current="selected(category.id) ? 'page' : undefined"
                 :class="[
                     selected(category.id)
-                        ? 'border-primary-500 text-primary-500'
-                        : 'border-transparent text-gray-400 hover:border-gray-300 hover:text-gray-200',
+                        ? 'border-primary-600 text-primary-600'
+                        : 'border-transparent text-gray-400 hover:border-gray-400 hover:text-gray-600',
                     'relative top-[1px] whitespace-nowrap border-b px-1 pb-4 text-sm font-medium',
                 ]"
                 :href="route('posts.show', [category, null])"

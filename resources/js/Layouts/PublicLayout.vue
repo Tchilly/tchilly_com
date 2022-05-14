@@ -11,7 +11,7 @@ defineProps({
 </script>
 
 <template>
-    <div class="flex h-full min-h-screen flex-col bg-dark">
+    <div class="flex h-full min-h-screen flex-col bg-gray-100">
         <Head :title="title" />
 
         <a class="skip-to-content-link" href="#content">Jump to content</a>

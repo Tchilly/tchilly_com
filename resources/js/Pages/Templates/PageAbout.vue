@@ -21,10 +21,8 @@ defineProps({
 
 <template>
     <PublicLayout :title="page.title">
-        <div class="relative bg-primary-900">
-            <div
-                class="h-56 bg-primary-600 sm:h-72 lg:absolute lg:right-0 lg:h-full lg:w-1/2"
-            >
+        <div class="relative bg-gray-200">
+            <div class="h-56 sm:h-72 lg:absolute lg:right-0 lg:h-full lg:w-1/2">
                 <img
                     alt="Support team"
                     class="h-full w-full object-cover"
@@ -52,10 +50,7 @@ defineProps({
                             class="mt-3 text-xl font-bold italic leading-8 text-gray-50 sm:mt-4 md:text-2xl lg:text-3xl lg:leading-10"
                             v-html="page.preamble"
                         ></p>
-                        <div
-                            class="prose prose-invert md:prose-lg"
-                            v-html="page.body"
-                        ></div>
+                        <div class="prose md:prose-lg" v-html="page.body"></div>
                     </div>
                 </div>
             </div>
@@ -72,7 +67,7 @@ defineProps({
                 </template>
 
                 <p
-                    class="mt-4 text-base leading-7 text-gray-400 lg:text-lg lg:leading-8"
+                    class="mt-4 text-base leading-7 text-gray-600 lg:text-lg lg:leading-8"
                 >
                     I love programming! Ever since I got my first Commodore 64,
                     I've been passionate about programming. Learning and writing
@@ -104,7 +99,7 @@ defineProps({
                 </template>
 
                 <p
-                    class="mt-4 text-base leading-7 text-gray-400 lg:text-lg lg:leading-8"
+                    class="mt-4 text-base leading-7 text-gray-600 lg:text-lg lg:leading-8"
                 >
                     I've been an avid PC and console gamer for as long as I can
                     remember. From my first Commodore 64 and Sega Master System
@@ -137,7 +132,7 @@ defineProps({
                 </template>
 
                 <p
-                    class="mt-4 text-base leading-7 text-gray-400 lg:text-lg lg:leading-8"
+                    class="mt-4 text-base leading-7 text-gray-600 lg:text-lg lg:leading-8"
                 >
                     Music has always been my <em>go-to</em> stress and mood
                     fixer, and with time I guess I've become pickier in regards
@@ -171,7 +166,7 @@ defineProps({
                 </template>
 
                 <p
-                    class="mt-4 text-base leading-7 text-gray-400 lg:text-lg lg:leading-8"
+                    class="mt-4 text-base leading-7 text-gray-600 lg:text-lg lg:leading-8"
                 >
                     We're all a bit mental, in the sense that we are all unique
                     with our own little quirks. But if you sum up those quirks
@@ -196,7 +191,7 @@ defineProps({
                 <template v-slot:footer>
                     <blockquote>
                         <div>
-                            <p class="text-base text-gray-400">
+                            <p class="text-base text-gray-500">
                                 &ldquo;There is a crack, a crack in everything.
                                 That's how the light gets in.&rdquo;
                             </p>

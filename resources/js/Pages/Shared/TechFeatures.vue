@@ -45,12 +45,10 @@ const accessories = [
 </script>
 
 <template>
-    <section aria-labelledby="tech-features" class="relative bg-primary-900">
-        <div
-            class="h-56 bg-primary-600 sm:h-72 lg:absolute lg:left-0 lg:h-full lg:w-1/2"
-        >
+    <section aria-labelledby="tech-features" class="relative bg-primary-700">
+        <div class="h-56 sm:h-72 lg:absolute lg:left-0 lg:h-full lg:w-1/2">
             <img
-                alt="Support team"
+                alt="Desk setup"
                 class="h-full w-full object-cover"
                 src="/images/tech.jpg"
             />
@@ -61,7 +59,7 @@ const accessories = [
             <div class="lg:mr-0 lg:ml-auto lg:w-1/2 lg:pl-8">
                 <div>
                     <div
-                        class="flex h-12 w-12 items-center justify-center rounded-md bg-dark-500 text-primary-500"
+                        class="flex h-12 w-12 items-center justify-center rounded-md bg-gray-200 text-primary-500"
                     >
                         <DesktopComputerIcon
                             aria-hidden="true"
@@ -71,11 +69,11 @@ const accessories = [
                 </div>
                 <h2
                     id="tech-features"
-                    class="mt-6 text-3xl font-extrabold text-gray-300"
+                    class="mt-6 text-3xl font-extrabold text-gray-50"
                 >
                     Desk setup & office
                 </h2>
-                <p class="mt-6 text-lg text-gray-400">
+                <p class="mt-6 text-lg text-gray-100">
                     I love tech! And gadgets... Honestly, most things with a
                     cord... Anyway, here's what I have on my desk. Coffee goes
                     without saying...

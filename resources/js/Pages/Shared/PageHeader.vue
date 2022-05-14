@@ -4,7 +4,7 @@ import PrimaryNavigation from "@/Pages/Shared/PrimaryNavigation";
 
 <template>
     <header
-        class="relative bg-primary bg-gradient-to-br from-primary-700 to-primary"
+        class="bg-primary relative bg-gradient-to-br from-primary-600 to-primary-700"
     >
         <div class="absolute top-0 left-0 h-full w-full overflow-hidden">
             <svg
@@ -15,7 +15,7 @@ import PrimaryNavigation from "@/Pages/Shared/PrimaryNavigation";
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <path
-                    class="text-primary-700 text-opacity-30"
+                    class="text-primary-700 text-opacity-50"
                     d="M-82.673 72l1761.849 472.086-134.327 501.315-1761.85-472.086z"
                     fill="currentColor"
                 ></path>

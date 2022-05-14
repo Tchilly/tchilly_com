@@ -26,12 +26,34 @@ const footerNavigation = {
 </script>
 
 <template>
-    <footer aria-labelledby="footer-heading" class="bg-gray-50">
+    <footer aria-labelledby="footer-heading" class="relative bg-gray-800">
+        <div class="absolute top-0 left-0 h-full w-full overflow-hidden">
+            <svg
+                class="absolute inset-0 h-full w-full"
+                fill="none"
+                preserveAspectRatio="xMidYMid slice"
+                viewBox="0 0 1463 360"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    class="text-gray-700/10"
+                    d="M-82.673 72l1761.849 472.086-134.327 501.315-1761.85-472.086z"
+                    fill="currentColor"
+                ></path>
+                <path
+                    class="text-gray-700/20"
+                    d="M-217.088 544.086L1544.761 72l134.327 501.316-1761.849 472.086z"
+                    fill="currentColor"
+                ></path>
+            </svg>
+        </div>
         <h2 id="footer-heading" class="sr-only">Footer</h2>
-        <div class="mx-auto max-w-7xl px-4 pt-16 pb-8 sm:px-6 lg:px-8 lg:pt-24">
+        <div
+            class="relative mx-auto max-w-7xl px-4 pt-16 pb-8 sm:px-6 lg:px-8 lg:pt-24"
+        >
             <div class="sm:grid sm:grid-cols-2 md:grid-cols-4 xl:gap-8">
                 <div>
-                    <h3 class="subtitle text-gray-500">Services</h3>
+                    <h3 class="subtitle text-gray-300">Services</h3>
                     <ul class="mt-4 space-y-4" role="list">
                         <li
                             v-for="item in footerNavigation.services"
@@ -39,7 +61,7 @@ const footerNavigation = {
                         >
                             <a
                                 :href="item.href"
-                                class="text-base text-gray-500 hover:text-black hover:underline"
+                                class="text-base text-gray-400 hover:text-gray-300 hover:underline"
                             >
                                 {{ item.name }}
                             </a>
@@ -47,7 +69,7 @@ const footerNavigation = {
                     </ul>
                 </div>
                 <div class="mt-8 md:mt-0">
-                    <h3 class="subtitle text-gray-500">Navigation</h3>
+                    <h3 class="subtitle text-gray-300">Navigation</h3>
                     <ul class="mt-4 space-y-4" role="list">
                         <li
                             v-for="item in footerNavigation.site"
@@ -55,7 +77,7 @@ const footerNavigation = {
                         >
                             <a
                                 :href="item.href"
-                                class="text-base text-gray-500 hover:text-black hover:underline"
+                                class="text-base text-gray-400 hover:text-gray-300 hover:underline"
                             >
                                 {{ item.name }}
                             </a>
@@ -63,7 +85,7 @@ const footerNavigation = {
                     </ul>
                 </div>
                 <div class="mt-8 md:mt-0">
-                    <h3 class="subtitle text-gray-500">Legal</h3>
+                    <h3 class="subtitle text-gray-300">Legal</h3>
                     <ul class="mt-4 space-y-4" role="list">
                         <li
                             v-for="item in footerNavigation.legal"
@@ -71,7 +93,7 @@ const footerNavigation = {
                         >
                             <a
                                 :href="item.href"
-                                class="text-base text-gray-500 hover:text-black hover:underline"
+                                class="text-base text-gray-400 hover:text-gray-300 hover:underline"
                             >
                                 {{ item.name }}
                             </a>
@@ -81,7 +103,7 @@ const footerNavigation = {
                 <div class="mt-8 md:mt-0">
                     <Link class="md:float-right" href="/">
                         <span class="sr-only">{{ appName }}</span>
-                        <Logo class="text-gray-400 hover:text-gray-800" />
+                        <Logo class="text-gray-400 hover:text-gray-300" />
                     </Link>
                 </div>
 
@@ -122,21 +144,21 @@ const footerNavigation = {
                 <!--                </div>-->
             </div>
             <div
-                class="mt-12 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between lg:mt-16"
+                class="mt-12 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between lg:mt-16"
             >
                 <div class="flex space-x-4 md:order-2">
                     <a
                         v-for="item in footerNavigation.social"
                         :key="item.name"
                         :href="item.href"
-                        class="rounded-full bg-gray-200 p-2 text-gray-400 text-white hover:bg-gray-300 hover:text-gray-500"
+                        class="rounded-full p-2 text-gray-400 text-white hover:bg-gray-900 hover:text-gray-300"
                         rel="noreferrer"
                     >
                         <span class="sr-only">{{ item.name }}</span>
                         <div v-html="item.icon" />
                     </a>
                 </div>
-                <p class="mt-8 text-base text-gray-500 md:order-1 md:mt-0">
+                <p class="mt-8 text-base text-gray-400 md:order-1 md:mt-0">
                     &copy; 2022 {{ appName }}. All rights reserved.
                 </p>
             </div>

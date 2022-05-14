@@ -34,7 +34,7 @@ hotkeys("ctrl+k, alt+shift+s", function (event, handler) {
                 <div class="flex w-full items-center justify-between md:w-auto">
                     <Link :href="route('index')">
                         <span class="sr-only">{{ appName }}</span>
-                        <Logo class="text-gray-300 hover:text-white" />
+                        <Logo class="text-gray-200 hover:text-white" />
                     </Link>
                 </div>
                 <div class="hidden space-x-8 md:ml-14 md:flex">
@@ -42,11 +42,11 @@ hotkeys("ctrl+k, alt+shift+s", function (event, handler) {
                         v-for="item in navigation"
                         :key="item.name"
                         :class="{
-                            'text-primary-300 hover:text-primary-200':
+                            'text-primary-500 hover:text-primary-200':
                                 $page.url.startsWith(item.href),
                         }"
                         :href="item.href"
-                        class="text-base font-medium text-gray-300 hover:text-white"
+                        class="text-base font-medium text-gray-200 hover:text-white"
                         >{{ item.name }}
                     </Link>
                 </div>
@@ -92,7 +92,7 @@ hotkeys("ctrl+k, alt+shift+s", function (event, handler) {
                 <Link
                     v-if="$page.props.user"
                     :href="route('dashboard.index')"
-                    class="ml-6 rounded bg-dark-300 p-2 text-base font-medium text-gray-300 hover:bg-dark-100 hover:text-white"
+                    class="bg-dark-300 hover:bg-dark-100 ml-6 rounded p-2 text-base font-medium text-gray-300 hover:text-white"
                 >
                     <CogIcon aria-hidden="true" class="h-5 w-5" />
                     <span class="sr-only">Dashboard</span>

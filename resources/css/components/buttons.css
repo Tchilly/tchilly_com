@@ -7,12 +7,12 @@
     border-radius: theme('borderRadius.md');
     box-shadow: theme('boxShadow.lg');
     color: theme('colors.white');
-    text-shadow: 0 0 5px rgba(0, 0, 0, .5);
+//text-shadow: 0 0 5px rgba(0, 0, 0, .5);
 
     /* State */
 
     &:hover {
-        text-shadow: 0 0 5px rgba(0, 0, 0, .75);
+    //text-shadow: 0 0 5px rgba(0, 0, 0, .75);
     }
 
     &:active {
@@ -24,7 +24,7 @@
     }
 
     &:focus-visible {
-        @apply ring-2 ring-primary-500 ring-offset-2 ring-offset-dark
+        @apply ring-2 ring-primary-500 ring-offset-2 ring-offset-gray-900
     }
 
     /*
@@ -49,23 +49,23 @@
         background: theme('colors.primary.600');
 
         &:hover {
-            background: theme('colors.primary.500');
+            background: theme('colors.primary.700');
         }
 
         &:focus {
-            @apply ring-primary-300 ring-offset-dark
+            @apply ring-primary-300 ring-offset-gray-900
         }
     }
 
     &.gray {
-        background-color: theme('colors.dark.200');
+        background-color: theme('colors.gray.700');
 
         &:hover {
-            background-color: theme('colors.dark.50');
+            background-color: theme('colors.gray.800');
         }
 
         &:focus {
-            @apply ring-gray-400 ring-offset-dark
+            @apply ring-gray-400 ring-offset-gray-900
         }
     }
 
@@ -74,11 +74,11 @@
         background: theme('colors.red.700');
 
         &:hover {
-            background: theme('colors.red.600');
+            background: theme('colors.red.800');
         }
 
         &:focus {
-            @apply ring-red-400 ring-offset-dark
+            @apply ring-red-400 ring-offset-gray-900
         }
     }
 

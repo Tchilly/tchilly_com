@@ -14,12 +14,12 @@ defineProps({
             <component
                 :is="image"
                 aria-hidden="true"
-                class="h-6 w-6 text-primary-400"
+                class="h-6 w-6 text-primary-300"
             />
         </div>
         <div>
-            <h3 class="subtitle text-primary-400">{{ name }}</h3>
-            <p class="mt-1 text-base leading-7 text-gray-300">
+            <h3 class="subtitle text-primary-300">{{ name }}</h3>
+            <p class="mt-1 text-base leading-7 text-gray-200">
                 {{ description }}
             </p>
         </div>

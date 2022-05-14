@@ -13,15 +13,15 @@ a, button {
 }
 
 .page-title {
-    @apply text-3xl font-extrabold leading-10 tracking-tight text-gray-200 sm:text-4xl;
+    @apply text-3xl font-extrabold leading-10 tracking-tight text-gray-600 sm:text-4xl;
 }
 
 .subtitle {
-    @apply text-sm font-semibold uppercase tracking-wide text-gray-500;
+    @apply text-sm font-semibold uppercase tracking-wide text-gray-400;
 }
 
 .preamble {
-    @apply text-xl font-bold italic md:leading-9 text-gray-50 md:text-2xl
+    @apply text-xl font-bold italic md:leading-9 text-gray-600 md:text-2xl
 }
 
 code[class*="language-"],

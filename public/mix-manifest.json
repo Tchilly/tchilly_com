@@ -1,6 +1,5 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
     "/images/audio.jpg": "/images/audio.jpg",
     "/images/duke-nukem.jpg": "/images/duke-nukem.jpg",
     "/images/gadgetsofold.jpg": "/images/gadgetsofold.jpg",
@@ -10,5 +9,6 @@
     "/images/post-fallback-image.png": "/images/post-fallback-image.png",
     "/images/programming-dark.jpg": "/images/programming-dark.jpg",
     "/images/spec-bg.jpg": "/images/spec-bg.jpg",
-    "/images/tech.jpg": "/images/tech.jpg"
+    "/images/tech.jpg": "/images/tech.jpg",
+    "/css/app.css": "/css/app.css"
 }

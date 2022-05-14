@@ -15,14 +15,14 @@ defineProps({
 });
 
 const classes =
-    "group inline-flex items-center rounded-full bg-dark-300 px-6 py-1 text-white shadow-md text-base";
+    "group inline-flex items-center rounded-full bg-gray-700 px-6 py-1 text-white shadow-md text-base";
 </script>
 
 <template>
     <span
         v-if="as == 'span'"
         :class="[
-            'group inline-flex items-center rounded-full bg-dark-300 px-6 py-1 text-base text-white shadow-md',
+            'group inline-flex items-center rounded-full bg-gray-700 px-6 py-1 text-base text-white shadow-md',
             small && 'px-[.75rem] py-0.5',
             light && '!bg-gray-200 shadow-none',
         ]"
@@ -35,7 +35,7 @@ const classes =
 
         <ArrowNarrowRightIcon
             v-if="chevron"
-            :class="['ml-2 -mr-2 h-5 w-5 text-gray-400', small && 'h-4 w-4']"
+            :class="['ml-2 -mr-2 h-5 w-5 text-gray-300', small && 'h-4 w-4']"
             aria-hidden="true"
         />
     </span>
@@ -45,7 +45,7 @@ const classes =
         :class="classes"
         :href="href"
         :target="target"
-        class="hover:bg-dark-200 hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2 focus:ring-offset-gray-900"
+        class="hover:bg-gray-800 hover:text-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-200 focus:ring-offset-2 focus:ring-offset-primary-600"
         rel="noreferrer"
     >
         <slot></slot>
@@ -55,7 +55,7 @@ const classes =
         <ArrowNarrowRightIcon
             v-if="chevron"
             aria-hidden="true"
-            class="ml-2 -mr-2 h-5 w-5 text-gray-400"
+            class="ml-2 -mr-2 h-5 w-5 text-gray-300"
         />
     </a>
 </template>

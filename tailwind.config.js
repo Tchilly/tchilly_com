@@ -24,33 +24,8 @@ module.exports = {
             black: colors.black,
             white: colors.white,
             red: colors.red,
-            gray: colors.gray,
-            dark: {
-                DEFAULT: "#141414",
-                50: "#2E2E2E",
-                100: "#292929",
-                200: "#242424",
-                300: "#1F1F1F",
-                400: "#1A1A1A",
-                500: "#141414",
-                600: "#121212",
-                700: "#0F0F0F",
-                800: "#0D0D0D",
-                900: "#0A0A0A",
-            },
-            primary: {
-                DEFAULT: "#44A524",
-                50: "#ACE898",
-                100: "#9FE587",
-                200: "#84DD66",
-                300: "#69D645",
-                400: "#52C62C",
-                500: "#44A524",
-                600: "#31771A",
-                700: "#1E4910",
-                800: "#0B1B06",
-                900: "#000000",
-            },
+            gray: colors.neutral,
+            primary: colors.emerald,
         },
         minHeight: {
             lg: "550px",
@@ -64,23 +39,23 @@ module.exports = {
             typography: (theme) => ({
                 DEFAULT: {
                     css: {
-                        color: theme("colors.gray.400"),
+                        color: theme("colors.gray.600"),
                         h2: {
-                            color: theme("colors.gray.200"),
+                            color: theme("colors.gray.600"),
                             fontSize: rem(20),
                         },
                         h3: {
-                            color: theme("colors.gray.200"),
+                            color: theme("colors.gray.600"),
                             fontSize: rem(18),
                         },
                         strong: {
-                            color: theme("colors.gray.200"),
+                            color: theme("colors.gray.700"),
                         },
                         a: {
-                            color: theme("colors.primary.400"),
+                            color: theme("colors.primary.500"),
                             textDecoration: "none",
                             "&:hover": {
-                                color: theme("colors.primary.300"),
+                                color: theme("colors.primary.600"),
                                 textDecoration: "underline",
                             },
                         },

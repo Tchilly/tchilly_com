@@ -11,7 +11,7 @@ const props = defineProps({
 <template>
     <Link
         :href="route('posts.show', [post.category, post])"
-        class="transition-background group flex transform-gpu flex-col overflow-hidden rounded-lg bg-dark-300 shadow-md hover:bg-dark-200 focus:border-transparent focus:outline-none focus:ring-primary focus:ring-offset-dark focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-primary-300 focus-visible:ring-offset-2"
+        class="transition-background focus:ring-primary focus:ring-offset-dark group flex transform-gpu flex-col overflow-hidden rounded-lg bg-gray-200 shadow-xl hover:bg-gray-300 focus:border-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-primary-300 focus-visible:ring-offset-2"
     >
         <div
             v-if="post.photo_object"
@@ -26,11 +26,11 @@ const props = defineProps({
         </div>
         <div class="flex flex-1 flex-col justify-between p-6">
             <div class="mt-2 block">
-                <p class="subtitle text-primary-400">
+                <p class="subtitle text-primary-600">
                     {{ post.category.title }}
                 </p>
                 <h2
-                    class="mt-2 flex justify-between text-xl font-semibold text-white transition-all"
+                    class="mt-2 flex justify-between text-xl font-semibold text-gray-600 transition-all"
                 >
                     <span>{{ post.title }}</span>
                     <ArrowNarrowRightIcon
@@ -39,13 +39,13 @@ const props = defineProps({
                     />
                 </h2>
                 <p
-                    class="mt-3 text-base text-gray-400 line-clamp-2 lg:line-clamp-3"
+                    class="mt-3 text-base text-gray-500 line-clamp-2 lg:line-clamp-3"
                 >
                     {{ post.truncated_preamble }}
                 </p>
             </div>
             <!-- hidden translate-y-4 opacity-0 transition-all delay-300 group-hover:translate-y-0 group-hover:opacity-100 lg:flex -->
-            <MetaData :post="post" />
+            <!--            <MetaData :post="post" />-->
         </div>
     </Link>
 </template>

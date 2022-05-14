@@ -32,7 +32,7 @@ import {
                 </template>
 
                 <p
-                    class="mt-4 text-base leading-7 text-gray-400 lg:text-lg lg:leading-8"
+                    class="mt-4 text-base leading-7 text-gray-600 lg:text-lg lg:leading-8"
                 >
                     I've been an avid PC and console gamer for as long as I can
                     remember. From my first Commodore 64 and Sega Master System
@@ -54,7 +54,7 @@ import {
                 <template #footer>
                     <blockquote>
                         <div>
-                            <p class="text-base text-gray-400">
+                            <p class="text-base text-gray-500">
                                 &ldquo;It’s time to kick ass and chew bubble
                                 gum... and I’m all outta gum.&rdquo;
                             </p>
@@ -89,7 +89,7 @@ import {
                 </template>
 
                 <p
-                    class="mt-4 text-base leading-7 text-gray-400 lg:text-lg lg:leading-8"
+                    class="mt-4 text-base leading-7 text-gray-600 lg:text-lg lg:leading-8"
                 >
                     Commodore 64 and BASIC, are where the passion all started.
                     From there; C, Delphi, Python, ASP, PHP, and a bunch more.
@@ -112,7 +112,7 @@ import {
                 <template #footer>
                     <blockquote>
                         <div>
-                            <p class="text-base text-gray-400">
+                            <p class="text-base text-gray-500">
                                 &ldquo;A jack of all trades is a master of none,
                                 but oftentimes better than a master of
                                 one.&rdquo;
@@ -137,7 +137,7 @@ import {
                 </template>
 
                 <p
-                    class="mt-4 text-base leading-7 text-gray-400 lg:text-lg lg:leading-8"
+                    class="mt-4 text-base leading-7 text-gray-600 lg:text-lg lg:leading-8"
                 >
                     Music has always been my <em>go-to</em> stress and mood
                     fixer, and with time I guess I've become pickier in regards
@@ -163,7 +163,7 @@ import {
                 </template>
 
                 <p
-                    class="mt-4 text-base leading-7 text-gray-400 lg:text-lg lg:leading-8"
+                    class="mt-4 text-base leading-7 text-gray-600 lg:text-lg lg:leading-8"
                 >
                     I have no idea how many keyboards, mice, and other
                     computer-related accessories I've owned. But it's a lot! I'm
@@ -190,7 +190,7 @@ import {
                 </template>
 
                 <p
-                    class="mt-4 text-base leading-7 text-gray-400 lg:text-lg lg:leading-8"
+                    class="mt-4 text-base leading-7 text-gray-600 lg:text-lg lg:leading-8"
                 >
                     We're all a bit mental, in the sense that we are all unique
                     with our own little quirks. But if you sum up those quirks
@@ -213,7 +213,7 @@ import {
                 <template #footer>
                     <blockquote>
                         <div>
-                            <p class="text-base text-gray-400">
+                            <p class="text-base text-gray-500">
                                 &ldquo;There is a crack, a crack in everything.
                                 That's how the light gets in.&rdquo;
                             </p>

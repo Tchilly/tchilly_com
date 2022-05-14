@@ -9,17 +9,20 @@ const youtube = usePage().props.value.socialMedia.find(
 </script>
 
 <template>
-    <section aria-label="See more" class="bg-primary-900">
+    <section
+        aria-label="See more"
+        class="relative bg-primary-700 bg-gradient-to-br from-primary-600 to-primary-700"
+    >
         <div
-            class="mx-auto max-w-4xl py-16 px-4 sm:px-6 sm:py-24 lg:flex lg:max-w-7xl lg:items-center lg:justify-between lg:px-8"
+            class="relative mx-auto max-w-4xl py-16 px-4 sm:px-6 sm:py-24 lg:flex lg:max-w-7xl lg:items-center lg:justify-between lg:px-8"
         >
             <div>
                 <h2
-                    class="mb-2 block text-4xl font-extrabold text-gray-200 sm:text-4xl"
+                    class="mb-2 block text-4xl font-extrabold text-primary-50 sm:text-4xl"
                 >
                     See more on Twitch and Youtube
                 </h2>
-                <p class="block text-2xl text-primary-300">
+                <p class="block text-2xl text-primary-100">
                     And don't forget to subscribe!
                 </p>
             </div>

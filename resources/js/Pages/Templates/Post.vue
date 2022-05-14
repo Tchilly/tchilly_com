@@ -77,12 +77,13 @@ const props = defineProps({
                 <div>
                     <p class="preamble mt-6" v-html="post.preamble"></p>
                     <div
-                        class="prose prose-invert mt-8 max-w-none lg:prose-lg"
+                        class="prose mt-8 max-w-none lg:prose-lg"
                         v-html="post.body"
                     ></div>
                 </div>
             </div>
-            <RelatedPosts :posts="posts" />
         </article>
+
+        <RelatedPosts :posts="posts" />
     </PublicLayout>
 </template>

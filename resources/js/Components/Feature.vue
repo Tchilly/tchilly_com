@@ -11,7 +11,7 @@
                     <!-- Icon -->
                     <div v-if="$slots.icon" class="mb-6">
                         <span
-                            class="flex h-12 w-12 items-center justify-center rounded-md bg-dark-300 text-primary-500"
+                            class="flex h-12 w-12 items-center justify-center rounded-md bg-gray-200 text-primary-500"
                         >
                             <slot name="icon"></slot>
                         </span>
@@ -21,7 +21,7 @@
                     <div>
                         <!-- Title -->
                         <h2
-                            class="text-3xl font-extrabold tracking-tight text-gray-300"
+                            class="text-3xl font-extrabold tracking-tight text-gray-600"
                         >
                             {{ title }}
                         </h2>
@@ -34,7 +34,7 @@
                 <!-- Footer -->
                 <div
                     v-if="$slots.footer"
-                    class="mt-8 border-t border-gray-600 pt-6"
+                    class="mt-8 border-t border-gray-300 pt-6"
                 >
                     <slot name="footer"></slot>
                 </div>
@@ -63,9 +63,10 @@
                     <img
                         :class="alignLeft ? 'lg:right-0' : 'lg:left-0'"
                         :src="image"
-                        alt="Inbox user interface"
-                        class="w-full rounded-xl shadow-xl md:mt-16 lg:absolute lg:h-[450px] lg:w-auto lg:min-w-max lg:max-w-none xl:mt-0 xl:h-[620px]"
+                        alt=""
+                        class="w-full rounded-xl shadow-xl md:mt-16 lg:absolute lg:h-full lg:w-auto lg:min-w-max lg:max-w-none xl:mt-0"
                         loading="lazy"
+                        role="presentation"
                     />
                 </div>
             </div>

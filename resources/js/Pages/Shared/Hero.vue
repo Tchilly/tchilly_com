@@ -22,14 +22,14 @@ import { Link } from "@inertiajs/inertia-vue3";
                     >
                 </Pill>
                 <h1
-                    class="mt-4 text-3xl font-bold tracking-tight text-gray-100 sm:mt-5 sm:text-4xl md:text-5xl lg:mt-6 xl:text-6xl"
+                    class="mt-4 text-3xl font-bold tracking-tight text-gray-50 sm:mt-5 sm:text-4xl md:text-5xl lg:mt-6 xl:text-6xl"
                 >
                     <span class="mb-2 block"
                         >I don't feel like growing up yet...</span
                     >
                 </h1>
                 <p
-                    class="sm:text-md mt-3 text-base text-gray-200 sm:mt-5 lg:text-lg xl:text-xl xl:leading-8"
+                    class="sm:text-md mt-3 text-base text-gray-100 sm:mt-5 lg:text-lg xl:text-xl xl:leading-8"
                 >
                     When is old to play games? To old to be spending money on
                     stupid shit? To old to demand some alone time? Never!..

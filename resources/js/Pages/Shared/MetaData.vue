@@ -15,7 +15,9 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="mt-6 flex sm:items-center">
+    <div
+        class="mt-6 flex overflow-hidden border-b border-dark-300 pb-6 sm:items-center"
+    >
         <div class="flex-shrink-0">
             <a>
                 <span class="sr-only">Author</span>
