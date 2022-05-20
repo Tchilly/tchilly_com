@@ -7,7 +7,6 @@
     border-radius: theme('borderRadius.md');
     box-shadow: theme('boxShadow.lg');
     color: theme('colors.white');
-//text-shadow: 0 0 5px rgba(0, 0, 0, .5);
 
     /* State */
 
@@ -53,8 +52,9 @@
         }
 
         &:focus {
-            @apply ring-primary-300 ring-offset-gray-900
+            @apply ring-primary-500 ring-offset-gray-100
         }
+
     }
 
     &.gray {
@@ -65,10 +65,15 @@
         }
 
         &:focus {
-            @apply ring-gray-400 ring-offset-gray-900
+            @apply ring-gray-400 ring-offset-gray-200
+        }
+
+        .bg-primary & {
+            &:focus {
+                @apply ring-primary-300 ring-offset-primary-600
+            }
         }
     }
-
 
     &.red {
         background: theme('colors.red.700');
@@ -78,7 +83,7 @@
         }
 
         &:focus {
-            @apply ring-red-400 ring-offset-gray-900
+            @apply ring-red-400 ring-offset-gray-200
         }
     }
 

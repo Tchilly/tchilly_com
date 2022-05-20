@@ -41,12 +41,13 @@ hotkeys("ctrl+k, alt+shift+s", function (event, handler) {
                     <Link
                         v-for="item in navigation"
                         :key="item.name"
-                        :class="{
-                            'text-primary-500 hover:text-primary-200':
-                                $page.url.startsWith(item.href),
-                        }"
+                        :class="[
+                            $page.url.startsWith(item.href)
+                                ? 'border-white text-white hover:text-white'
+                                : 'text-primary-100 hover:text-white',
+                        ]"
                         :href="item.href"
-                        class="text-base font-medium text-gray-200 hover:text-white"
+                        class="border-b border-transparent text-base font-medium hover:border-white"
                         >{{ item.name }}
                     </Link>
                 </div>
@@ -54,7 +55,7 @@ hotkeys("ctrl+k, alt+shift+s", function (event, handler) {
 
             <div class="flex items-center">
                 <button
-                    class="mr-4 inline-flex items-center justify-between space-x-4 rounded-md border border-transparent bg-gray-200 p-2 text-sm text-gray-700 shadow-sm hover:bg-gray-50 focus:border-primary-500 focus:ring-primary-500 md:mr-0 md:px-4"
+                    class="mr-4 inline-flex items-center justify-between space-x-4 rounded-md border border-transparent bg-gray-200 p-2 text-sm text-gray-700 shadow-sm hover:bg-gray-50 focus:border-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-300 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-600 md:mr-0 md:px-4"
                     @click="openSearch = true"
                 >
                     <SearchIcon

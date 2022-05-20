@@ -163,13 +163,13 @@ hotkeys("ctrl+b", function (event, handler) {
                             Type something to start searching, or press
 
                             <kbd
-                                class="bg-dark-100 ml-1.5 hidden rounded px-2 font-sans text-sm font-medium text-gray-400 md:inline-block"
+                                class="ml-1.5 hidden rounded bg-gray-900 px-2 py-1 font-sans text-xs font-medium text-gray-400 md:inline-block"
                             >
                                 Ctrl
                             </kbd>
                             <span class="!mx-1 md:inline-block">+</span>
                             <kbd
-                                class="bg-dark-100 mr-1.5 hidden rounded px-2 font-sans text-sm font-medium text-gray-400 md:inline-block"
+                                class="mr-1.5 hidden rounded bg-gray-900 px-2 py-1 font-sans text-xs font-medium text-gray-400 md:inline-block"
                             >
                                 B
                             </kbd>

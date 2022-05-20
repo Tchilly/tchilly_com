@@ -29,7 +29,7 @@ const submit = () => {
 
 <template>
     <PublicLayout :title="page.title">
-        <div class="relative bg-gradient-to-r from-dark to-primary-900">
+        <div class="from-dark relative bg-gradient-to-r to-primary-900">
             <div class="lg:absolute lg:inset-0">
                 <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
                     <img
@@ -59,7 +59,7 @@ const submit = () => {
                         >
                             <div>
                                 <FormLabel
-                                    class="text-gray-300"
+                                    class="text-gray-500"
                                     for="first-name"
                                     >First name
                                 </FormLabel>
@@ -78,7 +78,7 @@ const submit = () => {
                                 />
                             </div>
                             <div>
-                                <FormLabel class="text-gray-300" for="last-name"
+                                <FormLabel class="text-gray-500" for="last-name"
                                     >Last name
                                 </FormLabel>
                                 <FormInput
@@ -95,7 +95,7 @@ const submit = () => {
                                 />
                             </div>
                             <div class="sm:col-span-2">
-                                <FormLabel class="text-gray-300" for="email"
+                                <FormLabel class="text-gray-500" for="email"
                                     >Email
                                 </FormLabel>
                                 <FormInput
@@ -116,7 +116,7 @@ const submit = () => {
                             <div class="sm:col-span-2">
                                 <div class="flex justify-between">
                                     <FormLabel
-                                        class="text-gray-300"
+                                        class="text-gray-500"
                                         for="company"
                                         >Company
                                     </FormLabel>
@@ -143,7 +143,7 @@ const submit = () => {
                             </div>
                             <div class="sm:col-span-2">
                                 <div class="flex justify-between">
-                                    <FormLabel class="text-gray-300" for="phone"
+                                    <FormLabel class="text-gray-500" for="phone"
                                         >Phone
                                     </FormLabel>
                                     <span
@@ -170,7 +170,7 @@ const submit = () => {
                             <div class="sm:col-span-2">
                                 <div class="flex justify-between">
                                     <FormLabel
-                                        class="text-gray-300"
+                                        class="text-gray-500"
                                         for="how-can-we-help"
                                         >How can I help you?
                                     </FormLabel>
@@ -185,7 +185,7 @@ const submit = () => {
                                         id="how-can-we-help"
                                         v-model="form.description"
                                         aria-describedby="how-can-we-help-description"
-                                        class="active:ring-none inline-flex w-full rounded-md border border-gray-300 bg-white px-4 py-2 px-4 py-2 text-base text-sm font-medium font-medium text-gray-900 shadow-sm focus:border-transparent focus:outline-none focus:ring-primary focus:ring-offset-dark focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
+                                        class="active:ring-none focus:ring-primary focus:ring-offset-dark inline-flex w-full rounded-md border border-gray-300 bg-white px-4 py-2 px-4 py-2 text-base text-sm font-medium font-medium text-gray-900 caret-primary-500 shadow-sm focus:border-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
                                         name="how-can-we-help"
                                         rows="4"
                                     />
@@ -199,7 +199,7 @@ const submit = () => {
                             <div class="sm:col-span-2">
                                 <div class="flex justify-between">
                                     <FormLabel
-                                        class="text-gray-300"
+                                        class="text-gray-500"
                                         for="how-did-you-hear-about-us"
                                         >How did you hear about me?
                                     </FormLabel>

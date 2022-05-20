@@ -40,6 +40,10 @@ module.exports = {
                 DEFAULT: {
                     css: {
                         color: theme("colors.gray.600"),
+                        h1: {
+                            color: theme("colors.gray.700"),
+                            fontSize: rem(36),
+                        },
                         h2: {
                             color: theme("colors.gray.600"),
                             fontSize: rem(20),

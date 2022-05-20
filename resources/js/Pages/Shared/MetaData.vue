@@ -16,7 +16,7 @@ const props = defineProps({
 
 <template>
     <div
-        class="mt-6 flex overflow-hidden border-b border-dark-300 pb-6 sm:items-center"
+        class="border-dark-300 my-6 flex overflow-hidden border-b border-t py-6 sm:items-center"
     >
         <div class="flex-shrink-0">
             <a>
@@ -33,10 +33,8 @@ const props = defineProps({
             </a>
         </div>
         <div class="ml-4">
-            <p class="mb-1 text-sm font-medium text-gray-300">
-                <span>
-                    {{ props.post.user.name }}
-                </span>
+            <p class="mb-1 text-sm font-medium text-gray-500">
+                {{ props.post.user.name }}
             </p>
             <div class="text-sm text-gray-400">
                 <time

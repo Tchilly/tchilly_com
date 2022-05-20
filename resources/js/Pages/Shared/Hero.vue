@@ -38,7 +38,7 @@ import { Link } from "@inertiajs/inertia-vue3";
                     <div class="mt-3 sm:mt-0 sm:flex sm:max-w-sm xl:max-w-md">
                         <Link
                             :href="route('posts.show')"
-                            class="button large gray"
+                            class="button large gray focus-primary"
                         >
                             <PlayIcon class="mr-4 h-8 w-8 text-white" />
                             <span>Check my videos, tutorials and more!</span>

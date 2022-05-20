@@ -13,7 +13,7 @@ a, button {
 }
 
 .page-title {
-    @apply text-3xl font-extrabold leading-10 tracking-tight text-gray-600 sm:text-4xl;
+    @apply text-3xl font-extrabold leading-10 tracking-tight text-gray-700 sm:text-4xl;
 }
 
 .subtitle {
